@@ -1,0 +1,40 @@
+{
+  "name": "projects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "start": "node Backend/src/index.js",
+    "dev": "nodemon Backend/src/index.js",
+    "seed": "node Backend/src/utils/seed.js",
+    "audit:prod": "cd Backend && npm audit --omit=dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.6.2",
+    "multer": "^2.2.0",
+    "pdf-lib": "^1.17.1",
+    "socket.io": "^4.8.3",
+    "stripe": "^22.1.1",
+    "uuid": "^14.0.0",
+    "validator": "^13.15.35"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

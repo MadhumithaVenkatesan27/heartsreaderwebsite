@@ -1,0 +1,12 @@
+{
+  "watch": ["Backend/src"],
+  "ext": "js,mjs,cjs,json",
+  "ignore": [
+    "*.log",
+    "*.err",
+    "node_modules",
+    "docs",
+    "load-tests",
+    "untracked-backup-before-pull"
+  ]
+}

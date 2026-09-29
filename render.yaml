@@ -1,0 +1,443 @@
+services:
+  - type: web
+    name: crossed-hearts-api
+    runtime: node
+    rootDir: Backend
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: false
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PRODUCTION_READINESS_LOCK
+        value: "true"
+      - key: REQUIRE_READ_TOKEN
+        value: "true"
+      - key: ADMIN_2FA_REQUIRED
+        value: "true"
+      - key: ADMIN_IP_ALLOWLIST
+        sync: false
+      - key: BACKEND_URL
+        value: https://crossed-hearts-final.onrender.com
+      - key: FRONTEND_URL
+        value: https://heartsreader.com,https://www.heartsreader.com,https://crossed-hearts-frontend.onrender.com
+      - key: FRONTEND_PUBLIC_URL
+        value: https://heartsreader.com
+      - key: PAYMENT_ALLOWED_CURRENCIES
+        value: usd
+      - key: ALLOW_MANUAL_PURCHASE
+        value: "false"
+      - key: ALLOW_MANUAL_PHYSICAL_ORDERS
+        value: "false"
+      - key: ALLOW_MANUAL_CAMPAIGN_PLEDGES
+        value: "false"
+      - key: PHYSICAL_SHIPPING_FEE
+        value: "4.99"
+      - key: CAMPAIGN_GOAL_AMOUNT
+        value: "10000"
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: REGISTRATION_ENCRYPTION_SECRET
+        sync: false
+      - key: LICENSER_JWT_SECRET
+        sync: false
+      - key: READ_TOKEN_SECRET
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: BREVO_API_KEY
+        sync: false
+      - key: TEST_EMAIL_SECRET
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PUBLISHABLE_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_INR_PER_USD
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false
+      - key: NOTIFY_UPLOAD_SECRET
+        sync: false
+      - key: PDF_STORAGE_DRIVER
+        sync: false
+      - key: PDF_STORAGE_PATH
+        sync: false
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_S3_BUCKET
+        sync: false
+      - key: AWS_S3_REGION
+        sync: false
+      - key: R2_ACCESS_KEY_ID
+        sync: false
+      - key: R2_SECRET_ACCESS_KEY
+        sync: false
+      - key: R2_BUCKET
+        sync: false
+      - key: R2_ENDPOINT
+        sync: false
+      - key: R2_PUBLIC_BASE_URL
+        sync: false
+      - key: ATLAS_BACKUP_ENABLED
+        sync: false
+      - key: MONGODB_BACKUP_ENABLED
+        sync: false
+
+  - type: web
+    name: crossed-hearts
+    runtime: static
+    rootDir: Frontend
+    buildCommand: echo Static frontend ready
+    staticPublishPath: .
+    autoDeploy: false
+    routes:
+      - type: redirect
+        source: /index.html
+        destination: /
+      - type: redirect
+        source: /abandonedvillainess.html
+        destination: /abandonedvillainess
+      - type: rewrite
+        source: /abandonedvillainess
+        destination: /abandonedvillainess.html
+      - type: redirect
+        source: /about-use.html
+        destination: /about-use
+      - type: rewrite
+        source: /about-use
+        destination: /about-use.html
+      - type: redirect
+        source: /afternoon.html
+        destination: /afternoon
+      - type: rewrite
+        source: /afternoon
+        destination: /afternoon.html
+      - type: redirect
+        source: /allrounder.html
+        destination: /allrounder
+      - type: rewrite
+        source: /allrounder
+        destination: /allrounder.html
+      - type: redirect
+        source: /alltitles.html
+        destination: /alltitles
+      - type: rewrite
+        source: /alltitles
+        destination: /alltitles.html
+      - type: redirect
+        source: /archduke-print.html
+        destination: /archduke-print
+      - type: rewrite
+        source: /archduke-print
+        destination: /archduke-print.html
+      - type: redirect
+        source: /baroness-print.html
+        destination: /baroness-print
+      - type: rewrite
+        source: /baroness-print
+        destination: /baroness-print.html
+      - type: redirect
+        source: /borrowing.html
+        destination: /borrowing
+      - type: rewrite
+        source: /borrowing
+        destination: /borrowing.html
+      - type: redirect
+        source: /campaigns.html
+        destination: /campaigns
+      - type: rewrite
+        source: /campaigns
+        destination: /campaigns.html
+      - type: redirect
+        source: /chatbot.html
+        destination: /chatbot
+      - type: rewrite
+        source: /chatbot
+        destination: /chatbot.html
+      - type: redirect
+        source: /checkout.html
+        destination: /checkout
+      - type: rewrite
+        source: /checkout
+        destination: /checkout.html
+      - type: redirect
+        source: /chigaya.html
+        destination: /chigaya
+      - type: rewrite
+        source: /chigaya
+        destination: /chigaya.html
+      - type: redirect
+        source: /contact-us.html
+        destination: /contact-us
+      - type: rewrite
+        source: /contact-us
+        destination: /contact-us.html
+      - type: redirect
+        source: /darling-print.html
+        destination: /darling-print
+      - type: rewrite
+        source: /darling-print
+        destination: /darling-print.html
+      - type: redirect
+        source: /dashboard.html
+        destination: /dashboard
+      - type: rewrite
+        source: /dashboard
+        destination: /dashboard.html
+      - type: redirect
+        source: /executioner.html
+        destination: /executioner
+      - type: rewrite
+        source: /executioner
+        destination: /executioner.html
+      - type: redirect
+        source: /faq.html
+        destination: /faq
+      - type: rewrite
+        source: /faq
+        destination: /faq.html
+      - type: redirect
+        source: /filter.html
+        destination: /filter
+      - type: rewrite
+        source: /filter
+        destination: /filter.html
+      - type: redirect
+        source: /glambeat.html
+        destination: /glambeat
+      - type: rewrite
+        source: /glambeat
+        destination: /glambeat.html
+      - type: redirect
+        source: /licenser-login.html
+        destination: /licenser-login
+      - type: rewrite
+        source: /licenser-login
+        destination: /licenser-login.html
+      - type: redirect
+        source: /licenser-portal.html
+        destination: /licenser-portal
+      - type: rewrite
+        source: /licenser-portal
+        destination: /licenser-portal.html
+      - type: redirect
+        source: /licenser-reader.html
+        destination: /licenser-reader
+      - type: rewrite
+        source: /licenser-reader
+        destination: /licenser-reader.html
+      - type: redirect
+        source: /manga.html
+        destination: /manga
+      - type: rewrite
+        source: /manga
+        destination: /manga.html
+      - type: redirect
+        source: /matchmaker.html
+        destination: /matchmaker
+      - type: rewrite
+        source: /matchmaker
+        destination: /matchmaker.html
+      - type: redirect
+        source: /my-library.html
+        destination: /my-library
+      - type: rewrite
+        source: /my-library
+        destination: /my-library.html
+      - type: redirect
+        source: /novels.html
+        destination: /novels
+      - type: rewrite
+        source: /novels
+        destination: /novels.html
+      - type: redirect
+        source: /octopiece.html
+        destination: /octopiece
+      - type: rewrite
+        source: /octopiece
+        destination: /octopiece.html
+      - type: redirect
+        source: /payment-success.html
+        destination: /payment-success
+      - type: rewrite
+        source: /payment-success
+        destination: /payment-success.html
+      - type: redirect
+        source: /physical-checkout.html
+        destination: /physical-checkout
+      - type: rewrite
+        source: /physical-checkout
+        destination: /physical-checkout.html
+      - type: redirect
+        source: /print-abandonedvillainess.html
+        destination: /print-abandonedvillainess
+      - type: rewrite
+        source: /print-abandonedvillainess
+        destination: /print-abandonedvillainess.html
+      - type: redirect
+        source: /print-allrounder.html
+        destination: /print-allrounder
+      - type: rewrite
+        source: /print-allrounder
+        destination: /print-allrounder.html
+      - type: redirect
+        source: /print-archduke.html
+        destination: /print-archduke
+      - type: rewrite
+        source: /print-archduke
+        destination: /print-archduke.html
+      - type: redirect
+        source: /print-baroness.html
+        destination: /print-baroness
+      - type: rewrite
+        source: /print-baroness
+        destination: /print-baroness.html
+      - type: redirect
+        source: /print-chigaya.html
+        destination: /print-chigaya
+      - type: rewrite
+        source: /print-chigaya
+        destination: /print-chigaya.html
+      - type: redirect
+        source: /print-darling.html
+        destination: /print-darling
+      - type: rewrite
+        source: /print-darling
+        destination: /print-darling.html
+      - type: redirect
+        source: /print-executioner.html
+        destination: /print-executioner
+      - type: rewrite
+        source: /print-executioner
+        destination: /print-executioner.html
+      - type: redirect
+        source: /print-from.html
+        destination: /print-from
+      - type: rewrite
+        source: /print-from
+        destination: /print-from.html
+      - type: redirect
+        source: /print-matchmaker.html
+        destination: /print-matchmaker
+      - type: rewrite
+        source: /print-matchmaker
+        destination: /print-matchmaker.html
+      - type: redirect
+        source: /print-raeliana.html
+        destination: /print-raeliana
+      - type: rewrite
+        source: /print-raeliana
+        destination: /print-raeliana.html
+      - type: redirect
+        source: /print.html
+        destination: /print
+      - type: rewrite
+        source: /print
+        destination: /print.html
+      - type: redirect
+        source: /privacy.html
+        destination: /privacy
+      - type: rewrite
+        source: /privacy
+        destination: /privacy.html
+      - type: redirect
+        source: /reader.html
+        destination: /reader
+      - type: rewrite
+        source: /reader
+        destination: /reader.html
+      - type: redirect
+        source: /refund-policy.html
+        destination: /refund-policy
+      - type: rewrite
+        source: /refund-policy
+        destination: /refund-policy.html
+      - type: redirect
+        source: /reset-password.html
+        destination: /reset-password
+      - type: rewrite
+        source: /reset-password
+        destination: /reset-password.html
+      - type: redirect
+        source: /review.html
+        destination: /review
+      - type: rewrite
+        source: /review
+        destination: /review.html
+      - type: redirect
+        source: /search.html
+        destination: /search
+      - type: rewrite
+        source: /search
+        destination: /search.html
+      - type: redirect
+        source: /subscription.html
+        destination: /subscription
+      - type: rewrite
+        source: /subscription
+        destination: /subscription.html
+      - type: redirect
+        source: /terms.html
+        destination: /terms
+      - type: rewrite
+        source: /terms
+        destination: /terms.html
+      - type: redirect
+        source: /timeisa.html
+        destination: /timeisa
+      - type: rewrite
+        source: /timeisa
+        destination: /timeisa.html
+      - type: redirect
+        source: /whyraeliana.html
+        destination: /whyraeliana
+      - type: rewrite
+        source: /whyraeliana
+        destination: /whyraeliana.html
+      - type: redirect
+        source: /wishlist.html
+        destination: /wishlist
+      - type: rewrite
+        source: /wishlist
+        destination: /wishlist.html
+    headers:
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://checkout.razorpay.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://crossed-hearts-final.onrender.com wss://crossed-hearts-final.onrender.com https://api.razorpay.com https://checkout.razorpay.com; frame-src https://js.stripe.com https://hooks.stripe.com https://api.razorpay.com https://checkout.razorpay.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+      - path: /*
+        name: Referrer-Policy
+        value: no-referrer
+      - path: /*
+        name: Permissions-Policy
+        value: "camera=(), microphone=(), geolocation=(), payment=(self)"
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /Images/*
+        name: Cache-Control
+        value: "public, max-age=31536000, immutable"
+      - path: /*.css
+        name: Cache-Control
+        value: "public, max-age=3600, must-revalidate"
+      - path: /*.js
+        name: Cache-Control
+        value: "public, max-age=300, must-revalidate"
+      envVars:
+      - key: CH_API_URL
+        value: https://crossed-hearts-final.onrender.com/api

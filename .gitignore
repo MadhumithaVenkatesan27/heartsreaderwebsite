@@ -1,0 +1,10 @@
+.env
+node_modules/
+**/node_modules/
+package-lock.json
+uploads/
+.npm
+*.log
+*.err
+*.zip
+untracked-backup-before-pull/

@@ -1803,6 +1803,8 @@
         ["za", "Z → A"],
         ["new", "Newest release"],
         ["old", "Oldest release"],
+        ["plo", "Price: Low → High"],
+        ["phi", "Price: High → Low"],
       ];
       const MONTHS = "JanFebMarAprMayJunJulAugSepOctNovDec";
       const LIVE_NOW = ["zombie", "matchmaker"];
@@ -1889,6 +1891,8 @@
         za: (a, b) => b.title.localeCompare(a.title),
         new: (a, b) => b.rel - a.rel,
         old: (a, b) => a.rel - b.rel,
+        plo: (a, b) => a.min - b.min,
+        phi: (a, b) => b.min - a.min,
       };
       const DD = {
         cat: () => [
@@ -1938,19 +1942,25 @@
         const w = typeof chIsWishlisted === "function" && chIsWishlisted(s.id);
         const a = avgRating(s);
         return `<article class="s-card">
-    <button class="s-wish${w ? " on" : ""}" data-id="${s.id}" data-name="${esc(s.title)}" aria-label="Add to wishlist">${HEART}</button>
-    <a class="s-link" href="${s.href}">
-      <div class="s-cover"><img src="${s.image}" alt="${esc(s.title)}" loading="lazy" />${s.date ? `<span class="s-date">${s.date}</span>` : ""}</div>
-      <div class="s-body">
-        <span class="s-imprint">${CATS[s.cat]}</span>
-        <div class="s-genre">${s.genre}</div>
-        <div class="s-title">${s.title}</div>
-        ${a && typeof chRenderStars === "function" ? `<div class="s-rating">${chRenderStars(parseFloat(a), false)}<span>${a}</span></div>` : ""}
-        <span class="s-btn">View Series</span>
-      </div>
-    </a>
-  </article>`;
+          <button class="s-wish${w ? " on" : ""}" data-id="${s.id}" data-name="${esc(s.title)}" aria-label="Add to wishlist">${HEART}</button>
+          <a class="s-link" href="${s.href}">
+            <div class="s-cover"><img src="${s.image}" alt="${esc(s.title)}" loading="lazy" />${s.date ? `<span class="s-date">${s.date}</span>` : ""}</div>
+            <div class="s-body">
+              <span class="s-imprint">${CATS[s.cat]}</span>
+              <div class="s-genre">${s.genre}</div>
+              <div class="s-title">${s.title}</div>
+              ${a && typeof chRenderStars === "function" ? `<div class="s-rating">${chRenderStars(parseFloat(a), false)}<span>${a}</span></div>` : ""}
+              <div class="s-prices">
+                ${P("device-tablet", "Digital", s.dPrice)}
+                ${P("book", "Standard Edition", s.std)}
+                ${P("diamond", s.cat === "novel" ? "Special Edition" : "Limited Edition", s.ltd)}
+              </div>
+              <span class="s-btn">View Series</span>
+            </div>
+          </a>
+        </article>`;
       }
+
       function filtered() {
         const out = S.filter(
           (s) =>

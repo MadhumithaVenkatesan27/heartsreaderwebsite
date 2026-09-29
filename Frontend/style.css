@@ -9354,3 +9354,45 @@ body.light-mode .imp-filter .filter-btn:hover {
   border-color: var(--acc, var(--gold));
   color: var(--acc-ink, var(--ink));
 }
+
+/* ================================================
+   CHARACTERS — bigger, flat bottom, head pops above banner
+   ================================================ */
+.ch2-char-stage {
+  margin-top: 150px; /* headroom so the head can rise above the banner */
+  height: 380px; /* banner height */
+  overflow: visible;
+  border: none;
+  border-radius: 0;
+  /* clips left/right/bottom (so the slide-in animation stays contained) but not the top */
+  clip-path: inset(-400px 0 0 0);
+}
+
+/* the coloured banner: flat bottom, no slanted cut, keeps the border + rounded corners */
+.ch2-char-bg {
+  clip-path: none;
+  border-radius: 16px;
+  border: 1px solid var(--ch2-border);
+}
+
+/* one shared height for both characters keeps them proportionate */
+.ch2-char-portrait {
+  height: 140%; /* bigger than the banner → head extends above it */
+  bottom: 0;
+}
+.ch2-char-portrait img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .ch2-char-stage {
+    height: 460px;
+    margin-top: 110px;
+  }
+  .ch2-char-portrait {
+    height: 122%;
+  }
+}

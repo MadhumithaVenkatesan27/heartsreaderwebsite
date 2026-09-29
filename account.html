@@ -1,0 +1,2130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="clean-urls.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account | Crossed Hearts</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://heartsreader.com/account.html" />
+    <meta name="theme-color" content="#1a0a1e" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="subscription.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <script src="catalog.js"></script>
+    <script src="nav-search.js"></script>
+
+    <style>
+      /* ================================================
+         ACCOUNT PAGE STYLES
+         Uses the shared theme variables from style.css
+         (--ink, --cream, --muted, --gold, --border, etc.)
+         so light/dark mode is handled automatically —
+         no page-specific body.light-mode overrides needed.
+         ================================================ */
+      .acct-wrap {
+        max-width: 960px;
+        margin: 60px auto 100px;
+        padding: 0 24px;
+        font-family: var(--font-b);
+      }
+      .acct-header {
+        margin-bottom: 36px;
+      }
+      .acct-header .eyebrow {
+        display: block;
+        color: var(--gold);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .acct-header h1 {
+        font-family: var(--font-d);
+        font-size: 34px;
+        color: var(--cream);
+        margin: 0 0 8px;
+      }
+      .acct-header p {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .acct-tabs {
+        display: flex;
+        gap: 6px;
+        border-bottom: 1px solid var(--border-s);
+        margin-bottom: 28px;
+        flex-wrap: wrap;
+      }
+      .acct-tab-btn {
+        padding: 12px 18px;
+        background: none;
+        border: none;
+        font-family: var(--font-b);
+        font-size: 14px;
+        cursor: pointer;
+        color: var(--muted);
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .acct-tab-btn.active {
+        color: var(--gold);
+        border-bottom-color: var(--gold);
+        font-weight: 600;
+      }
+      .acct-tab-btn:hover {
+        color: var(--cream);
+      }
+
+      .acct-panel {
+        display: none;
+      }
+      .acct-panel.active {
+        display: block;
+        animation: acctFadeIn 0.25s ease;
+      }
+      @keyframes acctFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .acct-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 18px;
+        background: var(--ink-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 12px;
+      }
+      .acct-item-info h3 {
+        font-size: 15px;
+        color: var(--cream);
+        margin: 0 0 4px;
+        font-weight: 600;
+      }
+      .acct-item-info span {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .acct-item-action a,
+      .acct-item-action button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+        color: #fff;
+        text-decoration: none;
+        font-size: 12.5px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .acct-status-card {
+        padding: 24px;
+        border-radius: 14px;
+        background: var(--ink-card);
+        border: 1px solid var(--border);
+      }
+      .acct-status-card h3 {
+        font-family: var(--font-d);
+        font-size: 20px;
+        color: var(--cream);
+        margin: 0 0 10px;
+      }
+      .acct-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+      .acct-badge.active {
+        background: rgba(76, 175, 118, 0.15);
+        color: #4caf76;
+        border: 1px solid rgba(76, 175, 118, 0.3);
+      }
+      .acct-badge.inactive {
+        background: rgba(196, 100, 122, 0.15);
+        color: var(--rose);
+        border: 1px solid rgba(196, 100, 122, 0.3);
+      }
+      .acct-status-card p {
+        color: var(--cream-soft);
+        font-size: 13.5px;
+        margin: 8px 0 0;
+      }
+      .acct-status-card .acct-manage-btn {
+        margin-top: 16px;
+        display: inline-block;
+      }
+
+      .acct-empty {
+        text-align: center;
+        color: var(--muted);
+        padding: 50px 0;
+        font-size: 14px;
+      }
+      .acct-empty a {
+        color: var(--gold);
+        text-decoration: underline;
+      }
+
+      .acct-filter-bar {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .acct-filter-dropdown {
+        position: relative;
+      }
+      .filter-dropdown-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .filter-count {
+        background: var(--gold-dim);
+        color: var(--gold);
+        font-size: 10.5px;
+        font-weight: 700;
+        padding: 1px 6px;
+        border-radius: 999px;
+        display: none;
+      }
+      .filter-count.show {
+        display: inline-block;
+      }
+      .filter-dropdown-menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        z-index: 20;
+        background: var(--ink-card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 10px;
+        min-width: 180px;
+        box-shadow: var(--shadow);
+      }
+      .filter-dropdown-menu.open {
+        display: block;
+      }
+      .filter-dropdown-menu label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 4px;
+        font-size: 13px;
+        color: var(--cream);
+        cursor: pointer;
+      }
+      .filter-dropdown-menu input {
+        accent-color: var(--gold);
+      }
+
+      /* ---- Print tab stat strip ---- */
+      .print-stat-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .print-stat-box {
+        background: var(--ink-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px 16px;
+        text-align: center;
+      }
+      .print-stat-num {
+        font-family: var(--font-d);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .print-stat-label {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+
+      /* ---- Print order card text ---- */
+      .po-date {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .po-title {
+        font-size: 13.5px;
+        color: var(--cream);
+        font-weight: 500;
+      }
+      .po-meta {
+        font-size: 11.5px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .po-tracking {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* ---- Digital purchases: order details & invoices ---- */
+      .acct-order-title {
+        font-family: var(--font-d);
+        font-size: 22px;
+        margin: 0;
+        color: var(--cream);
+      }
+      .acct-order-sub {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .acct-order-book {
+        font-size: 15px;
+        color: var(--cream);
+        font-weight: 600;
+        margin: 0;
+      }
+      .acct-order-chapters {
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .acct-order-meta {
+        margin-top: 7px;
+        color: var(--muted);
+        opacity: 0.8;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .acct-order-amount {
+        color: var(--gold);
+        font-size: 13px;
+      }
+
+      /* ---- Wishlist (product cards) ---- */
+      .wish-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 20px;
+      }
+      .wish-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background: var(--ink-card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          border-color 0.25s;
+      }
+      .wish-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold);
+        box-shadow: var(--shadow);
+      }
+      .wish-cover {
+        position: relative;
+        aspect-ratio: 2 / 3;
+        background: var(--ink-mid);
+        overflow: hidden;
+        display: block;
+      }
+      .wish-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        transition: transform 0.4s;
+      }
+      .wish-card:hover .wish-cover img {
+        transform: scale(1.04);
+      }
+      .wish-cover-empty {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 32px;
+      }
+      .wish-remove-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1px solid rgba(196, 100, 122, 0.4);
+        background: rgba(26, 10, 30, 0.72);
+        backdrop-filter: blur(6px);
+        color: var(--rose);
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          transform 0.2s;
+      }
+      .wish-remove-btn:hover {
+        background: var(--rose);
+        color: #fff;
+        transform: scale(1.08);
+      }
+      .wish-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 6px;
+        padding: 14px;
+      }
+      .wish-genre {
+        font-size: 10.5px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .wish-title {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.35;
+        color: var(--cream);
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .wish-rating-num {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .wish-foot {
+        margin-top: auto;
+        padding-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .wish-price {
+        font-family: var(--font-d);
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .wish-view-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 7px 14px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      @media (max-width: 480px) {
+        .wish-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        .wish-body {
+          padding: 10px;
+        }
+        .wish-view-btn {
+          padding: 6px 10px;
+        }
+      }
+
+      /* ---- Subscription pick rows + covers ---- */
+      .dash-history {
+        margin-top: 24px;
+      }
+      .dash-history-title {
+        font-family: var(--font-d);
+        font-size: 16px;
+        color: var(--cream);
+        margin-bottom: 14px;
+      }
+      .dash-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .dash-stat-box {
+        background: var(--ink-mid);
+        border: 1px solid var(--border-s);
+        border-radius: 12px;
+        padding: 14px;
+        text-align: center;
+      }
+      .dash-stat-num {
+        font-family: var(--font-d);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .dash-stat-label {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .dash-expiry-note {
+        margin-top: 20px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .dash-pick-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 58px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-s);
+      }
+      .dash-pick-row:last-child {
+        border-bottom: none;
+      }
+      .dash-pick-month {
+        width: 78px;
+        flex-shrink: 0;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .dash-pick-name {
+        flex: 1;
+        min-width: 0;
+        font-size: 14px;
+        color: var(--cream);
+      }
+      .dash-pick-name .empty {
+        font-style: italic;
+        color: var(--muted);
+      }
+      .dash-pick-cover {
+        width: 36px;
+        height: 50px;
+        aspect-ratio: 36 / 50;
+        border-radius: 5px;
+        overflow: hidden;
+        flex-shrink: 0;
+        background: var(--ink-mid);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .dash-pick-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      .dash-pick-cover-empty {
+        color: var(--gold);
+        font-size: 14px;
+      }
+      .status-badge {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      .status-badge.status-delivered,
+      .status-badge.status-shipped {
+        background: rgba(76, 175, 118, 0.15);
+        color: #4caf76;
+      }
+      .status-badge.status-carried {
+        background: var(--gold-dim);
+        color: var(--gold);
+      }
+      .status-badge.status-pending {
+        background: rgba(196, 100, 122, 0.15);
+        color: var(--rose);
+      }
+      .status-badge.status-open {
+        background: var(--border-s);
+        color: var(--muted);
+      }
+
+      /* ---- Not-subscribed CTA card ---- */
+      .acct-cta-card {
+        text-align: center;
+        padding: 40px 24px;
+        background: var(--ink-card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+      }
+      .acct-cta-card h3 {
+        font-family: var(--font-d);
+        font-size: 20px;
+        color: var(--cream);
+        margin: 0 0 8px;
+      }
+      .acct-cta-card p {
+        color: var(--muted);
+        font-size: 13.5px;
+        margin: 0 0 18px;
+      }
+    </style>
+  </head>
+  <body class="page-body">
+    <!-- NAV -->
+    <nav class="nav" id="mainNav">
+      <a class="nav-logo" href="index.html">
+        <img
+          src="Images/logo-dark.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-dark"
+        />
+        <img
+          src="Images/logo-light.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-light"
+        />
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Crossed Hearts</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="series.html" class="active">Our Series</a></li>
+        <li>
+          <a href="campaigns.html" class="nav-campaign"
+            ><i class="ti ti-heart" aria-hidden="true"></i> Campaign</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-search-inline" id="navSearchInline" role="search">
+          <input
+            type="text"
+            class="nav-search-inline-input"
+            id="navSearchInlineInput"
+            placeholder="Search..."
+            autocomplete="off"
+            readonly
+            aria-label="Search titles, genres, keywords"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            onclick="openNavSearch()"
+            onfocus="openNavSearch()"
+            onkeydown="if (event.key === 'Enter') openNavSearch();"
+          />
+          <button
+            class="nav-search-inline-btn"
+            id="navSearchInlineBtn"
+            onclick="openNavSearch()"
+            aria-label="Open search"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
+        <a href="account.html" class="btn-nav-ghost">My Account</a>
+        <button
+          class="btn-nav-signin"
+          id="navAuthBtn"
+          data-login-label="Sign In"
+          onclick="handleNavAuth()"
+        >
+          Sign In
+        </button>
+        <button
+          class="btn-nav-register"
+          id="navRegisterBtn"
+          onclick="openAuth('up', { lockMode: true })"
+        >
+          Sign Up
+        </button>
+        <a
+          href="subscription.html"
+          class="btn-nav-subscribe"
+          id="navSubscribeBtn"
+          ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+        >
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          <span class="icon-dark"
+            ><i class="ti ti-moon" aria-hidden="true"></i
+          ></span>
+          <span class="icon-light"
+            ><i class="ti ti-sun" aria-hidden="true"></i
+          ></span>
+        </button>
+        <button
+          class="nav-burger"
+          onclick="toggleMobileNav()"
+          aria-label="Open menu"
+        >
+          <i class="ti ti-menu-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-top">
+        <span
+          style="
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+          "
+          >Menu</span
+        >
+      </div>
+      <a href="index.html">Home</a>
+      <a href="series.html">Our Series</a>
+      <a href="subscription.html" class="mn-sub"
+        ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+      >
+      <a
+        href="campaigns.html"
+        style="color: var(--ch-rose-deep); font-weight: 700"
+        >Campaigns</a
+      >
+      <a
+        href="#"
+        onclick="
+          handleNavAuth();
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileAuthLink"
+        data-login-label="Sign In"
+        >Sign In</a
+      >
+      <a
+        href="#"
+        onclick="
+          openAuth('up', { lockMode: true });
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileRegisterLink"
+        >Sign Up</a
+      >
+    </div>
+    <!-- ACCOUNT CONTENT -->
+    <div class="acct-wrap">
+      <div class="acct-header">
+        <span class="eyebrow">Your Space</span>
+        <h1>My Account</h1>
+        <p>
+          All your digital purchases, print orders, subscription and wishlist in
+          one place.
+        </p>
+      </div>
+
+      <div class="acct-tabs">
+        <button class="acct-tab-btn active" data-tab="digital">
+          Digital Purchases
+        </button>
+        <button class="acct-tab-btn" data-tab="print">Print Purchases</button>
+        <button class="acct-tab-btn" data-tab="subscription">
+          Subscription
+        </button>
+        <button class="acct-tab-btn" data-tab="wishlist">Wishlist</button>
+      </div>
+
+      <!-- NEW -->
+      <div class="acct-panel active" id="digital">
+        <div class="acct-filter-bar" id="digitalSubTabs">
+          <div class="acct-filter-dropdown">
+            <button
+              class="filter-btn filter-dropdown-btn"
+              onclick="toggleFilterMenu('imprintFilterMenu', this)"
+            >
+              Imprint <span class="filter-count" id="imprintFilterCount"></span>
+              <i class="ti ti-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="filter-dropdown-menu" id="imprintFilterMenu">
+              <label
+                ><input
+                  type="checkbox"
+                  value="COMISMA"
+                  onchange="toggleImprintFilter(this.value, this.checked)"
+                />
+                COMISMA</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="Glam Beat"
+                  onchange="toggleImprintFilter(this.value, this.checked)"
+                />
+                Glam Beat</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="Blush Club"
+                  onchange="toggleImprintFilter(this.value, this.checked)"
+                />
+                Blush Club</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="A Novel Press"
+                  onchange="toggleImprintFilter(this.value, this.checked)"
+                />
+                A Novel Press</label
+              >
+            </div>
+          </div>
+
+          <div class="acct-filter-dropdown">
+            <button
+              class="filter-btn filter-dropdown-btn"
+              onclick="toggleFilterMenu('formatFilterMenu', this)"
+            >
+              Format <span class="filter-count" id="formatFilterCount"></span>
+              <i class="ti ti-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="filter-dropdown-menu" id="formatFilterMenu">
+              <label
+                ><input
+                  type="checkbox"
+                  value="Manga"
+                  onchange="toggleFormatFilter(this.value, this.checked)"
+                />
+                Manga</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="Manhwa"
+                  onchange="toggleFormatFilter(this.value, this.checked)"
+                />
+                Manhwa</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  value="Novel"
+                  onchange="toggleFormatFilter(this.value, this.checked)"
+                />
+                Novel</label
+              >
+            </div>
+          </div>
+
+          <button class="filter-btn" onclick="clearAcctFilters()">
+            Clear filters
+          </button>
+        </div>
+        <div id="acct-digital-list"></div>
+      </div>
+      <!-- NEW -->
+      <div class="acct-panel" id="print">
+        <div id="acct-print-cart-notice"></div>
+        <div id="acct-print-list"></div>
+      </div>
+      <div class="acct-panel" id="subscription">
+        <div id="acct-subscription-status"></div>
+      </div>
+      <!-- NEW -->
+      <div class="acct-panel" id="wishlist">
+        <div
+          id="acct-wishlist-count"
+          style="font-size: 13px; color: var(--muted); margin-bottom: 16px"
+        ></div>
+        <div id="acct-wishlist-list"></div>
+      </div>
+    </div>
+
+    <!-- NAV SEARCH OVERLAY -->
+    <div
+      class="nav-search-overlay"
+      id="navSearchOverlay"
+      onclick="closeNavSearchIfBg(event)"
+      aria-hidden="true"
+    >
+      <div
+        class="nav-search-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Search"
+      >
+        <button
+          class="nav-search-close"
+          onclick="closeNavSearch()"
+          aria-label="Close search"
+        >
+          &#10005;
+        </button>
+        <div class="nav-search-inner" id="navSiteSearchBar">
+          <span class="nav-search-icon">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            class="nav-search-input"
+            id="navSearchInput"
+            placeholder="Search titles, genres, keywords..."
+            oninput="navLiveSearch(this.value)"
+            onkeydown="if (event.key === 'Enter') navDoSearch();"
+            autocomplete="off"
+          />
+          <button
+            class="nav-search-clear"
+            id="navSearchClear"
+            onclick="navClearSearch()"
+            style="display: none"
+          >
+            &#10005;
+          </button>
+          <button class="nav-search-submit" onclick="navDoSearch()">
+            Search
+          </button>
+        </div>
+        <div class="nav-genres-panel" id="navGenresPanel">
+          <div class="nav-genres-label">Genres</div>
+          <div
+            class="nav-genres-grid"
+            id="navGenresGrid"
+            role="group"
+            aria-label="Browse by genre"
+          ></div>
+          <button
+            class="nav-genres-more"
+            id="navGenresMoreBtn"
+            onclick="navToggleGenres()"
+            aria-expanded="false"
+          >
+            See more
+          </button>
+        </div>
+        <div class="nav-search-suggestions" id="navSearchSuggestions"></div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Crossed Hearts</div>
+          <p>
+            English localization of manga, manhwa and Asian novels, across
+            borders, with care.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://discord.com/login?redirect_to=%2Fchannels%2F%40me"
+              target="_blank"
+              aria-label="Discord"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://x.com/CrossedHearts_X"
+              target="_blank"
+              aria-label="X (Twitter)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@CrossedHearts_YT"
+              target="_blank"
+              aria-label="YouTube"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="https://thecrossedhearts.com/">Main Site</a></li>
+            <li><a href="series.html">Our Series</a></li>
+            <li><a href="campaigns.html">Sepcial Edition</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="account.html">My Account</a></li>
+            <li><a onclick="openAuth()">Sign In</a></li>
+            <li><a href="licenser-login.html">Authorised User</a></li>
+            <li><a href="subscription.html">Subscribe</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li>
+              <a href="about-use.html" target="_blank">About Us</a>
+            </li>
+            <li>
+              <a href="contact-us.html" target="_blank">Contact</a>
+            </li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Crossed Hearts. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+    <!-- AUTH MODAL (same as index.html) -->
+    <div class="modal-overlay" id="authOverlay" onclick="closeAuthIfBg(event)">
+      <div class="modal">
+        <button class="modal-x" onclick="closeAuth()" aria-label="Close">
+          <i class="ti ti-x" aria-hidden="true"></i>
+        </button>
+        <div class="modal-title">Welcome Back</div>
+        <div class="modal-sub">Sign in to access your account</div>
+        <div class="auth-tabs">
+          <button class="atab active" onclick="switchAuth('in', this)">
+            Sign In
+          </button>
+          <button class="atab" onclick="switchAuth('up', this)">Sign Up</button>
+        </div>
+        <div id="authBody"></div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      window.CH_API_URL = [
+        "thecrossedhearts.com",
+        "www.thecrossedhearts.com",
+      ].includes(window.location.hostname)
+        ? "https://crossed-hearts-final.onrender.com/api"
+        : window.location.hostname === "crossed-hearts.onrender.com"
+          ? "https://crossed-hearts-final.onrender.com/api"
+          : ["localhost", "127.0.0.1", ""].includes(window.location.hostname) ||
+              window.location.protocol === "file:"
+            ? "http://localhost:5000/api"
+            : "https://crossed-hearts-final.onrender.com/api";
+    </script>
+    <script src="script.js"></script>
+    <script src="all-titles-flat.js"></script>
+    <script src="all-titles-flat.js"></script>
+    <script>
+      renderAuthForm("in");
+      (function () {
+        if (localStorage.getItem("ch-theme") === "light")
+          document.body.classList.add("light-mode");
+      })();
+      function toggleTheme() {
+        const isLight = document.body.classList.toggle("light-mode");
+        localStorage.setItem("ch-theme", isLight ? "light" : "dark");
+      }
+
+      // ---- ACCOUNT PAGE LOGIC ----
+      document.querySelectorAll(".acct-tab-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".acct-tab-btn")
+            .forEach((b) => b.classList.remove("active"));
+          document
+            .querySelectorAll(".acct-panel")
+            .forEach((p) => p.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById(btn.dataset.tab).classList.add("active");
+        });
+      });
+
+      // ==================================================
+      // SUBSCRIPTION — renders straight from the sample/real
+      // CH_SUBSCRIPTION object (see SAMPLE DATA block below)
+      // ==================================================
+      const STATUS_LABEL = {
+        delivered: "Delivered",
+        shipped: "Shipped",
+        pending: "Pending Pre-order",
+        carried: "Carried Forward",
+        open: "Not Yet Picked",
+      };
+
+      function acctMonthsSince(dateStr) {
+        const start = new Date(dateStr);
+        const now = new Date();
+        return (
+          (now.getFullYear() - start.getFullYear()) * 12 +
+          (now.getMonth() - start.getMonth()) +
+          1
+        );
+      }
+
+      function acctSubscriptionDashboardHtml(sub) {
+        const picks = Array.isArray(sub.picks) ? sub.picks : [];
+        const used = picks.filter((p) => p.title).length;
+        const totalCredits = sub.totalCredits || 0;
+        const remaining = totalCredits - used;
+        const duration = sub.startDate ? acctMonthsSince(sub.startDate) : 0;
+
+        return `
+          <div class="acct-status-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
+              <div>
+                <h3 style="margin-bottom:4px;">${sub.plan}</h3>
+                <span class="acct-badge ${sub.active ? "active" : "inactive"}">${sub.active ? "Active" : "Inactive"}</span>
+                <div class="po-date" style="margin-top:8px;">
+                  ${sub.active ? `Renews on ${sub.renews}${sub.startDate ? ` · Member for ${duration} month${duration !== 1 ? "s" : ""}` : ""}` : "Reactivate your subscription to keep reading."}
+                </div>
+              </div>
+              <a href="subscription.html" class="btn-gold" style="border-radius:999px;padding:9px 18px;font-size:13px;white-space:nowrap;">
+                Manage Subscription
+              </a>
+            </div>
+
+            ${
+              totalCredits
+                ? `
+            <div class="dash-stat-grid">
+              <div class="dash-stat-box"><div class="dash-stat-num">${totalCredits}</div><div class="dash-stat-label">Total credits</div></div>
+              <div class="dash-stat-box"><div class="dash-stat-num">${used}</div><div class="dash-stat-label">Credits used</div></div>
+              <div class="dash-stat-box"><div class="dash-stat-num">${remaining}</div><div class="dash-stat-label">Credits remaining</div></div>
+            </div>`
+                : ""
+            }
+
+            ${
+              picks.length
+                ? `
+            <div class="dash-history">
+              <div class="dash-history-title">Selection history</div>
+              ${picks
+                .map((p) => {
+                  const name = p.title
+                    ? `${p.title}${p.volume ? " — Vol. " + p.volume : ""}${p.format ? " (" + p.format + ")" : ""}`
+                    : `<span class="empty">${p.status === "carried" ? "Credit carried forward" : "No pick yet"}</span>`;
+                  const cover = p.id && COVER_IMGS[p.id];
+                  return `
+                  <div class="dash-pick-row">
+                    <div class="dash-pick-month">${p.month}</div>
+                    <div class="dash-pick-cover">
+                      ${
+                        cover
+                          ? `<img src="${cover}" alt="${p.title || ""}" loading="lazy">`
+                          : `<div class="dash-pick-cover-empty"><i class="ti ti-book" aria-hidden="true"></i></div>`
+                      }
+                    </div>
+                    <div class="dash-pick-name">${name}</div>
+                    <span class="status-badge status-${p.status}">${STATUS_LABEL[p.status] || p.status}</span>
+                  </div>`;
+                })
+                .join("")}
+            </div>`
+                : ""
+            }
+
+            <div class="dash-expiry-note">
+              Unused credits carry forward automatically while your subscription
+              stays active. If you cancel, they remain valid for 12 more months
+              before expiring.
+            </div>
+          </div>`;
+      }
+
+      function renderAcctSubscription(sub) {
+        const el = document.getElementById("acct-subscription-status");
+        if (!el) return;
+
+        if (!CH_USER) {
+          el.innerHTML = `
+          <div class="empty-lib">
+            <h3>Sign in to view your subscription</h3>
+            <p>Your plan, credits and pick history will appear here.</p>
+            <button class="btn-gold" onclick="openAuth()">Sign In</button>
+          </div>`;
+          return;
+        }
+
+        if (!sub) {
+          el.innerHTML = `
+          <div class="acct-cta-card">
+            <h3>You're not subscribed yet</h3>
+            <p>Get manga, manhwa or novels every month at real savings, with free shipping.</p>
+            <a href="subscription.html" class="btn-gold" style="border-radius:999px;padding:11px 24px;font-size:13px;">
+              View Plans
+            </a>
+          </div>`;
+          return;
+        }
+
+        el.innerHTML = acctSubscriptionDashboardHtml(sub);
+      }
+
+      // ==================================================
+      // DIGITAL PURCHASES — pulled from CH_LIB / CH_USER
+      // ==================================================
+      const LIB_TITLES = {
+        "chigaya-v1": {
+          title: "You're Way Too Cheeky, Chigaya-kun! Vol.1",
+          cat: "manga",
+          imprint: "COMISMA",
+          format: "Manga",
+          href: "title-chigaya-v1.html",
+          readHref: "reader.html?title=chigaya-v1&ch=ch1",
+          totalCh: 4,
+        },
+        "chigaya-v2": {
+          title: "You're Way Too Cheeky, Chigaya-kun! Vol.2",
+          cat: "manga",
+          imprint: "COMISMA",
+          format: "Manga",
+          href: "title-chigaya-v2.html",
+          readHref: "reader.html?title=chigaya-v2&ch=ch1",
+          totalCh: 3,
+        },
+        "grenimal-v1": {
+          title: "The Executioner of Grenimal Vol.1",
+          cat: "manga",
+          imprint: "COMISMA",
+          format: "Manga",
+          href: "title-grenimal-v1.html",
+          readHref: "reader.html?title=grenimal-v1&ch=ch1",
+          totalCh: 3,
+        },
+        "grenimal-v2": {
+          title: "The Executioner of Grenimal Vol.2",
+          cat: "manga",
+          imprint: "COMISMA",
+          format: "Manga",
+          href: "title-grenimal-v2.html",
+          readHref: "reader.html?title=grenimal-v2&ch=ch1",
+          totalCh: 2,
+        },
+        "matchmaker-v1": {
+          title: "The Matchmaker's Fiancé Vol.1",
+          cat: "manga",
+          imprint: "COMISMA",
+          format: "Manga",
+          href: "title-matchmaker-v1.html",
+          readHref: "reader.html?title=matchmaker-v1&ch=ch1",
+          totalCh: 2,
+        },
+        "connie-v1": {
+          title: "All-Rounder Maid Connie Wille Vol.1",
+          cat: "manga",
+          imprint: "COMISMA",
+          format: "Manga",
+          href: "title-connie-v1.html",
+          readHref: "reader.html?title=connie-v1&ch=ch1",
+          totalCh: 2,
+        },
+        "connie-v2": {
+          title: "All-Rounder Maid Connie Wille Vol.2",
+          cat: "manga",
+          imprint: "COMISMA",
+          format: "Manga",
+          href: "title-connie-v2.html",
+          readHref: "reader.html?title=connie-v2&ch=ch1",
+          totalCh: 1,
+        },
+        borrowing: {
+          title: "Borrowing Your Textbook 175160",
+          cat: "glambeat",
+          imprint: "Glam Beat",
+          format: "Manhwa",
+          href: "title-borrowing.html",
+          readHref: "reader.html?title=borrowing&ch=ch1",
+          totalCh: 4,
+        },
+        timecloset: {
+          title: "Time is a Closet",
+          cat: "glambeat",
+          imprint: "Glam Beat",
+          format: "Manhwa",
+          href: "title-timecloset.html",
+          readHref: "reader.html?title=timecloset&ch=ch1",
+          totalCh: 2,
+        },
+        afternoontea: {
+          title: "Afternoon Tea for Two",
+          cat: "glambeat",
+          imprint: "Glam Beat",
+          format: "Manhwa",
+          href: "title-afternoontea.html",
+          readHref: "reader.html?title=afternoontea&ch=ch1",
+          totalCh: 3,
+        },
+        "zombie-v1": {
+          title: "The Abandoned Villainess Became a Zombie Vol.1",
+          cat: "novel",
+          imprint: "A Novel Press",
+          format: "Novel",
+          href: "title-zombie-v1.html",
+          readHref: "reader.html?title=zombie-v1&ch=ch1",
+          totalCh: 2,
+        },
+        "zombie-v2": {
+          title: "The Abandoned Villainess Became a Zombie Vol.2",
+          cat: "novel",
+          imprint: "A Novel Press",
+          format: "Novel",
+          href: "title-zombie-v2.html",
+          readHref: "reader.html?title=zombie-v2&ch=ch1",
+          totalCh: 1,
+        },
+        "raeliana-v1": {
+          title: "Why Raeliana Ended Up at the Duke's Mansion Vol.1",
+          cat: "novel",
+          imprint: "A Novel Press",
+          format: "Novel",
+          href: "title-raeliana-v1.html",
+          readHref: "reader.html?title=raeliana-v1&ch=ch1",
+          totalCh: 2,
+        },
+        "bgos-v1": {
+          title: "Baroness Goes on Strike Vol.1",
+          cat: "manhwa",
+          imprint: "COMISMA",
+          format: "Manhwa",
+          href: "title-bgos-v1.html",
+          readHref: "reader.html?title=bgos-v1&ch=ch1",
+          totalCh: 4,
+        },
+        "fktl-v1": {
+          title: "From a Knight to a Lady Vol.1",
+          cat: "manhwa",
+          imprint: "COMISMA",
+          format: "Manhwa",
+          href: "title-fktl-v1.html",
+          readHref: "reader.html?title=fktl-v1&ch=ch1",
+          totalCh: 4,
+        },
+      };
+
+      const COVER_IMGS = {
+        "chigaya-v1": "Images/Chigaya-vol 1.png",
+        "chigaya-v2": "Images/Chigaya-vol 2.png",
+        "grenimal-v1": "Images/Grenimal-vol 1.png",
+        "grenimal-v2": "Images/Grenimal-vol 2.png",
+        "matchmaker-v1": "Images/Matchmaker-vol 1.png",
+        "connie-v1": "Images/Connie-vol 1.png",
+        "connie-v2": "Images/Connie-vol 2.png",
+        borrowing: "Images/Borrowing-ch1.png",
+        timecloset: "Images/Time-ch1.png",
+        afternoontea: "Images/Afternoon-ch1.png",
+        "zombie-v1": "Images/Zombie-vol1.png",
+        "zombie-v2": "Images/Zombie-vol2.png",
+        "raeliana-v1": "Images/Whyraeliana-vol1.png",
+        "raeliana-v2": "Images/Whyraeliana-vol2.png",
+        "bgos-v1": "Images/BGOS-vol1.png",
+        "bgos-v2": "Images/BGOS-vol2.png",
+        "bgos-v3": "Images/BGOS-vol3.png",
+        "fktl-v1": "Images/FKTL-vol1.png",
+        "fktl-v2": "Images/FKTL-vol2.png",
+        "fktl-v3": "Images/FKTL-vol2.png",
+      };
+
+      const acctImprintFilter = new Set();
+      const acctFormatFilter = new Set();
+
+      function toggleFilterMenu(menuId, btn) {
+        document.querySelectorAll(".filter-dropdown-menu").forEach((m) => {
+          if (m.id !== menuId) m.classList.remove("open");
+        });
+        document.getElementById(menuId).classList.toggle("open");
+      }
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".acct-filter-dropdown")) {
+          document
+            .querySelectorAll(".filter-dropdown-menu")
+            .forEach((m) => m.classList.remove("open"));
+        }
+      });
+
+      function toggleImprintFilter(value, checked) {
+        checked
+          ? acctImprintFilter.add(value)
+          : acctImprintFilter.delete(value);
+        updateFilterCounts();
+        renderAcctDigital();
+      }
+      function toggleFormatFilter(value, checked) {
+        checked ? acctFormatFilter.add(value) : acctFormatFilter.delete(value);
+        updateFilterCounts();
+        renderAcctDigital();
+      }
+      function clearAcctFilters() {
+        acctImprintFilter.clear();
+        acctFormatFilter.clear();
+        document
+          .querySelectorAll("#imprintFilterMenu input, #formatFilterMenu input")
+          .forEach((cb) => (cb.checked = false));
+        updateFilterCounts();
+        renderAcctDigital();
+      }
+      function updateFilterCounts() {
+        const iEl = document.getElementById("imprintFilterCount");
+        const fEl = document.getElementById("formatFilterCount");
+        if (iEl) {
+          iEl.textContent = acctImprintFilter.size;
+          iEl.classList.toggle("show", acctImprintFilter.size > 0);
+        }
+        if (fEl) {
+          fEl.textContent = acctFormatFilter.size;
+          fEl.classList.toggle("show", acctFormatFilter.size > 0);
+        }
+      }
+
+      function renderAcctDigital() {
+        const container = document.getElementById("acct-digital-list");
+        if (!container) return;
+
+        if (!CH_USER) {
+          container.innerHTML = `
+          <div class="empty-lib">
+            <h3>Sign in to view your digital purchases</h3>
+            <p>Everything you've purchased or previewed will appear here.</p>
+            <button class="btn-gold" onclick="openAuth()">Sign In</button>
+          </div>`;
+          return;
+        }
+
+        const activeIds = Object.keys(CH_LIB).filter(
+          (id) => CH_LIB[id]?.length > 0,
+        );
+        const filtered = activeIds.filter((id) => {
+          const meta = LIB_TITLES[id];
+          if (!meta) return false;
+          const matchesImprint =
+            acctImprintFilter.size === 0 || acctImprintFilter.has(meta.imprint);
+          const matchesFormat =
+            acctFormatFilter.size === 0 || acctFormatFilter.has(meta.format);
+          return matchesImprint && matchesFormat;
+        });
+
+        if (!filtered.length) {
+          const hasActiveFilter =
+            acctImprintFilter.size > 0 || acctFormatFilter.size > 0;
+          const msg = hasActiveFilter
+            ? "No titles match the selected filters."
+            : "You haven't purchased or previewed any digital titles yet.";
+          container.innerHTML = `
+          <div class="empty-lib">
+            <h3>${hasActiveFilter ? "No matching titles" : "No digital activity yet"}</h3>
+            <p>${msg}</p>
+            <a href="alltitles.html" class="btn-gold">Browse the Digital Library →</a>
+          </div>`;
+          return;
+        }
+
+        container.innerHTML = `<div class="my-lib-grid">${filtered
+          .map((id) => {
+            const meta = LIB_TITLES[id];
+            const owned = CH_LIB[id] || [];
+            const total = meta.totalCh;
+            const hasBundle = owned.includes("bundle");
+            const paidOrFreeChapters = owned.filter((c) => c !== "bundle");
+            const hasFreeOnly =
+              !hasBundle &&
+              paidOrFreeChapters.length > 0 &&
+              paidOrFreeChapters.every((c) => c === "ch1");
+            const pct = hasBundle
+              ? 100
+              : Math.min(
+                  100,
+                  Math.round((paidOrFreeChapters.length / total) * 100),
+                );
+            const label = hasBundle
+              ? "Purchased · Full Volume"
+              : hasFreeOnly
+                ? "Previewed · Free Chapter"
+                : `Purchased · ${paidOrFreeChapters.length} of ${total} chapters`;
+
+            const lastCh = owned[owned.length - 1];
+            const readUrl = `reader.html?title=${id}&ch=${lastCh === "bundle" ? "ch1" : lastCh || "ch1"}`;
+
+            return `
+            <div class="owned-card">
+              <div class="owned-cover">
+                ${COVER_IMGS[id] ? `<img src="${COVER_IMGS[id]}" alt="${meta.title} Cover" loading="lazy">` : ""}
+                <div class="owned-cover-title">${meta.title}</div>
+                <div class="owned-badge-overlay">
+                  <span class="ob-label" style="${hasFreeOnly ? "background:rgba(76,175,118,0.85);" : ""}">${label}</span>
+                  <span class="ob-pct">${hasBundle ? "100%" : hasFreeOnly ? "Preview" : pct + "%"}</span>
+                </div>
+              </div>
+              <div class="owned-foot">
+                <div class="owned-title">${meta.title}</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width:${hasBundle ? 100 : pct}%;${hasFreeOnly ? "background:linear-gradient(90deg,#4caf76,#7ec97e);" : ""}"></div>
+                </div>
+                <button class="btn-continue" onclick="window.location.href='${readUrl}'" style="${hasFreeOnly ? "background:var(--rose);" : ""}">
+                  ${hasFreeOnly ? "▶ Continue Preview" : "▶ Continue Reading"}
+                </button>
+                <div style="margin-top:8px">
+                  <a href="${meta.href}" style="font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;">
+                    View All Chapters →
+                  </a>
+                </div>
+              </div>
+            </div>`;
+          })
+          .join("")}</div>${renderAcctDigitalOrderHistory()}`;
+      }
+
+      function renderAcctDigitalOrderHistory() {
+        const purchases = Array.isArray(CH_LIBRARY_PURCHASES)
+          ? CH_LIBRARY_PURCHASES
+          : [];
+        if (!purchases.length) return "";
+
+        return `
+        <section style="margin-top:32px">
+          <div style="margin-bottom:14px">
+            <h3 class="acct-order-title">Order Details &amp; Invoices</h3>
+            <p class="acct-order-sub">Every paid digital chapter or volume, with invoice access.</p>
+          </div>
+          <div style="display:grid;gap:10px">
+            ${purchases
+              .map((purchase) => {
+                const book =
+                  purchase.bookTitle || purchase.bookId?.title || "Untitled";
+                const chapters = (purchase.chapterTitles || []).length
+                  ? purchase.chapterTitles.join(", ")
+                  : (purchase.purchaseType || "book") === "book"
+                    ? "Full digital volume"
+                    : "Selected chapter";
+                const amount = `${purchase.currency || "USD"} ${Number(purchase.amount || 0).toFixed(2)}`;
+                const date = purchase.paidAt || purchase.createdAt;
+                return `
+                  <article class="acct-item" style="grid-template-columns:1fr auto;display:grid;align-items:center">
+                    <div>
+                      <div class="acct-item-info"><h3 class="acct-order-book">${book}</h3></div>
+                      <div class="acct-order-chapters">${chapters}</div>
+                      <div class="acct-order-meta">
+                        ${purchase.invoiceNumber || "Invoice pending"}${date ? " · " + new Date(date).toLocaleString() : ""}
+                      </div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:10px;justify-content:flex-end">
+                      <strong class="acct-order-amount">${amount}</strong>
+                      ${
+                        purchase._id
+                          ? `<button class="btn-gold" style="height:34px;padding:0 12px;font-size:11px" onclick="downloadDigitalInvoice('${purchase._id}')">Invoice</button>`
+                          : ""
+                      }
+                    </div>
+                  </article>`;
+              })
+              .join("")}
+          </div>
+        </section>`;
+      }
+
+      async function downloadDigitalInvoice(purchaseId) {
+        const token = sessionStorage.getItem("ch_token");
+        if (!token) {
+          openAuth();
+          return;
+        }
+        try {
+          const res = await fetch(
+            `${CH_API_URL}/library/purchases/${purchaseId}/invoice.pdf`,
+            {
+              headers: { Authorization: "Bearer " + token },
+            },
+          );
+          if (!res.ok) throw new Error("Could not download invoice.");
+          const blob = await res.blob();
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = `crossed-hearts-invoice-${purchaseId}.pdf`;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+        } catch (err) {
+          showToast(err.message || "Could not download invoice.", "error");
+        }
+      }
+
+      function onAuthChange() {
+        renderAcctDigital();
+        renderAcctPrint();
+        renderAcctSubscription(window.CH_SUBSCRIPTION || null);
+        renderAcctWishlist();
+      }
+
+      // ==================================================
+      // PRINT PURCHASES
+      // ==================================================
+      async function fetchPhysicalOrders() {
+        const token = sessionStorage.getItem("ch_token");
+        if (!token) return [];
+        try {
+          const res = await fetch(`${CH_API_URL}/physical-orders`, {
+            headers: { Authorization: "Bearer " + token },
+          });
+          const data = await res.json();
+          if (!res.ok || data.status !== "success") return [];
+          return data.data?.orders || [];
+        } catch (err) {
+          console.warn("Physical orders unavailable:", err.message || err);
+          return [];
+        }
+      }
+
+      function acctPrintCurrencyFormat(amount, currency) {
+        const value = Number(amount || 0);
+        try {
+          return new Intl.NumberFormat(currency === "INR" ? "en-IN" : "en-US", {
+            style: "currency",
+            currency: currency || "USD",
+            maximumFractionDigits: currency === "INR" ? 0 : 2,
+          }).format(value);
+        } catch (err) {
+          return `${currency || "USD"} ${value.toFixed(2)}`;
+        }
+      }
+
+      function acctPrintStatStrip(orders) {
+        const total = orders.length;
+        const delivered = orders.filter(
+          (o) => (o.status || "").toLowerCase() === "delivered",
+        ).length;
+        const inTransit = orders.filter((o) =>
+          ["shipped", "processing", "pending"].includes(
+            (o.status || "").toLowerCase(),
+          ),
+        ).length;
+
+        return `
+        <div class="print-stat-strip">
+          <div class="print-stat-box"><div class="print-stat-num">${total}</div><div class="print-stat-label">Total orders</div></div>
+          <div class="print-stat-box"><div class="print-stat-num">${inTransit}</div><div class="print-stat-label">In progress</div></div>
+          <div class="print-stat-box"><div class="print-stat-num">${delivered}</div><div class="print-stat-label">Delivered</div></div>
+        </div>`;
+      }
+
+      function acctPrintOrderCard(order) {
+        const items = order.items || [];
+        const status = order.status || "Processing";
+        const statusKey = status.toLowerCase();
+        const statusColor =
+          { delivered: "active", shipped: "active" }[statusKey] || "inactive";
+        const date = order.createdAt || order.paidAt;
+        const total = acctPrintCurrencyFormat(
+          order.totalAmount,
+          order.currency,
+        );
+
+        return `
+        <div class="acct-status-card" style="margin-bottom:14px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">
+            <div>
+              <h3 style="margin-bottom:4px;">${order.orderNumber || "Order"}</h3>
+              <span class="po-date">
+                ${date ? new Date(date).toLocaleDateString() : ""}
+              </span>
+            </div>
+            <span class="acct-badge ${statusColor}">${status}</span>
+          </div>
+
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;">
+            ${items
+              .map(
+                (item) => `
+              <div style="display:flex;gap:12px;align-items:center;">
+                ${
+                  item.coverImageUrl
+                    ? `<img src="${item.coverImageUrl}" alt="${item.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:44px;height:62px;object-fit:cover;border-radius:6px;flex-shrink:0;">`
+                    : ""
+                }
+                <div style="display:${item.coverImageUrl ? "none" : "flex"};width:44px;height:62px;border-radius:6px;background:var(--gold-dim);flex-shrink:0;align-items:center;justify-content:center;">
+                  <i class="ti ti-book" style="color:var(--gold);font-size:18px;"></i>
+                </div>
+                <div style="flex:1;">
+                  <div class="po-title">${item.title}</div>
+                  <div class="po-meta">
+                    ${item.edition || "Standard"} · Qty ${item.quantity || 1}
+                    ${item.isPreorder ? ' · <span style="color:var(--gold);">Preorder</span>' : ""}
+                  </div>
+                </div>
+                <div style="font-size:13px;color:var(--gold);white-space:nowrap;">
+                  ${acctPrintCurrencyFormat((item.unitPrice || 0) * (item.quantity || 1), order.currency)}
+                </div>
+              </div>
+            `,
+              )
+              .join("")}
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--border-s);">
+            <span class="po-tracking">
+              ${order.trackingNumber ? `<i class="ti ti-truck" aria-hidden="true"></i> Tracking: ${order.trackingNumber}` : "Tracking not yet assigned"}
+            </span>
+            <strong style="color:var(--gold);">${total}</strong>
+          </div>
+        </div>
+      `;
+      }
+
+      function acctPrintCartNotice() {
+        const cart = chGetPhysicalCart();
+        const container = document.getElementById("acct-print-cart-notice");
+        if (!container) return;
+        if (!cart.length) {
+          container.innerHTML = "";
+          return;
+        }
+        const itemCount = cart.reduce(
+          (sum, i) => sum + Number(i.quantity || 1),
+          0,
+        );
+        container.innerHTML = `
+        <div class="acct-item" style="background:var(--gold-dim);border-color:var(--border);margin-bottom:16px;">
+          <div class="acct-item-info">
+            <h3>You have ${itemCount} item${itemCount !== 1 ? "s" : ""} waiting in your cart</h3>
+            <span>Complete checkout to place your print order.</span>
+          </div>
+          <div class="acct-item-action">
+            <a href="physical-checkout.html">Go to Checkout</a>
+          </div>
+        </div>
+      `;
+      }
+
+      async function renderAcctPrint() {
+        const container = document.getElementById("acct-print-list");
+        if (!container) return;
+
+        acctPrintCartNotice();
+
+        if (!CH_USER) {
+          container.innerHTML = `
+          <div class="empty-lib">
+            <h3>Sign in to view your print orders</h3>
+            <p>Your physical book orders and tracking will appear here.</p>
+            <button class="btn-gold" onclick="openAuth()">Sign In</button>
+          </div>`;
+          return;
+        }
+
+        container.innerHTML = `<div class="acct-empty">Loading your orders…</div>`;
+        const orders = await fetchPhysicalOrders();
+
+        if (!orders.length) {
+          const lastOrderRaw = sessionStorage.getItem("ch_last_physical_order");
+          if (lastOrderRaw) {
+            try {
+              const lastOrder = JSON.parse(lastOrderRaw);
+              container.innerHTML =
+                acctPrintStatStrip([lastOrder]) + acctPrintOrderCard(lastOrder);
+              return;
+            } catch (err) {
+              // fall through to empty state
+            }
+          }
+          container.innerHTML = `
+          <div class="empty-lib">
+            <h3>No print orders yet</h3>
+            <p>You haven't ordered any physical books yet.</p>
+            <a href="print.html" class="btn-gold">Browse Print Editions →</a>
+          </div>`;
+          return;
+        }
+
+        container.innerHTML =
+          acctPrintStatStrip(orders) + orders.map(acctPrintOrderCard).join("");
+      }
+
+      // ==================================================
+      // WISHLIST
+      // ==================================================
+      function acctWishlistCard(t) {
+        const avg = chGetAverageRating(t.id);
+        const safeTitle = (t.title || "").replace(/'/g, "\\'");
+        return `
+    <article class="wish-card">
+      <button
+        class="wish-remove-btn"
+        aria-label="Remove ${t.title || "title"} from wishlist"
+        title="Remove from wishlist"
+        onclick="chToggleWishlist('${t.id}','${safeTitle}');renderAcctWishlist();"
+      >
+        <i class="ti ti-heart-filled" aria-hidden="true"></i>
+      </button>
+
+      <a class="wish-cover" href="${t.href}">
+        ${
+          t.image
+            ? `<img src="${t.image}" alt="${t.title} Cover" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+               <div class="wish-cover-empty" style="display:none;"><i class="ti ti-book" aria-hidden="true"></i></div>`
+            : `<div class="wish-cover-empty"><i class="ti ti-book" aria-hidden="true"></i></div>`
+        }
+      </a>
+
+      <div class="wish-body">
+        ${t.genre ? `<span class="wish-genre">${t.genre}</span>` : ""}
+        <a class="wish-title" href="${t.href}">${t.title}</a>
+        ${
+          avg
+            ? `<div>${chRenderStars(parseFloat(avg), false)} <span class="wish-rating-num">${avg}</span></div>`
+            : ""
+        }
+        <div class="wish-foot">
+          <span class="wish-price">$${Number(t.price || 0).toFixed(2)}</span>
+          <a class="wish-view-btn" href="${t.href}">View</a>
+        </div>
+      </div>
+    </article>
+  `;
+      }
+      function renderAcctWishlist() {
+        const container = document.getElementById("acct-wishlist-list");
+        const countEl = document.getElementById("acct-wishlist-count");
+        if (!container) return;
+
+        if (!CH_USER) {
+          if (countEl) countEl.textContent = "";
+          container.innerHTML = `
+          <div class="empty-lib">
+            <h3>Sign in to view your Wish List</h3>
+            <p>Titles you save with the heart icon will appear here.</p>
+            <button class="btn-gold" onclick="openAuth()">Sign In</button>
+          </div>`;
+          return;
+        }
+
+        const wishIds = chGetWishlist();
+        if (!wishIds.length) {
+          if (countEl) countEl.textContent = "";
+          container.innerHTML = `
+          <div class="empty-lib">
+            <h3>Your Wish List is empty</h3>
+            <p>Browse titles and tap the heart icon to save them here for later.</p>
+            <a href="alltitles.html" class="btn-gold">Browse All Titles →</a>
+          </div>`;
+          return;
+        }
+
+        const titles = wishIds
+          .map((id) => (window.ALL_TITLES_FLAT || []).find((t) => t.id === id))
+          .filter(Boolean);
+
+        if (countEl) {
+          countEl.textContent = `${titles.length} title${titles.length !== 1 ? "s" : ""} saved`;
+        }
+
+        if (!titles.length) {
+          container.innerHTML = `<div class="acct-empty">Your saved titles could not be found. They may have been removed.</div>`;
+          return;
+        }
+
+        container.innerHTML = `<div class="wish-grid">${titles.map(acctWishlistCard).join("")}</div>`;
+      }
+
+      // ==================================================
+      // SAMPLE DATA — for you to visually check every tab.
+      // Delete this whole block once real login/API data
+      // is wired in; nothing above this line depends on it.
+      // ==================================================
+      CH_USER = { id: "test", name: "Test User", email: "test@test.com" };
+      sessionStorage.setItem("ch_user", JSON.stringify(CH_USER));
+
+      CH_LIB = {
+        "chigaya-v1": ["ch1", "ch2"],
+        "zombie-v1": ["bundle"],
+      };
+      sessionStorage.setItem("ch_lib", JSON.stringify(CH_LIB));
+
+      CH_LIBRARY_PURCHASES = [
+        {
+          bookTitle: "You're Way Too Cheeky, Chigaya-kun! Vol.1",
+          purchaseType: "chapter",
+          chapterTitles: ["Chapter 1", "Chapter 2"],
+          amount: 7.99,
+          currency: "USD",
+          invoiceNumber: "INV-0001",
+          paidAt: new Date().toISOString(),
+        },
+      ];
+      sessionStorage.setItem(
+        "ch_library_purchases",
+        JSON.stringify(CH_LIBRARY_PURCHASES),
+      );
+
+      // PRINT — used as fallback when the API returns no orders
+      const CH_LAST_PHYSICAL_ORDER = {
+        orderNumber: "CH-PRINT-1001",
+        status: "Processing",
+        currency: "USD",
+        totalAmount: 34.99,
+        createdAt: new Date().toISOString(),
+        trackingNumber: "TRK123456789",
+        items: [
+          {
+            title: "You're Way Too Cheeky, Chigaya-kun! Vol.1",
+            edition: "Paperback",
+            quantity: 1,
+            unitPrice: 19.99,
+            coverImageUrl: "Images/Chigaya-vol 1.png",
+            isPreorder: false,
+          },
+          {
+            title: "The Abandoned Villainess Became a Zombie Vol.1",
+            edition: "Paperback",
+            quantity: 1,
+            unitPrice: 15.0,
+            coverImageUrl: "Images/Zombie-vol1.png",
+            isPreorder: false,
+          },
+        ],
+      };
+      sessionStorage.setItem(
+        "ch_last_physical_order",
+        JSON.stringify(CH_LAST_PHYSICAL_ORDER),
+      );
+
+      // SUBSCRIPTION — feeds the member dashboard directly
+      window.CH_SUBSCRIPTION = {
+        plan: "Premium Monthly",
+        active: true,
+        renews: "October 15, 2026",
+        startDate: "2026-01-15",
+        totalCredits: 13,
+        picks: [
+          {
+            month: "Jan 2026",
+            title: "Baroness Goes on Strike",
+            id: "bgos-v1",
+            volume: 1,
+            format: "Manhwa",
+            status: "delivered",
+          },
+          {
+            month: "Feb 2026",
+            title: "From a Knight to a Lady",
+            id: "fktl-v1",
+            volume: 1,
+            format: "Manhwa",
+            status: "delivered",
+          },
+          {
+            month: "Mar 2026",
+            title: null,
+            id: null,
+            volume: null,
+            format: null,
+            status: "carried",
+          },
+          {
+            month: "Apr 2026",
+            title: "The Archduke's Adopted Saint",
+            id: null,
+            volume: 1,
+            format: "Manhwa",
+            status: "pending",
+          },
+          {
+            month: "May 2026",
+            title: null,
+            id: null,
+            volume: null,
+            format: null,
+            status: "open",
+          },
+        ],
+      };
+
+      // WISHLIST — fallback sample titles + fallback ids, in case
+      // all-titles-flat.js hasn't loaded these ids yet, or
+      // chGetWishlist() in script.js isn't returning them for
+      // this sample-data user. REMOVE this whole block once
+      // real login/wishlist data is wired in.
+      window.ALL_TITLES_FLAT = window.ALL_TITLES_FLAT || [];
+      const SAMPLE_WISHLIST_TITLES = [
+        {
+          id: "grenimal-v1",
+          title: "The Executioner of Grenimal Vol.1",
+          genre: "Fantasy · Manga",
+          image: "Images/Grenimal-vol 1.png",
+          price: 6.99,
+          href: "title-grenimal-v1.html",
+        },
+        {
+          id: "matchmaker-v1",
+          title: "The Matchmaker's Fiancé Vol.1",
+          genre: "Romance · Manga",
+          image: "Images/Matchmaker-vol 1.png",
+          price: 6.99,
+          href: "title-matchmaker-v1.html",
+        },
+        {
+          id: "raeliana-v1",
+          title: "Why Raeliana Ended Up at the Duke's Mansion Vol.1",
+          genre: "Isekai · Novel",
+          image: "Images/Whyraeliana-vol1.png",
+          price: 8.99,
+          href: "title-raeliana-v1.html",
+        },
+      ];
+      SAMPLE_WISHLIST_TITLES.forEach((t) => {
+        if (!window.ALL_TITLES_FLAT.some((existing) => existing.id === t.id)) {
+          window.ALL_TITLES_FLAT.push(t);
+        }
+      });
+
+      const CH_WISHLIST = ["grenimal-v1", "matchmaker-v1", "raeliana-v1"];
+      localStorage.setItem("ch_wishlist", JSON.stringify(CH_WISHLIST));
+
+      window.chGetWishlist = function () {
+        return CH_WISHLIST;
+      };
+
+      // ---- SINGLE INITIAL RENDER ----
+      onAuthChange();
+    </script>
+  </body>
+</html>

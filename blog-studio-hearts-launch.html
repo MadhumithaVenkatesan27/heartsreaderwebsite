@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Crossed Hearts to Launch Studio Hearts Live at Anime NYC 2026 | Crossed
+      Hearts Blog
+    </title>
+    <meta
+      name="description"
+      content="Crossed Hearts launches its original-story imprint Studio Hearts and reveals six new licenses live at Anime NYC 2026."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="blog.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <script src="catalog.js" defer></script>
+    <script src="nav-search.js" defer></script>
+  </head>
+  <body>
+    <nav class="nav" id="mainNav">
+      <a class="nav-logo" href="index.html">
+        <img
+          src="Images/logo-dark.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-dark"
+        />
+        <img
+          src="Images/logo-light.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-light"
+        />
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Crossed Hearts</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="series.html">Our Series</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li>
+          <a href="campaigns.html" class="nav-campaign"
+            ><i class="ti ti-heart" aria-hidden="true"></i> Campaign</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a href="account.html" class="btn-nav-ghost">My Account</a>
+        <button
+          class="btn-nav-signin"
+          id="navAuthBtn"
+          data-login-label="Sign In"
+          onclick="handleNavAuth()"
+        >
+          Sign In
+        </button>
+        <button
+          class="btn-nav-register"
+          id="navRegisterBtn"
+          onclick="openAuth('up', { lockMode: true })"
+        >
+          Sign Up
+        </button>
+        <a
+          href="subscription.html"
+          class="btn-nav-subscribe"
+          id="navSubscribeBtn"
+          ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+        >
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          <span class="icon-dark"
+            ><i class="ti ti-moon" aria-hidden="true"></i
+          ></span>
+          <span class="icon-light"
+            ><i class="ti ti-sun" aria-hidden="true"></i
+          ></span>
+        </button>
+        <button
+          class="nav-burger"
+          onclick="toggleMobileNav()"
+          aria-label="Open menu"
+        >
+          <i class="ti ti-menu-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="series.html">Our Series</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a
+        href="campaigns.html"
+        style="color: var(--ch-rose-deep); font-weight: 700"
+        >Campaigns</a
+      >
+      <a
+        href="#"
+        onclick="
+          handleNavAuth();
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileAuthLink"
+        data-login-label="Sign In"
+        >Sign In</a
+      >
+    </div>
+
+    <div class="page-body">
+      <div class="post-back-row">
+        <a href="blog.html" class="post-back">← Back to Blog</a>
+      </div>
+
+      <article>
+        <header class="post-hero">
+          <div class="post-cats">
+            <span class="blog-cat-tag announcement">Announcement</span>
+            <span class="blog-cat-tag">Studio Hearts!</span>
+            <span class="blog-cat-tag">Anime NYC</span>
+          </div>
+          <h1 class="post-title">
+            Crossed Hearts to Launch <em>Studio Hearts</em> and Unveil New
+            Licenses Live at Anime NYC 2026
+          </h1>
+          <p class="post-meta">
+            August 2026 &nbsp;·&nbsp; For Immediate Release
+          </p>
+        </header>
+
+        <div class="post-banner">
+          <div class="post-banner-inner thumb-nyc">
+            <div>
+              <div class="thumb-word" style="font-size: 30px">
+                Inside Crossed Hearts
+              </div>
+              <div class="thumb-sub">From Story to Shelf · Anime NYC 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-body">
+          <p>
+            Crossed Hearts, an up-and-coming publisher of English localizations
+            for manga, manhwa, manhua, and novels, will present its largest
+            showcase to date at Anime NYC 2026, officially launching its new
+            in-house imprint, Studio Hearts, and revealing a wave of new
+            licenses in an exclusive live announcement.
+          </p>
+
+          <div class="event-info-card">
+            <div class="ei-title">
+              Inside Crossed Hearts: From Story to Shelf
+            </div>
+            <div class="event-info-row">
+              <i class="ti ti-calendar-event" aria-hidden="true"></i
+              ><span
+                ><strong>Sunday, August 23, 2026</strong> &nbsp;·&nbsp; 12:30 PM
+                – 1:30 PM</span
+              >
+            </div>
+            <div class="event-info-row">
+              <i class="ti ti-map-pin" aria-hidden="true"></i
+              ><span>Room 1A12–14, Anime NYC 2026</span>
+            </div>
+          </div>
+
+          <p>
+            If you've ever wanted to know what's coming next before anyone else
+            does, this is the panel. Crossed Hearts is pulling back the curtain
+            on its next chapter, and this is where it all breaks first, live and
+            in person, before a single word hits social media.
+          </p>
+
+          <h2>Here's What's Waiting in the Room</h2>
+          <ul>
+            <li>
+              <strong>New titles, named live.</strong> Fresh licenses joining
+              the core Crossed Hearts catalog, revealed for the very first time
+              — hear them named before they're posted anywhere online.
+            </li>
+            <li>
+              <strong>Studio Hearts is officially here.</strong> Crossed Hearts
+              is unveiling its newest imprint, an in-house creative studio built
+              to develop original stories from the ground up. Attendees will be
+              the first in the world to see what it's building.
+            </li>
+            <li>
+              <strong>The real production pipeline, laid bare.</strong> How
+              Crossed Hearts finds and licenses stories from publishers
+              worldwide, then takes them through translation, localization,
+              editorial adaptation, lettering, SFX recreation, webtoon-to-print
+              paneling, and production. This is the process readers never
+              normally see.
+            </li>
+            <li>
+              <strong>A first look at what's ahead.</strong> The upcoming
+              release roadmap, new genres the company is moving into, and the
+              long-term direction of the catalog, straight from the source,
+              months before it's public.
+            </li>
+            <li>
+              <strong>An exclusive Studio Hearts preview.</strong> Early looks
+              at three original titles already in development, plus how creators
+              can pitch their own stories to the studio.
+            </li>
+            <li>
+              <strong>Direct access to the founder.</strong> The session
+              concludes with an open Q&A featuring Niharika Puthamakula (Aurora
+              Aurealis). With no topic off-limits, attendees gain a rare
+              opportunity to ask the company's founder anything and hear
+              directly from the person steering Crossed Hearts into its next
+              chapter.
+            </li>
+          </ul>
+
+          <hr class="post-divider" />
+
+          <h2>New Crossed Hearts Licenses</h2>
+          <p>
+            Headlining the panel is a fresh wave of six new licenses across the
+            core Crossed Hearts line, spanning manhwa romance and manga from
+            COMISMA and Crossed Hearts' Creator Original program. These titles
+            round out the catalog's range, from lighthearted romantic comedy to
+            isekai adventure to quiet, character-driven drama, and mark some of
+            the biggest additions to the lineup this year.
+          </p>
+
+          <div class="license-grid">
+            <div class="license-chip">
+              Welcome to the Rose Manor<span class="lc-format">Manhwa</span>
+            </div>
+            <div class="license-chip">
+              Flirting with the Villain's Dad<span class="lc-format"
+                >Manhwa</span
+              >
+            </div>
+            <div class="license-chip">
+              The Two of Them Can't Be Mobs<span class="lc-format"
+                >Manga · COMISMA</span
+              >
+            </div>
+            <div class="license-chip">
+              Love Beyond the Final Boss: The Hero Party's Quest for Love<span
+                class="lc-format"
+                >Manga · COMISMA</span
+              >
+            </div>
+            <div class="license-chip">
+              Emma and the Eyes that Bid Farewell<span class="lc-format"
+                >Manga · COMISMA</span
+              >
+            </div>
+            <div class="license-chip">
+              Where Sea Meets Shore<span class="lc-format"
+                >Manga · Creator Original</span
+              >
+            </div>
+          </div>
+
+          <h2>Introducing Studio Hearts</h2>
+          <p>
+            The big reveal of the panel: Crossed Hearts is officially launching
+            Studio Hearts, its new in-house imprint dedicated to original
+            storytelling. Rather than acquiring finished work, Studio Hearts
+            builds stories from the ground up, developing new characters,
+            settings, and premises from their earliest stages all the way
+            through to publication. With multiple projects already underway, the
+            studio is ready to pull back the curtain and share character
+            concepts, early art, and sneak peeks with fans well ahead of debut.
+          </p>
+
+          <h3>Studio Hearts' First Wave of Original Titles</h3>
+          <div class="license-grid">
+            <div class="license-chip">
+              Doomsday Requiem With You<span class="lc-format"
+                >Shoujo · Fantasy</span
+              >
+            </div>
+            <div class="license-chip">
+              Chiaroscuro<span class="lc-format">Romance · Fantasy</span>
+            </div>
+            <div class="license-chip">
+              Soul Guiders<span class="lc-format">Shounen · Fantasy</span>
+            </div>
+          </div>
+
+          <hr class="post-divider" />
+
+          <p>
+            Every attendee leaves with a Crossed Hearts gift bag, including a
+            poster, two series guides, five postcards, and a shikishi. The first
+            100 people through the door also receive a free tote bag as a bonus.
+            Seats are limited and given out first-come, first-served, so
+            arriving early means a better chance at a seat and the extra swag.
+          </p>
+          <p>
+            Two panels, plenty of reveals, and a whole lot to discover. Crossed
+            Hearts can't wait to see fans at Anime NYC 2026.
+          </p>
+
+          <h2>About Crossed Hearts</h2>
+          <p>
+            Crossed Hearts is a global publishing house specializing in the
+            English localization and international distribution of Japanese
+            manga, Korean manhwa, Chinese manhua, and Asian novels. We partner
+            with leading Asian publishers and creators to deliver high-quality
+            print and digital editions that stay true to the original vision
+            while reaching readers around the world.
+          </p>
+          <p>
+            Whether you enjoy heartwarming romance, sweeping fantasy,
+            pulse-pounding action, gripping mysteries, chilling horror,
+            heartfelt slice-of-life, or unforgettable Boys' Love and Girls' Love
+            stories, our catalog has something for every reader.
+          </p>
+          <p>
+            Follow
+            <a href="https://x.com/CrossedHearts_X" target="_blank"
+              >@CrossedHearts_X</a
+            >
+            and
+            <a href="https://www.instagram.com/thecrossedhearts" target="_blank"
+              >@TheCrossedHearts</a
+            >
+            for title updates, exciting new licensing announcements, exclusive
+            content, and more!
+          </p>
+          <p style="font-size: 14px; color: var(--muted)">
+            For more details, contact our Publicity Correspondent at
+            <a href="mailto:hello@thecrossedhearts.com"
+              >hello@thecrossedhearts.com</a
+            >.
+          </p>
+
+          <div class="post-cta">
+            <p>
+              Can't make it to Anime NYC? Follow along here for the full recap
+              the moment the panel wraps.
+            </p>
+            <a href="studiohearts.html" class="btn-gold"
+              >Explore Studio Hearts</a
+            >
+          </div>
+        </div>
+      </article>
+
+      <div class="post-share-row">
+        <span>Share this post:</span>
+        <a
+          href="https://x.com/CrossedHearts_X"
+          target="_blank"
+          aria-label="Share on X"
+          ><i class="ti ti-brand-x" aria-hidden="true"></i
+        ></a>
+        <a
+          href="https://www.facebook.com/thecrossedhearts"
+          target="_blank"
+          aria-label="Share on Facebook"
+          ><i class="ti ti-brand-facebook" aria-hidden="true"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/thecrossedhearts"
+          target="_blank"
+          aria-label="Share on Instagram"
+          ><i class="ti ti-brand-instagram" aria-hidden="true"></i
+        ></a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Crossed Hearts</div>
+          <p>
+            English localization of manga, manhwa and Asian novels, across
+            borders, with care.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://discord.com/login?redirect_to=%2Fchannels%2F%40me"
+              target="_blank"
+              aria-label="Discord"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://x.com/CrossedHearts_X"
+              target="_blank"
+              aria-label="X (Twitter)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@CrossedHearts_YT"
+              target="_blank"
+              aria-label="YouTube"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="https://thecrossedhearts.com/">Main Site</a></li>
+            <li><a href="series.html">Our Series</a></li>
+            <li><a href="campaigns.html">Sepcial Edition</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="account.html">My Account</a></li>
+            <li><a onclick="openAuth()">Sign In</a></li>
+            <li><a href="licenser-login.html">Authorised User</a></li>
+            <li><a href="subscription.html">Subscribe</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li>
+              <a href="about-use.html" target="_blank">About Us</a>
+            </li>
+            <li>
+              <a href="contact-us.html" target="_blank">Contact</a>
+            </li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Crossed Hearts. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+    <script src="script.js"></script>
+    <script>
+      renderAuthForm("in");
+      (function () {
+        if (localStorage.getItem("ch-theme") === "light")
+          document.body.classList.add("light-mode");
+      })();
+      function toggleTheme() {
+        const isLight = document.body.classList.toggle("light-mode");
+        localStorage.setItem("ch-theme", isLight ? "light" : "dark");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="clean-urls.js"></script>
+    <meta
+      name="google-site-verification"
+      content="S9T4XiqDMXqg5zsTiZcJUyzM73NeDm0kfFlG9X9nqcA"
+    />
+    <title>About Us | Crossed Hearts</title>
+    <meta
+      name="description"
+      content="Learn about Crossed Hearts — a global publishing house bringing Japanese manga, Korean webcomics, and Asian novels to English readers worldwide."
+    />
+    <link rel="canonical" href="about-us.html" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <script src="catalog.js"></script>
+    <script src="nav-search.js"></script>
+    <style>
+      .about-page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        color: var(--cream);
+        background: var(--ink);
+        font-family: var(--font-b);
+      }
+      /* ── HERO IMAGE RESIZE FIX ── */
+      .about-hero-img {
+        width: 100%;
+        max-height: 420px;
+        object-fit: cover;
+        object-position: center 30%;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        display: block;
+      }
+      @media (max-width: 599px) {
+        .about-hero-img {
+          max-height: 260px;
+        }
+      }
+      .about-intro h1 {
+        font-family: var(--font-d);
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: var(--cream);
+      }
+      .about-intro p {
+        font-family: var(--font-s);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        color: var(--cream-soft);
+      }
+      .genre-highlights {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .genre-highlights li {
+        padding-left: 1rem;
+        border-left: 3px solid var(--gold);
+        color: var(--cream-soft);
+        font-family: var(--font-s);
+      }
+      .about-video {
+        margin: 2.5rem 0;
+      }
+      .about-video-player {
+        width: 100%;
+        border-radius: 12px;
+      }
+      .about-vision h4,
+      .about-mission h4 {
+        font-family: var(--font-d);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--gold);
+      }
+      .about-vision p,
+      .about-mission p {
+        font-family: var(--font-s);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+        color: var(--cream-soft);
+      }
+      .about-tagline {
+        font-family: var(--font-s);
+        font-size: 1.1rem;
+        color: var(--gold);
+      }
+      .mission-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .mission-list li {
+        padding: 1rem;
+        background: var(--ink-card);
+        border: 1px solid var(--border-s);
+        border-radius: 10px;
+        color: var(--cream-soft);
+        font-family: var(--font-s);
+      }
+      .about-programs h2 {
+        font-family: var(--font-d);
+        font-size: 1.8rem;
+        margin: 2.5rem 0 1rem;
+        text-align: center;
+        color: var(--cream);
+      }
+      .programs-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .programs-nav a {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--gold);
+        border-radius: 20px;
+        text-decoration: none;
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-family: var(--font-b);
+        transition: all 0.2s ease;
+      }
+      .programs-nav a:hover {
+        background: var(--gold);
+        color: var(--ink);
+      }
+      /* ── PROGRAM CARD CENTERING FIX ── */
+      .program-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        padding: 1.5rem;
+        background: var(--ink-card);
+        border: 1px solid var(--border-s);
+        border-radius: 12px;
+      }
+      .program-card h3 {
+        font-family: var(--font-d);
+        margin-bottom: 1rem;
+        color: var(--cream);
+      }
+      .program-card img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 10px;
+        margin: 0 auto 1rem;
+        display: block;
+      }
+      .program-btn {
+        display: inline-block;
+        align-self: center;
+        margin-top: 0.5rem;
+        padding: 0.7rem 1.5rem;
+        background: var(--gold);
+        color: var(--ink);
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-family: var(--font-b);
+        transition: background 0.2s ease;
+      }
+      .program-btn:hover {
+        background: var(--gold-lt);
+      }
+
+      /* ── OUR STUNNING RELEASES ── */
+      .releases-scroll {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 20px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+      }
+      .releases-scroll::-webkit-scrollbar {
+        height: 6px;
+      }
+      .releases-scroll::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 3px;
+      }
+      .release-card {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        background: var(--ink-card);
+        border: 1px solid var(--border-s);
+        border-radius: var(--r-lg);
+        overflow: hidden;
+        text-decoration: none;
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .release-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--border);
+        box-shadow: var(--shadow), var(--shadow-g);
+      }
+      .release-card img {
+        width: 100%;
+        aspect-ratio: 6/5;
+        object-fit: cover;
+        object-position: center 25%;
+        display: block;
+      }
+      .release-title {
+        font-family: var(--font-s);
+        font-size: 14px;
+        line-height: 1.35;
+        color: var(--cream);
+        padding: 12px 14px 16px;
+      }
+      @media (max-width: 599px) {
+        .release-card {
+          flex: 0 0 220px;
+        }
+        .release-title {
+          font-size: 12px;
+          padding: 10px 10px 14px;
+        }
+      }
+
+      /* ── CHATBOT (matches index.html) ── */
+      .ch-chip {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        color: rgba(245, 237, 232, 0.8);
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 11px;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      .ch-chip:hover {
+        background: rgba(212, 175, 55, 0.2);
+      }
+      .ch-chip-icon {
+        width: 15px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .ch-chip-icon svg {
+        width: 15px;
+        height: 15px;
+        stroke: #c4647a;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        transition: 0.2s ease;
+      }
+      .ch-chip:hover .ch-chip-icon svg {
+        stroke: #fff;
+        transform: scale(1.05);
+      }
+      .ch-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(212, 175, 55, 0.6);
+        animation: ch-bounce 1.2s infinite ease-in-out;
+        display: inline-block;
+      }
+      .ch-dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .ch-dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      @keyframes ch-bounce {
+        0%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-5px);
+        }
+      }
+      .ch-msg-user {
+        max-width: 88%;
+        font-size: 13px;
+        line-height: 1.55;
+        padding: 9px 13px;
+        border-radius: 14px;
+        border-bottom-right-radius: 4px;
+        background: linear-gradient(135deg, #c4647a, #b84060);
+        color: #fff;
+        align-self: flex-end;
+        word-break: break-word;
+      }
+      .ch-msg-bot {
+        max-width: 95%;
+        font-size: 13px;
+        line-height: 1.6;
+        padding: 10px 13px;
+        border-radius: 14px;
+        border-bottom-left-radius: 4px;
+        background: rgba(255, 255, 255, 0.07);
+        color: #f0e8e3;
+        align-self: flex-start;
+        word-break: break-word;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .ch-msg-bot a {
+        color: #d4af37;
+        text-decoration: underline;
+      }
+      .ch-book-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 12px;
+        padding: 10px;
+        margin-top: 8px;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        text-decoration: none !important;
+        transition: background 0.2s;
+      }
+      .ch-book-card:hover {
+        background: rgba(212, 175, 55, 0.08);
+      }
+      .ch-book-cover {
+        width: 52px;
+        height: 72px;
+        border-radius: 6px;
+        object-fit: cover;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .ch-book-info {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        flex: 1;
+      }
+      .ch-book-title {
+        color: #f5ede8;
+        font-size: 12.5px;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      .ch-book-genre {
+        color: rgba(212, 175, 55, 0.8);
+        font-size: 10px;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+      .ch-book-price {
+        color: #d4af37;
+        font-size: 12px;
+        font-weight: 700;
+        margin-top: 2px;
+      }
+      .ch-read-btn {
+        display: inline-block;
+        margin-top: 5px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #c4647a, #b84060);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 0.3px;
+      }
+      #ch-messages::-webkit-scrollbar {
+        width: 4px;
+      }
+      #ch-messages::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      #ch-messages::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 2px;
+      }
+      .about-releases h2 {
+        font-family: var(--font-d);
+        font-size: 1.8rem;
+        margin: 2.5rem 0 1rem;
+        text-align: center;
+        color: var(--cream);
+      }
+    </style>
+  </head>
+  <body class="page-body">
+    <!-- NAV -->
+    <nav class="nav" id="mainNav">
+      <a class="nav-logo" href="index.html">
+        <img
+          src="Images/logo-dark.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-dark"
+        />
+        <img
+          src="Images/logo-light.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-light"
+        />
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Crossed Hearts</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="series.html">Our Series</a></li>
+        <li>
+          <a href="campaigns.html" class="nav-campaign"
+            ><i class="ti ti-heart" aria-hidden="true"></i> Campaign</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-search-inline" id="navSearchInline" role="search">
+          <input
+            type="text"
+            class="nav-search-inline-input"
+            id="navSearchInlineInput"
+            placeholder="Search..."
+            autocomplete="off"
+            readonly
+            aria-label="Search titles, genres, keywords"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            onclick="openNavSearch()"
+            onfocus="openNavSearch()"
+            onkeydown="if (event.key === 'Enter') openNavSearch();"
+          />
+          <button
+            class="nav-search-inline-btn"
+            id="navSearchInlineBtn"
+            onclick="openNavSearch()"
+            aria-label="Open search"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
+        <a href="account.html" class="btn-nav-ghost">My Account</a>
+        <button
+          class="btn-nav-signin"
+          id="navAuthBtn"
+          data-login-label="Sign In"
+          onclick="handleNavAuth()"
+        >
+          Sign In
+        </button>
+        <button
+          class="btn-nav-register"
+          id="navRegisterBtn"
+          onclick="openAuth('up', { lockMode: true })"
+        >
+          Sign Up
+        </button>
+        <a
+          href="subscription.html"
+          class="btn-nav-subscribe"
+          id="navSubscribeBtn"
+          ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+        >
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          <span class="icon-dark"
+            ><i class="ti ti-moon" aria-hidden="true"></i
+          ></span>
+          <span class="icon-light"
+            ><i class="ti ti-sun" aria-hidden="true"></i
+          ></span>
+        </button>
+        <button
+          class="nav-burger"
+          onclick="toggleMobileNav()"
+          aria-label="Open menu"
+        >
+          <i class="ti ti-menu-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-top">
+        <span
+          style="
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+          "
+          >Menu</span
+        >
+      </div>
+      <a href="index.html">Home</a>
+      <a href="series.html" class="active">Our Series</a>
+      <a href="subscription.html" class="mn-sub"
+        ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+      >
+      <a
+        href="campaigns.html"
+        style="color: var(--ch-rose-deep); font-weight: 700"
+        >Campaigns</a
+      >
+      <a
+        href="#"
+        onclick="
+          handleNavAuth();
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileAuthLink"
+        data-login-label="Sign In"
+        >Sign In</a
+      >
+      <a
+        href="#"
+        onclick="
+          openAuth('up', { lockMode: true });
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileRegisterLink"
+        >Sign Up</a
+      >
+    </div>
+
+    <!-- PAGE HERO -->
+    <header class="page-hero">
+      <span class="eyebrow">Our Story</span>
+      <h1>About <em>Crossed Hearts</em></h1>
+      <p>
+        Crossed Hearts is a global publishing house specializing in the English
+        localization and international distribution of Japanese manga, Korean
+        webcomics, and Asian novels. With a commitment to bringing the finest
+        stories from Asia to readers worldwide, we work directly with leading
+        publishers, creators, and studios to produce high-quality print and
+        digital editions that remain true to the original vision while
+        connecting deeply with global audiences.
+      </p>
+    </header>
+
+    <main class="about-page">
+      <section class="about-hero">
+        <img
+          src="Images/aboutus-banner.png"
+          alt="Crossed Hearts About Us Banner"
+          class="about-hero-img"
+        />
+        <ul class="genre-highlights">
+          <li>
+            <strong
+              >Romance that makes you smile in public (and pretend you're
+              not).</strong
+            >
+          </li>
+          <li>
+            <strong>Fantasy so rich you'll lose yourself in its world.</strong>
+          </li>
+          <li>
+            <strong
+              >Isekai so good you'll check both ways for Truck-kun.</strong
+            >
+          </li>
+          <li>
+            <strong
+              >Mystery that lingers in your mind long after the last
+              page.</strong
+            >
+          </li>
+          <li><strong>Action that keeps your heart pounding.</strong></li>
+        </ul>
+      </section>
+
+      <section class="about-video">
+        <video autoplay muted loop playsinline class="about-video-player">
+          <source src="Videos/OurVision.mp4" type="video/mp4" />
+        </video>
+      </section>
+
+      <section class="about-vision">
+        <h4>Our Vision</h4>
+        <p>
+          Our name, Crossed Hearts, comes from the idea of two hearts finding
+          each other across distance. Like fingers crossed for good luck—in our
+          case, it's hearts crossing borders, languages, and cultures. It's that
+          moment when a story leaves the creator's hands and finds its way to a
+          reader who will treasure it just as deeply.
+        </p>
+        <p>
+          We are a team of over 30 passionate individuals driven by a shared
+          love for storytelling. Spanning multiple time zones, with offices in
+          Dallas, USA, and Bengaluru, India, we work seamlessly to ensure that
+          every title we publish stays true to its original vision while
+          resonating with readers worldwide. For over a year, we've been quietly
+          working behind the scenes, refining translations, perfecting layouts,
+          and crafting every detail to ensure the heart of the original shines
+          through. Soon, you'll get to see and hold the results.
+        </p>
+        <p class="about-tagline">
+          <strong
+            >Our first chapter starts soon, and we can't wait for you to be a
+            part of it!</strong
+          >
+        </p>
+      </section>
+
+      <section class="about-video">
+        <video autoplay muted loop playsinline class="about-video-player">
+          <source src="Videos/OurMission.mp4" type="video/mp4" />
+        </video>
+      </section>
+
+      <section class="about-mission">
+        <h4>Our Mission</h4>
+        <p>
+          We are readers first, publishers second. Our mission is simple: to
+          bring acclaimed Korean webcomics, Japanese manga, and Asian novels to
+          English-speaking readers worldwide, while preserving the soul of the
+          original. Every panel, every line, every quiet pause is carried over
+          with care, because we know the smallest details hold the greatest
+          magic.
+        </p>
+        <ul class="mission-list">
+          <li>
+            <strong>Authentic Localization:</strong> Cultural essence stays
+            intact, so you feel the story exactly as it was meant to be felt. If
+            a joke lands in Seoul or Tokyo, it should land in Seattle or
+            Toronto.
+          </li>
+          <li>
+            <strong>Passion-Driven Curation:</strong> We handpick stories worth
+            treasuring, introducing you to worlds and characters you never knew
+            you needed.
+          </li>
+          <li>
+            <strong>True to the Original:</strong> We work side-by-side with
+            creators to preserve their vision, voice, and emotional heartbeat.
+          </li>
+        </ul>
+      </section>
+
+      <!-- OUR STUNNING RELEASES -->
+      <section class="about-releases">
+        <h2>Our Stunning Releases</h2>
+        <div class="releases-scroll">
+          <a
+            href="baroness-goes-on-strike.html"
+            class="title-card release-card"
+          >
+            <img src="Images/BGOS-banner.png" alt="Baroness Goes On Strike" />
+            <span class="release-title">Baroness Goes On Strike</span>
+          </a>
+
+          <a
+            href="from-a-knight-to-a-lady.html"
+            class="title-card release-card"
+          >
+            <img src="Images/FKTL-banner.png" alt="From a Knight to a Lady" />
+            <span class="release-title">From a Knight to a Lady</span>
+          </a>
+
+          <a
+            href="archdukes-adopted-saint.html"
+            class="title-card release-card"
+          >
+            <img src="Images/TAAS-banner.png" alt="Archduke's Adopted Saint" />
+            <span class="release-title">Archduke's Adopted Saint</span>
+          </a>
+
+          <a href="chigaya.html" class="title-card release-card">
+            <img
+              src="Images/Chigaya-banner.png"
+              alt="You're Way Too Cheeky, Chigaya-kun!"
+            />
+            <span class="release-title"
+              >You're Way Too Cheeky, Chigaya-kun!</span
+            >
+          </a>
+
+          <a href="abandonedvillainess.html" class="title-card release-card">
+            <img
+              src="Images/Zombie-banner.png"
+              alt="The Abandoned Villainess Became a Zombie"
+            />
+            <span class="release-title">The Abandoned Villainess</span>
+          </a>
+
+          <a href="whyraeliana.html" class="title-card release-card">
+            <img
+              src="Images/Whyraeliana-banner.png"
+              alt="Why Raeliana Ended Up at the Duke's Mansion"
+            />
+            <span class="release-title">Why Raeliana Ended</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Our Programs -->
+      <section class="about-programs">
+        <h2>Our Programs</h2>
+        <nav class="programs-nav">
+          <a href="#collectors-circle">Collector's Circle</a>
+          <a href="#creator-ambassador">Content Creator Ambassador Program</a>
+          <a href="#retailer-partnership">Retailer Partnership Program</a>
+          <a href="#university-affiliate">University Affiliate Program</a>
+          <a href="#university-ambassador">University Ambassador Program</a>
+        </nav>
+
+        <div class="program-card" id="collectors-circle">
+          <h3>Collectors Circle</h3>
+          <img
+            src="Images/CollectorCircle-banner.png"
+            alt="Collectors Circle"
+          />
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSc7NJLm3F68DA5NwNA3F-LuVivpYJNV_n3btDtFqwSQgUw3UQ/viewform"
+            class="program-btn"
+            target="_blank"
+            rel="noopener"
+            >Join the Collectors Circle</a
+          >
+        </div>
+
+        <div class="program-card" id="creator-ambassador">
+          <h3>Content Creator Ambassador Program</h3>
+          <img
+            src="Images/ContentCreator-banner.png"
+            alt="Content Creator Ambassador Program"
+          />
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdDczyq2rFSVRtt2qCSsvVPMRMj1KSe4d-M5h89D4Eyi0twlQ/viewform"
+            class="program-btn"
+            target="_blank"
+            rel="noopener"
+            >Join the Content Creator Ambassador Program</a
+          >
+        </div>
+
+        <div class="program-card" id="retailer-partnership">
+          <h3>Retailer Partnership Program</h3>
+          <img
+            src="Images/Retail-banner.png"
+            alt="Retailer Partnership Program"
+          />
+          <a
+            href="http://docs.google.com/forms/d/e/1FAIpQLSf2Xe0kH9J2cz5g8ts1CXiQxT4oUkONHSbqnnUhfwdXboKshg/viewform"
+            class="program-btn"
+            target="_blank"
+            rel="noopener"
+            >Join the Retailer Partnership Program</a
+          >
+        </div>
+
+        <div class="program-card" id="university-affiliate">
+          <h3>University Affiliate Program</h3>
+          <img
+            src="Images/University-banner.png"
+            alt="University Affiliate Program"
+          />
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScDFz1lS8I1zETpWtXOcdmRSvpy3Q1QDkfbHf_35WvQOntVMw/viewform"
+            class="program-btn"
+            target="_blank"
+            rel="noopener"
+            >Join the University Affiliate Program</a
+          >
+        </div>
+
+        <div class="program-card" id="university-ambassador">
+          <h3>University Ambassador Program</h3>
+          <img
+            src="Images/UniversityAmbassador-banner.png"
+            alt="University Ambassador Program"
+          />
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSf2Xe0kH9J2cz5g8ts1CXiQxT4oUkONHSbqnnUhfwdXboKshg/viewform"
+            class="program-btn"
+            target="_blank"
+            rel="noopener"
+            >Join the University Ambassador Program</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- NAV SEARCH OVERLAY -->
+    <div
+      class="nav-search-overlay"
+      id="navSearchOverlay"
+      onclick="closeNavSearchIfBg(event)"
+      aria-hidden="true"
+    >
+      <div
+        class="nav-search-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Search"
+      >
+        <button
+          class="nav-search-close"
+          onclick="closeNavSearch()"
+          aria-label="Close search"
+        >
+          &#10005;
+        </button>
+        <div class="nav-search-inner" id="navSiteSearchBar">
+          <span class="nav-search-icon">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            class="nav-search-input"
+            id="navSearchInput"
+            placeholder="Search titles, genres, keywords..."
+            oninput="navLiveSearch(this.value)"
+            onkeydown="if (event.key === 'Enter') navDoSearch();"
+            autocomplete="off"
+          />
+          <button
+            class="nav-search-clear"
+            id="navSearchClear"
+            onclick="navClearSearch()"
+            style="display: none"
+          >
+            &#10005;
+          </button>
+          <button class="nav-search-submit" onclick="navDoSearch()">
+            Search
+          </button>
+        </div>
+        <div class="nav-genres-panel" id="navGenresPanel">
+          <div class="nav-genres-label">Genres</div>
+          <div
+            class="nav-genres-grid"
+            id="navGenresGrid"
+            role="group"
+            aria-label="Browse by genre"
+          ></div>
+          <button
+            class="nav-genres-more"
+            id="navGenresMoreBtn"
+            onclick="navToggleGenres()"
+            aria-expanded="false"
+          >
+            See more
+          </button>
+        </div>
+        <div class="nav-search-suggestions" id="navSearchSuggestions"></div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Crossed Hearts</div>
+          <p>
+            English localization of manga, manhwa and Asian novels, across
+            borders, with care.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://discord.com/login?redirect_to=%2Fchannels%2F%40me"
+              target="_blank"
+              aria-label="Discord"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://x.com/CrossedHearts_X"
+              target="_blank"
+              aria-label="X (Twitter)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@CrossedHearts_YT"
+              target="_blank"
+              aria-label="YouTube"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="https://thecrossedhearts.com/">Main Site</a></li>
+            <li><a href="series.html">Our Series</a></li>
+            <li><a href="campaigns.html">Sepcial Edition</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="account.html">My Account</a></li>
+            <li><a onclick="openAuth()">Sign In</a></li>
+            <li><a href="licenser-login.html">Authorised User</a></li>
+            <li><a href="subscription.html">Subscribe</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li>
+              <a href="about-use.html" target="_blank">About Us</a>
+            </li>
+            <li>
+              <a href="contact-us.html" target="_blank">Contact</a>
+            </li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Crossed Hearts. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- AUTH MODAL -->
+    <div class="modal-overlay" id="authOverlay" onclick="closeAuthIfBg(event)">
+      <div class="modal">
+        <button class="modal-x" onclick="closeAuth()" aria-label="Close">
+          <i class="ti ti-x" aria-hidden="true"></i>
+        </button>
+        <div class="modal-title">Welcome Back</div>
+        <div class="modal-sub">Sign in to access your digital library</div>
+        <div class="auth-tabs">
+          <div class="auth-tabs">
+            <button class="atab active" onclick="switchAuth('in', this)">
+              Sign In
+            </button>
+            <button class="atab" onclick="switchAuth('up', this)">
+              Sign Up
+            </button>
+          </div>
+        </div>
+        <div id="authBody"></div>
+      </div>
+    </div>
+
+    <!-- HELP CONTACT MODAL -->
+    <div
+      class="modal-overlay"
+      id="helpContactOverlay"
+      onclick="closeHelpContactIfBg(event)"
+    >
+      <div class="modal" style="max-width: 440px">
+        <button class="modal-x" onclick="closeHelpContact()" aria-label="Close">
+          <i class="ti ti-x" aria-hidden="true"></i>
+        </button>
+        <div class="modal-title">Contact Support</div>
+        <div class="modal-sub" id="helpContactSub">
+          We'll get back to you within 24 hours
+        </div>
+        <form
+          id="helpContactForm"
+          onsubmit="submitHelpContact(event)"
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+          "
+        >
+          <select
+            id="hcCategory"
+            required
+            style="
+              padding: 11px 13px;
+              border-radius: 10px;
+              background: rgba(255, 255, 255, 0.06);
+              border: 1px solid rgba(255, 255, 255, 0.12);
+              color: #f5ede8;
+              font-family: &quot;DM Sans&quot;, sans-serif;
+              font-size: 13px;
+            "
+          >
+            <option value="">Select a category…</option>
+            <option value="Reading Issues">Reading Issues</option>
+            <option value="Payments & Refunds">Payments & Refunds</option>
+            <option value="Physical Orders">Physical Orders</option>
+            <option value="Account & Login">Account & Login</option>
+            <option value="Digital Library">Digital Library</option>
+            <option value="Technical Issues">Technical Issues</option>
+            <option value="General">General / Other</option>
+          </select>
+          <input
+            type="text"
+            id="hcName"
+            placeholder="Your name"
+            required
+            style="
+              padding: 11px 13px;
+              border-radius: 10px;
+              background: rgba(255, 255, 255, 0.06);
+              border: 1px solid rgba(255, 255, 255, 0.12);
+              color: #f5ede8;
+              font-family: &quot;DM Sans&quot;, sans-serif;
+              font-size: 13px;
+            "
+          />
+          <input
+            type="email"
+            id="hcEmail"
+            placeholder="Your email"
+            required
+            style="
+              padding: 11px 13px;
+              border-radius: 10px;
+              background: rgba(255, 255, 255, 0.06);
+              border: 1px solid rgba(255, 255, 255, 0.12);
+              color: #f5ede8;
+              font-family: &quot;DM Sans&quot;, sans-serif;
+              font-size: 13px;
+            "
+          />
+          <textarea
+            id="hcMessage"
+            rows="4"
+            placeholder="Tell us what's going on…"
+            required
+            style="
+              padding: 11px 13px;
+              border-radius: 10px;
+              background: rgba(255, 255, 255, 0.06);
+              border: 1px solid rgba(255, 255, 255, 0.12);
+              color: #f5ede8;
+              font-family: &quot;DM Sans&quot;, sans-serif;
+              font-size: 13px;
+              resize: vertical;
+            "
+          ></textarea>
+          <button type="submit" class="btn-gold" style="margin-top: 4px">
+            Send Message
+          </button>
+          <div
+            id="hcStatus"
+            style="
+              font-size: 12px;
+              text-align: center;
+              color: rgba(245, 237, 232, 0.6);
+            "
+          ></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- NAV SEARCH OVERLAY -->
+    <div
+      class="nav-search-overlay"
+      id="navSearchOverlay"
+      onclick="closeNavSearchIfBg(event)"
+      aria-hidden="true"
+    >
+      <div
+        class="nav-search-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Search"
+      >
+        <button
+          class="nav-search-close"
+          onclick="closeNavSearch()"
+          aria-label="Close search"
+        >
+          &#10005;
+        </button>
+        <div class="nav-search-inner" id="navSiteSearchBar">
+          <span class="nav-search-icon">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            class="nav-search-input"
+            id="navSearchInput"
+            placeholder="Search titles, genres, keywords..."
+            oninput="navLiveSearch(this.value)"
+            onkeydown="if (event.key === 'Enter') navDoSearch();"
+            autocomplete="off"
+          />
+          <button
+            class="nav-search-clear"
+            id="navSearchClear"
+            onclick="navClearSearch()"
+            style="display: none"
+          >
+            &#10005;
+          </button>
+          <button class="nav-search-submit" onclick="navDoSearch()">
+            Search
+          </button>
+        </div>
+        <div class="nav-genres-panel" id="navGenresPanel">
+          <div class="nav-genres-label">Genres</div>
+          <div
+            class="nav-genres-grid"
+            id="navGenresGrid"
+            role="group"
+            aria-label="Browse by genre"
+          ></div>
+          <button
+            class="nav-genres-more"
+            id="navGenresMoreBtn"
+            onclick="navToggleGenres()"
+            aria-expanded="false"
+          >
+            See more
+          </button>
+        </div>
+        <div class="nav-search-suggestions" id="navSearchSuggestions"></div>
+      </div>
+    </div>
+
+    <!-- CHATBOT BUBBLE -->
+    <button
+      id="ch-chat-btn"
+      onclick="chChatOpen()"
+      aria-label="Open chat assistant"
+      style="
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        z-index: 9000;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #c4647a, #b84060);
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease;
+      "
+      onmouseenter="this.style.transform = 'scale(1.1)'"
+      onmouseleave="this.style.transform = 'scale(1)'"
+    >
+      <i
+        class="ti ti-message-circle"
+        style="font-size: 24px; color: #fff"
+        aria-hidden="true"
+      ></i>
+    </button>
+
+    <!-- CHAT PANEL -->
+    <div
+      id="ch-chat-panel"
+      style="
+        display: none;
+        position: fixed;
+        bottom: 96px;
+        right: 28px;
+        z-index: 9000;
+        width: 360px;
+        max-width: calc(100vw - 40px);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        font-family: &quot;DM Sans&quot;, sans-serif;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        flex-direction: column;
+      "
+    >
+      <div
+        style="
+          background: linear-gradient(135deg, #1e0a12, #3d1420);
+          padding: 16px 18px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          flex-shrink: 0;
+        "
+      >
+        <div
+          style="
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c4647a, #b84060);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          "
+        >
+          <i
+            class="ti ti-heart"
+            style="font-size: 18px; color: #fff"
+            aria-hidden="true"
+          ></i>
+        </div>
+        <div style="flex: 1">
+          <div style="color: #f5ede8; font-weight: 600; font-size: 14px">
+            Crossed Hearts Assistant
+          </div>
+          <div
+            style="
+              color: rgba(245, 237, 232, 0.5);
+              font-size: 11px;
+              letter-spacing: 0.4px;
+            "
+          >
+            Reading guide &amp; support
+          </div>
+        </div>
+        <button
+          onclick="chChatClose()"
+          aria-label="Close chat"
+          style="
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            cursor: pointer;
+            color: rgba(245, 237, 232, 0.7);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <i class="ti ti-x" style="font-size: 16px" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div
+        id="ch-chips"
+        style="
+          background: #0e0409;
+          padding: 12px 12px 8px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          flex-shrink: 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        "
+      >
+        <button class="ch-chip" onclick="chSend('Recommend something for me')">
+          <span class="ch-chip-icon"
+            ><svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 3L14.8 8.6L21 9.5L16.5 13.8L17.6 20L12 17L6.4 20L7.5 13.8L3 9.5L9.2 8.6L12 3Z"
+              />
+            </svg>
+          </span>
+          Recommend
+        </button>
+        <button class="ch-chip" onclick="chSend('What genres do you have?')">
+          <span class="ch-chip-icon"
+            ><svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 4H19V20H5V4Z" />
+              <path d="M9 8H15" />
+              <path d="M9 12H15" />
+              <path d="M9 16H13" />
+            </svg>
+          </span>
+          Genres
+        </button>
+        <button class="ch-chip" onclick="chSend('How does purchasing work?')">
+          <span class="ch-chip-icon"
+            ><svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 7H21V17H3V7Z" />
+              <path d="M3 10H21" />
+              <circle cx="17" cy="14" r="1" />
+            </svg>
+          </span>
+          Purchasing
+        </button>
+        <button
+          class="ch-chip"
+          onclick="chSend('Tell me about print editions')"
+        >
+          <span class="ch-chip-icon"
+            ><svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 8V4H17V8" />
+              <path d="M6 18H18V14H6V18Z" />
+              <path d="M5 8H19V14H5V8Z" />
+            </svg>
+          </span>
+          Print
+        </button>
+        <button class="ch-chip" onclick="chSend('What is My Library?')">
+          <span class="ch-chip-icon"
+            ><svg viewBox="0 0 24 24" fill="none">
+              <path d="M6 4H18V20H6V4Z" />
+              <path d="M9 4V20" />
+            </svg>
+          </span>
+          My Library
+        </button>
+        <button class="ch-chip" onclick="chSend('Show me fantasy titles')">
+          <span class="ch-chip-icon"
+            ><svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 3L13.8 8.2L19 10L13.8 11.8L12 17L10.2 11.8L5 10L10.2 8.2L12 3Z"
+              />
+            </svg>
+          </span>
+          Fantasy
+        </button>
+        <button class="ch-chip" onclick="chSend('Show me romance titles')">
+          <span class="ch-chip-icon"
+            ><svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 20C12 20 5 15.5 5 10.2C5 7.3 7.1 5 9.8 5C11.2 5 12 6 12 6C12 6 12.8 5 14.2 5C16.9 5 19 7.3 19 10.2C19 15.5 12 20 12 20Z"
+              />
+            </svg>
+          </span>
+          Romance
+        </button>
+        <button class="ch-chip" onclick="chShowHelpMenu()">
+          <span class="ch-chip-icon"
+            ><svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5" />
+              <circle cx="12" cy="16.5" r="0.5" fill="currentColor" />
+            </svg>
+          </span>
+          Help & Support
+        </button>
+      </div>
+
+      <div
+        id="ch-messages"
+        style="
+          background: #0e0409;
+          height: 320px;
+          overflow-y: auto;
+          padding: 14px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          scroll-behavior: smooth;
+          flex-shrink: 0;
+        "
+      ></div>
+
+      <div
+        id="ch-typing"
+        style="
+          display: none;
+          background: #0e0409;
+          padding: 4px 14px 8px;
+          flex-shrink: 0;
+        "
+      >
+        <div
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 8px 12px;
+          "
+        >
+          <span class="ch-dot"></span><span class="ch-dot"></span
+          ><span class="ch-dot"></span>
+        </div>
+      </div>
+
+      <div
+        style="
+          background: #150710;
+          padding: 12px 14px;
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          border-top: 1px solid rgba(255, 255, 255, 0.07);
+          flex-shrink: 0;
+        "
+      >
+        <input
+          id="ch-input"
+          type="text"
+          placeholder="Ask me anything…"
+          onkeydown="if (event.key === 'Enter') chSend();"
+          style="
+            flex: 1;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 9px 13px;
+            color: #f5ede8;
+            font-size: 13px;
+            font-family: &quot;DM Sans&quot;, sans-serif;
+            outline: none;
+          "
+        />
+        <button
+          onclick="chSend()"
+          aria-label="Send message"
+          style="
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #c4647a, #b84060);
+            border: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <i
+            class="ti ti-send"
+            style="font-size: 16px; color: #fff"
+            aria-hidden="true"
+          ></i>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      window.CH_API_URL = [
+        "thecrossedhearts.com",
+        "www.thecrossedhearts.com",
+      ].includes(window.location.hostname)
+        ? "https://crossed-hearts-final.onrender.com/api"
+        : window.location.hostname === "crossed-hearts.onrender.com"
+          ? "https://crossed-hearts-final.onrender.com/api"
+          : ["localhost", "127.0.0.1", ""].includes(window.location.hostname) ||
+              window.location.protocol === "file:"
+            ? "http://localhost:5000/api"
+            : "https://crossed-hearts-final.onrender.com/api";
+    </script>
+    <script src="script.js"></script>
+    <script>
+      renderAuthForm("in");
+
+      (function () {
+        if (localStorage.getItem("ch-theme") === "light") {
+          document.body.classList.add("light-mode");
+        }
+      })();
+
+      function toggleTheme() {
+        const isLight = document.body.classList.toggle("light-mode");
+        localStorage.setItem("ch-theme", isLight ? "light" : "dark");
+      }
+
+      if (window.location.hash === "#licenser") {
+        window.addEventListener("DOMContentLoaded", () => openLicenserAuth());
+      }
+    </script>
+
+    <script>
+      const CH_BOOKS = [
+        {
+          id: "chigaya",
+          name: "You're Way Too Cheeky, Chigaya-kun!",
+          cat: "Manga",
+          genre: "Romance · School Life · Shoujo",
+          tags: ["romance", "school", "shoujo", "sweet", "cute", "school life"],
+          image: "Images/Chigaya-vol 1.png",
+          href: "chigaya.html",
+          price: 7.99,
+          vols: 2,
+          desc: "A swoony school romance — Chigaya is dangerously charming and impossible to ignore.",
+        },
+        {
+          id: "grenimal",
+          name: "The Executioner of Grenimal",
+          cat: "Manga",
+          genre: "Action · Fantasy · Mystery",
+          tags: [
+            "action",
+            "fantasy",
+            "mystery",
+            "dark",
+            "adventure",
+            "strong lead",
+          ],
+          image: "Images/Grenimal-vol 1.png",
+          href: "executioner.html",
+          price: 7.99,
+          vols: 2,
+          desc: "In a kingdom of shadows, one executioner carries secrets that could topple a throne.",
+        },
+        {
+          id: "matchmaker",
+          name: "The Matchmaker's Fiancé",
+          cat: "Manga",
+          genre: "Romance · Fantasy · Comedy",
+          tags: ["romance", "fantasy", "comedy", "funny", "light", "cute"],
+          image: "Images/Matchmaker-vol 1.png",
+          href: "matchmaker.html",
+          price: 6.99,
+          vols: 1,
+          desc: "She arranges love for everyone else — so why is she now engaged to the most infuriating man at court?",
+        },
+        {
+          id: "connie",
+          name: "All-Rounder Maid Connie Wille",
+          cat: "Manga",
+          genre: "Romance · Fantasy · Josei",
+          tags: [
+            "romance",
+            "fantasy",
+            "josei",
+            "maid",
+            "action",
+            "strong heroine",
+          ],
+          image: "Images/Connie-vol 1.png",
+          href: "allrounder.html",
+          price: 6.99,
+          vols: 2,
+          desc: "She can cook, fight, and spy — falling for her lord was never in the job description.",
+        },
+        {
+          id: "octopiece",
+          name: "Octopiece",
+          cat: "Manga",
+          genre: "Action · Fantasy · Adventure · Supernatural",
+          tags: [
+            "action",
+            "fantasy",
+            "adventure",
+            "supernatural",
+            "dark fantasy",
+            "military",
+          ],
+          image: "Images/Octopiece-vol1.png",
+          href: "octopiece.html",
+          price: 2.99,
+          vols: 1,
+          desc: "A soldier and a mysterious wandering boy are drawn into a story that blurs conviction and madness.",
+        },
+        {
+          id: "borrowing",
+          name: "Borrowing Your Textbook 175160",
+          cat: "Glam Beat",
+          genre: "Yuri · Romance · School Life",
+          tags: [
+            "yuri",
+            "romance",
+            "school",
+            "cute",
+            "sweet",
+            "gl",
+            "girls love",
+          ],
+          image: "Images/Borrowing.png",
+          href: "borrowing.html",
+          price: 6.99,
+          vols: 1,
+          desc: "A quiet yuri romance that blooms over borrowed books and stolen glances.",
+        },
+        {
+          id: "timecloset",
+          name: "Time is a Closet",
+          cat: "Glam Beat",
+          genre: "Fantasy · Yuri · Mystery",
+          tags: [
+            "yuri",
+            "fantasy",
+            "mystery",
+            "supernatural",
+            "gl",
+            "girls love",
+            "time",
+          ],
+          image: "Images/Time-ch1.png",
+          href: "timeisa.html",
+          price: 6.99,
+          vols: 1,
+          desc: "A time-bending supernatural mystery with a tender yuri heart.",
+        },
+        {
+          id: "afternoontea",
+          name: "Afternoon Tea for Two",
+          cat: "Glam Beat",
+          genre: "Slice-of-Life · Yuri",
+          tags: [
+            "yuri",
+            "slice of life",
+            "cozy",
+            "relaxing",
+            "sweet",
+            "gl",
+            "girls love",
+            "soft",
+          ],
+          image: "Images/Afternoon-ch1.png",
+          href: "afternoon.html",
+          price: 6.99,
+          vols: 1,
+          desc: "Gentle and warm — two women finding their way to each other over afternoon tea.",
+        },
+        {
+          id: "zombie",
+          name: "The Abandoned Villainess Became a Zombie",
+          cat: "Novel",
+          genre: "Fantasy · Comedy · Horror",
+          tags: [
+            "fantasy",
+            "comedy",
+            "horror",
+            "villainess",
+            "funny",
+            "isekai",
+            "dark comedy",
+          ],
+          image: "Images/Zombie-vol1.png",
+          href: "abandonedvillainess.html",
+          price: 9.99,
+          vols: 2,
+          desc: "Betrayed and left for dead, she came back undead, fabulous, and impossible to kill.",
+        },
+        {
+          id: "raeliana",
+          name: "Why Raeliana Ended Up at the Duke's Mansion",
+          cat: "Novel",
+          genre: "Romance · Fantasy",
+          tags: [
+            "romance",
+            "fantasy",
+            "isekai",
+            "duke",
+            "reincarnation",
+            "slow burn",
+          ],
+          image: "Images/Whyraeliana-vol1.png",
+          href: "whyraeliana.html",
+          price: 9.99,
+          vols: 2,
+          desc: "A reincarnated woman strikes a dangerous deal with an ice-cold duke.",
+        },
+      ];
+
+      const CH_INTENTS = [
+        {
+          match: (w) =>
+            has(w, [
+              "recommend",
+              "suggest",
+              "what should",
+              "help me find",
+              "find me",
+              "not sure",
+              "don't know",
+              "dont know",
+              "pick",
+              "choose",
+              "something good",
+              "what to read",
+            ]),
+          reply: "recommend_general",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "romance",
+              "romantic",
+              "love story",
+              "love stories",
+              "love",
+            ]),
+          reply: "genre",
+          genre: "romance",
+        },
+        {
+          match: (w) =>
+            has(w, ["fantasy", "magic", "kingdom", "isekai", "another world"]),
+          reply: "genre",
+          genre: "fantasy",
+        },
+        {
+          match: (w) => has(w, ["action", "adventure", "fight", "battle"]),
+          reply: "genre",
+          genre: "action",
+        },
+        {
+          match: (w) => has(w, ["mystery", "thriller", "suspense", "intrigue"]),
+          reply: "genre",
+          genre: "mystery",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "comedy",
+              "funny",
+              "hilarious",
+              "humor",
+              "humour",
+              "lighthearted",
+              "light hearted",
+            ]),
+          reply: "genre",
+          genre: "comedy",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "yuri",
+              "girls love",
+              "gl",
+              "lesbian",
+              "women loving",
+              "glam beat",
+              "glambeat",
+            ]),
+          reply: "imprint_glambeat",
+        },
+        {
+          match: (w) =>
+            has(w, ["bl", "boys love", "yaoi", "blush club", "blushclub"]),
+          reply: "imprint_blushclub",
+        },
+        {
+          match: (w) =>
+            has(w, ["school", "academy", "student", "classroom", "dorm"]),
+          reply: "genre",
+          genre: "school",
+        },
+        {
+          match: (w) =>
+            has(w, ["historical", "period", "ancient", "samurai", "feudal"]),
+          reply: "genre",
+          genre: "historical",
+        },
+        {
+          match: (w) => has(w, ["horror", "scary", "dark", "creepy", "spooky"]),
+          reply: "genre",
+          genre: "horror",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "slow burn",
+              "slow-burn",
+              "slowburn",
+              "patient",
+              "build up",
+            ]),
+          reply: "genre",
+          genre: "slow burn",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "cozy",
+              "cosy",
+              "relaxing",
+              "wholesome",
+              "fluffy",
+              "soft",
+              "warm",
+            ]),
+          reply: "genre",
+          genre: "cozy",
+        },
+        {
+          match: (w) => has(w, ["manga", "manhwa"]),
+          reply: "cat",
+          cat: "Manga",
+        },
+        {
+          match: (w) => has(w, ["novel", "light novel", "book"]),
+          reply: "cat",
+          cat: "Novel",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "genre",
+              "type",
+              "category",
+              "categories",
+              "what do you have",
+              "what genres",
+            ]),
+          reply: "genres_list",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "purchase",
+              "buy",
+              "pay",
+              "payment",
+              "how to buy",
+              "how do i buy",
+              "checkout",
+              "cost",
+              "pricing",
+              "price",
+            ]),
+          reply: "faq_purchase",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "my library",
+              "library",
+              "purchased",
+              "access",
+              "where",
+              "find my",
+              "find my book",
+            ]),
+          reply: "faq_library",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "print",
+              "physical",
+              "hardcopy",
+              "paperback",
+              "hard copy",
+              "printed",
+            ]),
+          reply: "faq_print",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "kickstarter",
+              "campaign",
+              "crowdfund",
+              "collector",
+              "special edition",
+            ]),
+          reply: "faq_kickstarter",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "account",
+              "sign in",
+              "login",
+              "sign up",
+              "register",
+              "create account",
+            ]),
+          reply: "faq_account",
+        },
+        {
+          match: (w) => has(w, ["chapter", "volume", "how many", "volumes"]),
+          reply: "faq_volumes",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "hi",
+              "hello",
+              "hey",
+              "hiya",
+              "sup",
+              "good morning",
+              "good evening",
+              "howdy",
+            ]),
+          reply: "greeting",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "thank",
+              "thanks",
+              "thank you",
+              "cheers",
+              "great",
+              "awesome",
+              "perfect",
+            ]),
+          reply: "thanks",
+        },
+        {
+          match: (w) =>
+            has(w, [
+              "all titles",
+              "everything",
+              "full list",
+              "show all",
+              "list all",
+              "show me all",
+            ]),
+          reply: "all_titles",
+        },
+      ];
+
+      function has(words, keywords) {
+        return keywords.some(
+          (k) => words.includes(k) || words.join(" ").includes(k),
+        );
+      }
+
+      function bookCard(b) {
+        return `<a class="ch-book-card" href="${b.href}">
+          <img class="ch-book-cover" src="${b.image}" alt="${b.name}" onerror="this.style.background='rgba(212,175,55,0.1)'">
+          <div class="ch-book-info">
+            <div class="ch-book-genre">${b.cat} · ${b.genre.split("·")[0].trim()}</div>
+            <div class="ch-book-title">${b.name}</div>
+            <div style="color:rgba(240,232,227,0.65);font-size:11px;line-height:1.4;margin-top:2px;">${b.desc}</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+              <span class="ch-book-price">From $${b.price.toFixed(2)}</span>
+              <span class="ch-read-btn">Read More →</span>
+            </div>
+          </div>
+        </a>`;
+      }
+
+      function wrap(text, cards) {
+        return `<div>${text}${cards ? cards : ""}</div>`;
+      }
+
+      function replyGreeting() {
+        return wrap(
+          "Hi there! Welcome to Crossed Hearts. I can help you find your next favourite read from our manga, novels, Glam Beat, and Blush Club catalogue — or answer any questions about purchasing, My Library, and more. What are you looking for today?",
+        );
+      }
+      function replyThanks() {
+        return wrap(
+          "Happy to help! Feel free to ask anytime — whether you need more recommendations or have questions about your library.",
+        );
+      }
+      function replyRecommendGeneral() {
+        const picks = [CH_BOOKS[0], CH_BOOKS[1], CH_BOOKS[8]];
+        return wrap(
+          `<div style="margin-bottom:10px;">Here are a few fan-favourite picks to start with — one for each mood! Tap any card to read more.</div>`,
+          picks.map(bookCard).join(""),
+        );
+      }
+      function replyByTag(tag) {
+        const matches = CH_BOOKS.filter(
+          (b) =>
+            b.tags.some((t) => t.includes(tag)) ||
+            b.genre.toLowerCase().includes(tag),
+        );
+        if (!matches.length)
+          return wrap(
+            `I couldn't find titles tagged with "${tag}" right now. Try browsing <a href="alltitles.html">All Titles</a> and using the genre filter!`,
+          );
+        const picks = matches.slice(0, 3);
+        const tagLabel = tag.charAt(0).toUpperCase() + tag.slice(1);
+        return wrap(
+          `<div style="margin-bottom:10px;">Here are some great <strong style="color:#d4af37;">${tagLabel}</strong> picks for you!</div>`,
+          picks.map(bookCard).join(""),
+        );
+      }
+      function replyImprintGlamBeat() {
+        const matches = CH_BOOKS.filter((b) => b.cat === "Glam Beat");
+        return wrap(
+          `<div style="margin-bottom:10px;"><strong style="color:#d4af37;">Girls' Love</strong> is our imprint for romantic, heartfelt stories between women. Here's what we have:</div>`,
+          matches.map(bookCard).join(""),
+        );
+      }
+      function replyImprintBlushClub() {
+        return wrap(
+          `<strong style="color:#d4af37;">Blush Club</strong> is our imprint for BL and boys' love titles. Our Blush Club catalogue is coming soon — stay tuned on our <a href="campaigns.html">Campaigns page</a>!`,
+        );
+      }
+      function replyCat(cat) {
+        const matches = CH_BOOKS.filter((b) => b.cat === cat);
+        const picks = matches.slice(0, 3);
+        const catDesc = {
+          Manga: "Our manga catalogue — licensed and translated with care.",
+          Novel: "Our light novel selection — deep stories, rich worlds.",
+          "Glam Beat":
+            "Glam Beat — our imprint for yuri, slice-of-life, and girls' love stories.",
+        };
+        return wrap(
+          `<div style="margin-bottom:10px;"><strong style="color:#d4af37;">${cat}</strong> — ${catDesc[cat] || ""} Here are some highlights:</div>`,
+          picks.map(bookCard).join(""),
+        );
+      }
+      function replySpecificBook(b) {
+        return wrap(
+          `<div style="margin-bottom:10px;">Here's what I know about that title!</div>`,
+          bookCard(b),
+        );
+      }
+      function replyAllTitles() {
+        return wrap(
+          `We have <strong style="color:#d4af37;">12 titles</strong> across Crossed Hearts, Glam Beat, and Novels right now. Browse the full catalogue with genre filters on our <a href="alltitles.html">All Titles page</a> — or tell me a mood or genre and I'll pick some for you!`,
+        );
+      }
+      function replyGenresList() {
+        return wrap(
+          `Here's what we carry across our imprints:<br><br><span style="color:#d4af37;">Crossed Hearts</span> — Romance, Fantasy, Action, Mystery, Comedy, School Life, Josei, Shoujo, Horror, Slow Burn<br><span style="color:#d4af37;">Glam Beat</span> — Romance, Fantasy, Slice-of-Life, Supernatural, Mystery<br><span style="color:#d4af37;">Blush Club</span> — Coming Soon<br><br>Just tell me which genre sounds good and I'll show you titles!`,
+        );
+      }
+      function replyFaqPurchase() {
+        return wrap(
+          `Purchasing is simple and fully digital. Find a title you love, choose a chapter or a full volume, and complete checkout. Once payment goes through, the title lands instantly in <a href="my-library.html">My Library</a>, permanently, with no expiry date.`,
+        );
+      }
+      function replyFaqLibrary() {
+        return wrap(
+          `Your <a href="my-library.html">My Library</a> is your personal reading hub. Every title you've purchased lives there permanently. Just sign in via the nav bar and all your purchases appear automatically.`,
+        );
+      }
+      function replyFaqPrint() {
+        return wrap(
+          `Select titles from our catalogue are available as physical print editions. Head to the <a href="print.html">Print Editions page</a> to see which titles are currently available in print and how to order.`,
+        );
+      }
+      function replyFaqKickstarter() {
+        return wrap(
+          `Crossed Hearts runs campaigns for special collector editions. Check the <a href="campaigns.html">Campaigns page</a> for current and upcoming projects.`,
+        );
+      }
+      function replyFaqAccount() {
+        return wrap(
+          `Creating an account is easy. Click <strong style="color:#d4af37;">Sign In</strong> in the nav bar, then switch to the <em>Create Account</em> tab and fill in your details.`,
+        );
+      }
+      function replyFaqVolumes() {
+        return wrap(
+          `It varies by title! Most of our manga runs 1–2 volumes, our novels are 1–2 volumes, and some of our Glam Beat titles are single-volume complete stories.`,
+        );
+      }
+      function replyFallback() {
+        const suggestions = CH_BOOKS.slice(0, 2);
+        return wrap(
+          `<div style="margin-bottom:10px;">I'm not quite sure about that one, but I'm great at finding reads and answering questions about purchasing, My Library, print editions and more! Here are a couple of popular picks:</div>`,
+          suggestions.map(bookCard).join(""),
+        );
+      }
+
+      let chPanelOpen = false;
+      let chFirstOpen = true;
+
+      function chGetReply(input) {
+        const lower = input.toLowerCase().trim();
+        const words = lower.split(/\s+/);
+        for (const intent of CH_INTENTS) {
+          if (intent.match(words)) {
+            if (intent.reply === "recommend_general")
+              return replyRecommendGeneral();
+            if (intent.reply === "genre") return replyByTag(intent.genre);
+            if (intent.reply === "imprint_glambeat")
+              return replyImprintGlamBeat();
+            if (intent.reply === "imprint_blushclub")
+              return replyImprintBlushClub();
+            if (intent.reply === "cat") return replyCat(intent.cat);
+            if (intent.reply === "genres_list") return replyGenresList();
+            if (intent.reply === "faq_purchase") return replyFaqPurchase();
+            if (intent.reply === "faq_library") return replyFaqLibrary();
+            if (intent.reply === "faq_print") return replyFaqPrint();
+            if (intent.reply === "faq_kickstarter")
+              return replyFaqKickstarter();
+            if (intent.reply === "faq_account") return replyFaqAccount();
+            if (intent.reply === "faq_volumes") return replyFaqVolumes();
+            if (intent.reply === "greeting") return replyGreeting();
+            if (intent.reply === "thanks") return replyThanks();
+            if (intent.reply === "all_titles") return replyAllTitles();
+          }
+        }
+        const matched = CH_BOOKS.filter(
+          (b) =>
+            lower.includes(b.name.toLowerCase().substring(0, 8)) ||
+            lower.includes(b.id),
+        );
+        if (matched.length) return replySpecificBook(matched[0]);
+        return replyFallback();
+      }
+
+      function chChatOpen() {
+        const panel = document.getElementById("ch-chat-panel");
+        panel.style.display = "flex";
+        chPanelOpen = true;
+        if (chFirstOpen) {
+          chFirstOpen = false;
+          setTimeout(() => {
+            chAppendBot(
+              wrap(
+                "Hi! I'm your Crossed Hearts Assistant — here to help you find your next favourite read or answer any questions about purchasing, your library, print editions and more.<br><br>What are you in the mood for today?",
+              ),
+            );
+          }, 200);
+        }
+        setTimeout(() => document.getElementById("ch-input").focus(), 100);
+      }
+      function chChatClose() {
+        document.getElementById("ch-chat-panel").style.display = "none";
+        chPanelOpen = false;
+      }
+      function chAppendBot(html) {
+        const msgs = document.getElementById("ch-messages");
+        const div = document.createElement("div");
+        div.className = "ch-msg-bot";
+        div.innerHTML = html;
+        msgs.appendChild(div);
+        msgs.scrollTop = msgs.scrollHeight;
+      }
+      function chAppendUser(text) {
+        const msgs = document.getElementById("ch-messages");
+        const div = document.createElement("div");
+        div.className = "ch-msg-user";
+        div.textContent = text;
+        msgs.appendChild(div);
+        msgs.scrollTop = msgs.scrollHeight;
+      }
+      function chShowTyping() {
+        document.getElementById("ch-typing").style.display = "block";
+        document.getElementById("ch-messages").scrollTop =
+          document.getElementById("ch-messages").scrollHeight;
+      }
+      function chHideTyping() {
+        document.getElementById("ch-typing").style.display = "none";
+      }
+
+      function chSend(overrideText) {
+        const input = document.getElementById("ch-input");
+        const text = overrideText || input.value.trim();
+        if (!text) return;
+        input.value = "";
+        chAppendUser(text);
+        chShowTyping();
+        setTimeout(() => {
+          chHideTyping();
+          chAppendBot(chGetReply(text));
+        }, 600);
+      }
+
+      const HELP_CATEGORIES_CHAT = [
+        {
+          icon: "ti-book-2",
+          title: "Reading Issues",
+          category: "Reading Issues",
+        },
+        {
+          icon: "ti-credit-card",
+          title: "Payments & Refunds",
+          category: "Payments & Refunds",
+        },
+        {
+          icon: "ti-package",
+          title: "Physical Orders",
+          category: "Physical Orders",
+        },
+        {
+          icon: "ti-user-circle",
+          title: "Account & Login",
+          category: "Account & Login",
+        },
+        {
+          icon: "ti-books",
+          title: "Digital Library",
+          category: "Digital Library",
+        },
+        {
+          icon: "ti-settings",
+          title: "Technical Issues",
+          category: "Technical Issues",
+        },
+        {
+          icon: "ti-help-circle",
+          title: "Frequently Asked Questions",
+          href: "faq.html",
+        },
+        { icon: "ti-headset", title: "Contact Support", category: "General" },
+      ];
+
+      function chShowHelpMenu() {
+        chAppendUser("Help & Support");
+        chShowTyping();
+        setTimeout(() => {
+          chHideTyping();
+          const tiles = HELP_CATEGORIES_CHAT.map(
+            (c) => `
+            <div onclick="${c.href ? `window.location.href='${c.href}'` : `openHelpContact('${c.category}')`}"
+              style="cursor:pointer;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,55,0.15);border-radius:10px;padding:9px 12px;margin-top:6px;">
+              <i class="ti ${c.icon}" style="font-size:16px;color:#d4af37;" aria-hidden="true"></i>
+              <span style="font-size:12.5px;color:#f5ede8;">${c.title}</span>
+            </div>`,
+          ).join("");
+          chAppendBot(
+            `<div style="margin-bottom:4px;">Here's how I can help — tap a category:</div>${tiles}`,
+          );
+        }, 500);
+      }
+
+      function openHelpContact(category) {
+        document.getElementById("helpContactOverlay").style.display = "flex";
+        const catSelect = document.getElementById("hcCategory");
+        if (category) {
+          catSelect.value = category;
+          document.getElementById("helpContactSub").textContent =
+            `Regarding: ${category}`;
+        } else {
+          document.getElementById("helpContactSub").textContent =
+            "We'll get back to you within 24 hours";
+        }
+        document.getElementById("hcStatus").textContent = "";
+      }
+      function closeHelpContact() {
+        document.getElementById("helpContactOverlay").style.display = "none";
+        document.getElementById("helpContactForm").reset();
+      }
+      function closeHelpContactIfBg(e) {
+        if (e.target.id === "helpContactOverlay") closeHelpContact();
+      }
+
+      async function submitHelpContact(e) {
+        e.preventDefault();
+        const status = document.getElementById("hcStatus");
+        status.textContent = "Sending…";
+        const payload = {
+          category: document.getElementById("hcCategory").value,
+          name: document.getElementById("hcName").value,
+          email: document.getElementById("hcEmail").value,
+          message: document.getElementById("hcMessage").value,
+        };
+        try {
+          const res = await fetch(`${window.CH_API_URL}/support/contact`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) throw new Error("Request failed");
+          status.style.color = "#8fd19e";
+          status.textContent = "Thanks! We've received your message.";
+          setTimeout(closeHelpContact, 1800);
+        } catch (err) {
+          const subject = encodeURIComponent(
+            `[${payload.category}] Support request from ${payload.name}`,
+          );
+          const body = encodeURIComponent(
+            `${payload.message}\n\nFrom: ${payload.name} (${payload.email})`,
+          );
+          window.location.href = `mailto:support@heartsreader.com?subject=${subject}&body=${body}`;
+          status.style.color = "rgba(245,237,232,0.6)";
+          status.textContent = "Opening your email client…";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" role="img" aria-labelledby="title desc">
+  <title id="title">HeartsReader 3 Month MVP Roadmap</title>
+  <desc id="desc">A 12 week roadmap explaining completed, current, future, and maintenance work for HeartsReader production MVP.</desc>
+  <defs>
+    <style>
+      .bg { fill: #101116; }
+      .panel { fill: #171a22; stroke: #343a48; stroke-width: 2; rx: 18; }
+      .title { fill: #f7efe6; font: 700 38px Arial, sans-serif; }
+      .subtitle { fill: #b9becb; font: 400 18px Arial, sans-serif; }
+      .phase-title { fill: #ffffff; font: 700 20px Arial, sans-serif; }
+      .phase-sub { fill: #d7dbea; font: 400 14px Arial, sans-serif; }
+      .week { fill: #222735; stroke: #465067; stroke-width: 2; rx: 12; }
+      .week-done { fill: #123f37; stroke: #36aa92; }
+      .week-now { fill: #5c4312; stroke: #d5a72f; }
+      .week-next { fill: #173957; stroke: #4d9dd6; }
+      .week-maint { fill: #3c3f46; stroke: #8e949f; }
+      .week-label { fill: #ffffff; font: 700 18px Arial, sans-serif; }
+      .week-text { fill: #e0e4f0; font: 400 14px Arial, sans-serif; }
+      .small { fill: #c3c8d6; font: 400 13px Arial, sans-serif; }
+      .badge { rx: 12; }
+      .badge-text { fill: #ffffff; font: 700 13px Arial, sans-serif; text-anchor: middle; }
+      .done { fill: #169978; }
+      .now { fill: #c8961b; }
+      .next { fill: #2e86c1; }
+      .maint { fill: #777d88; }
+      .arrow { stroke: #6d7485; stroke-width: 3; marker-end: url(#arrowhead); }
+      .note { fill: #f2d27b; font: 700 18px Arial, sans-serif; }
+      .footer { fill: #c7ccd8; font: 400 16px Arial, sans-serif; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6d7485" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="1100"/>
+  <text x="70" y="65" class="title">HeartsReader / Crossed Hearts — 3 Month MVP Production Roadmap</text>
+  <text x="70" y="100" class="subtitle">Why the project needs 3 months: this is not only a website; it includes accounts, payments, private PDFs, orders, admin tools, database, deployment, and security.</text>
+
+  <rect x="70" y="130" width="1460" height="92" class="panel"/>
+  <text x="105" y="168" class="note">MVP Status Message</text>
+  <text x="105" y="198" class="footer">Many core parts are completed, but the website should still be treated as partially complete until paid access, payment edge cases, admin operations, legal pages, performance, and final security checks are finished.</text>
+
+  <rect x="70" y="250" width="1460" height="760" class="panel"/>
+
+  <rect x="105" y="285" width="310" height="55" class="badge done"/>
+  <text x="260" y="319" class="badge-text">Month 1: Foundation Completed</text>
+  <rect x="460" y="285" width="310" height="55" class="badge now"/>
+  <text x="615" y="319" class="badge-text">Month 2: Core Business Flow</text>
+  <rect x="815" y="285" width="310" height="55" class="badge next"/>
+  <text x="970" y="319" class="badge-text">Month 3: Production Readiness</text>
+  <rect x="1170" y="285" width="310" height="55" class="badge maint"/>
+  <text x="1325" y="319" class="badge-text">After Launch: Maintenance</text>
+
+  <line x1="415" y1="312" x2="455" y2="312" class="arrow"/>
+  <line x1="770" y1="312" x2="810" y2="312" class="arrow"/>
+  <line x1="1125" y1="312" x2="1165" y2="312" class="arrow"/>
+
+  <rect x="105" y="370" width="310" height="150" class="week week-done"/>
+  <text x="130" y="402" class="week-label">Week 1</text>
+  <text x="130" y="430" class="week-text">Project setup and environment</text>
+  <text x="130" y="454" class="week-text">Frontend/backend connection</text>
+  <text x="130" y="478" class="week-text">Render deployment direction</text>
+  <text x="130" y="502" class="week-text">Production API base cleanup</text>
+
+  <rect x="460" y="370" width="310" height="150" class="week week-done"/>
+  <text x="485" y="402" class="week-label">Week 2</text>
+  <text x="485" y="430" class="week-text">Authentication foundation</text>
+  <text x="485" y="454" class="week-text">Register, login, OTP</text>
+  <text x="485" y="478" class="week-text">Password reset flow</text>
+  <text x="485" y="502" class="week-text">JWT protected routes</text>
+
+  <rect x="815" y="370" width="310" height="150" class="week week-done"/>
+  <text x="840" y="402" class="week-label">Week 3</text>
+  <text x="840" y="430" class="week-text">MongoDB models and data</text>
+  <text x="840" y="454" class="week-text">Users, books, purchases</text>
+  <text x="840" y="478" class="week-text">Orders and payments data</text>
+  <text x="840" y="502" class="week-text">Database connection verified</text>
+
+  <rect x="1170" y="370" width="310" height="150" class="week week-done"/>
+  <text x="1195" y="402" class="week-label">Week 4</text>
+  <text x="1195" y="430" class="week-text">Security foundation</text>
+  <text x="1195" y="454" class="week-text">CORS, Helmet, rate limits</text>
+  <text x="1195" y="478" class="week-text">Safe health endpoint</text>
+  <text x="1195" y="502" class="week-text">Production error handling</text>
+
+  <rect x="105" y="550" width="310" height="150" class="week week-now"/>
+  <text x="130" y="582" class="week-label">Week 5</text>
+  <text x="130" y="610" class="week-text">Razorpay integration</text>
+  <text x="130" y="634" class="week-text">Order ID and payment ID</text>
+  <text x="130" y="658" class="week-text">Signature verification</text>
+  <text x="130" y="682" class="week-text">India payment flow</text>
+
+  <rect x="460" y="550" width="310" height="150" class="week week-now"/>
+  <text x="485" y="582" class="week-label">Week 6</text>
+  <text x="485" y="610" class="week-text">Physical order storage</text>
+  <text x="485" y="634" class="week-text">Customer + shipping details</text>
+  <text x="485" y="658" class="week-text">Payment and order status</text>
+  <text x="485" y="682" class="week-text">Admin order foundation</text>
+
+  <rect x="815" y="550" width="310" height="150" class="week week-now"/>
+  <text x="840" y="582" class="week-label">Week 7</text>
+  <text x="840" y="610" class="week-text">Cloudflare R2 connection</text>
+  <text x="840" y="634" class="week-text">Private PDF bucket</text>
+  <text x="840" y="658" class="week-text">Book chapter r2Key mapping</text>
+  <text x="840" y="682" class="week-text">Migration for uploaded PDFs</text>
+
+  <rect x="1170" y="550" width="310" height="150" class="week week-now"/>
+  <text x="1195" y="582" class="week-label">Week 8</text>
+  <text x="1195" y="610" class="week-text">PDF streaming from R2</text>
+  <text x="1195" y="634" class="week-text">Chapter 1 free access</text>
+  <text x="1195" y="658" class="week-text">Paid chapters blocked safely</text>
+  <text x="1195" y="682" class="week-text">No public R2 URLs exposed</text>
+
+  <rect x="105" y="730" width="310" height="150" class="week week-next"/>
+  <text x="130" y="762" class="week-label">Week 9</text>
+  <text x="130" y="790" class="week-text">Paid chapter unlock</text>
+  <text x="130" y="814" class="week-text">Purchase verification</text>
+  <text x="130" y="838" class="week-text">Prevent URL bypass</text>
+  <text x="130" y="862" class="week-text">Digital access testing</text>
+
+  <rect x="460" y="730" width="310" height="150" class="week week-next"/>
+  <text x="485" y="762" class="week-label">Week 10</text>
+  <text x="485" y="790" class="week-text">Payment security testing</text>
+  <text x="485" y="814" class="week-text">Success, failed, duplicate</text>
+  <text x="485" y="838" class="week-text">Wrong amount/currency</text>
+  <text x="485" y="862" class="week-text">Webhook replay safety</text>
+
+  <rect x="815" y="730" width="310" height="150" class="week week-next"/>
+  <text x="840" y="762" class="week-label">Week 11</text>
+  <text x="840" y="790" class="week-text">Admin + operations polish</text>
+  <text x="840" y="814" class="week-text">Orders and CSV export</text>
+  <text x="840" y="838" class="week-text">Email flow testing</text>
+  <text x="840" y="862" class="week-text">Legal pages checklist</text>
+
+  <rect x="1170" y="730" width="310" height="150" class="week week-next"/>
+  <text x="1195" y="762" class="week-label">Week 12</text>
+  <text x="1195" y="790" class="week-text">Final production audit</text>
+  <text x="1195" y="814" class="week-text">Security + performance</text>
+  <text x="1195" y="838" class="week-text">Mobile + SEO checks</text>
+  <text x="1195" y="862" class="week-text">Launch readiness report</text>
+
+  <rect x="105" y="910" width="1375" height="70" class="week week-maint"/>
+  <text x="130" y="940" class="week-label">After Launch Maintenance</text>
+  <text x="130" y="966" class="week-text">Daily monitoring, payment reconciliation, customer support, backups, security log review, dependency updates, content uploads, order tracking, email checks, performance audits, and incident response.</text>
+
+  <text x="70" y="1050" class="footer">Legend: Green = completed foundation, Gold = current/core MVP work, Blue = remaining production work, Gray = ongoing maintenance after launch.</text>
+</svg>

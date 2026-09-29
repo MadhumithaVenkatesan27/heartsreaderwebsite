@@ -1,0 +1,2097 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Series — Manga, Manhwa & Novels | Crossed Hearts</title>
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Browse every Crossed Hearts series in one place — manga, manhwa, light novels, BL and yuri. Read online or buy in print, with standard and limited editions."
+    />
+    <meta
+      name="keywords"
+      content="manga series, manhwa series, light novels, manga print editions, digital manga, limited edition manga, Crossed Hearts"
+    />
+    <link rel="canonical" href="https://heartsreader.com/series.html" />
+    <meta property="og:title" content="Our Series | Crossed Hearts" />
+    <meta
+      property="og:description"
+      content="Every Crossed Hearts series — digital, standard and limited editions in one place."
+    />
+    <meta
+      property="og:image"
+      content="https://heartsreader.com/Images/BGOS-vol1.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://heartsreader.com/series.html" />
+    <meta property="og:site_name" content="Crossed Hearts" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Our Series | Crossed Hearts" />
+    <meta
+      name="twitter:description"
+      content="Every Crossed Hearts series — digital, standard and limited editions in one place."
+    />
+    <meta
+      name="twitter:image"
+      content="https://heartsreader.com/Images/BGOS-vol1.png"
+    />
+    <script src="clean-urls.js"></script>
+    <meta
+      name="google-site-verification"
+      content="S9T4XiqDMXqg5zsTiZcJUyzM73NeDm0kfFlG9X9nqcA"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <script src="catalog.js"></script>
+    <script src="nav-search.js"></script>
+    <style>
+      /* ===== SERIES PAGE ===== */
+      .series-hero {
+        padding: 34px 24px 20px !important;
+        min-height: 0 !important;
+      }
+      .series-hero .eyebrow {
+        margin: 0 !important;
+      }
+      .series-hero h1 {
+        margin: 4px 0 8px !important;
+        line-height: 1.1 !important;
+      }
+      .series-hero p {
+        margin: 0 auto !important;
+        max-width: 600px;
+      }
+
+      .series-wrap {
+        --card: rgba(255, 255, 255, 0.05);
+        --line: rgba(255, 255, 255, 0.1);
+        --ink: var(--cream);
+        --dd: #1a0e14;
+        --fill: rgba(255, 255, 255, 0.06);
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 22px 40px 70px;
+      }
+      body.light-mode .series-wrap {
+        --card: #fff;
+        --line: rgba(0, 0, 0, 0.09);
+        --ink: #1b140d;
+        --dd: #fff;
+        --fill: rgba(0, 0, 0, 0.04);
+      }
+
+      /* toolbar */
+      .toolbar {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px 18px;
+        margin-bottom: 24px;
+        border-radius: 20px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+      }
+      .tb-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+      .tb-row.line {
+        flex-wrap: nowrap;
+      }
+      .tb-label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 70px;
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .tb-label i {
+        color: var(--gold);
+        font-size: 15px;
+      }
+
+      /* custom dropdown */
+      .dd {
+        position: relative;
+      }
+      .dd-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 14px;
+        border-radius: 14px;
+        background: var(--fill);
+        border: 1px solid var(--line);
+        color: var(--ink);
+        font:
+          500 13px "DM Sans",
+          sans-serif;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .dd-btn small {
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 400;
+      }
+      .dd-btn i {
+        color: var(--muted);
+        transition: transform 0.2s;
+      }
+      .dd-btn:hover,
+      .dd.open .dd-btn {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+      }
+      .dd.open .dd-btn i {
+        transform: rotate(180deg);
+      }
+      .dd-menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        min-width: 100%;
+        width: max-content;
+        max-height: 320px;
+        overflow: auto;
+        padding: 6px;
+        border-radius: 14px;
+        background: var(--dd);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+        z-index: 50;
+      }
+      .dd.open .dd-menu {
+        display: block;
+        animation: ddIn 0.16s ease;
+      }
+      @keyframes ddIn {
+        from {
+          opacity: 0;
+          transform: translateY(-4px);
+        }
+      }
+      .dd-opt {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+        padding: 9px 12px;
+        border-radius: 9px;
+        font-size: 13px;
+        color: var(--ink);
+        cursor: pointer;
+      }
+      .dd-opt:hover {
+        background: rgba(212, 175, 55, 0.14);
+      }
+      .dd-opt.on {
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .dd-opt.on::after {
+        content: "✓";
+      }
+
+      .reset {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: transparent;
+        border: 1px dashed var(--line);
+        color: var(--muted);
+        font:
+          12px "DM Sans",
+          sans-serif;
+        cursor: pointer;
+      }
+      .reset[hidden] {
+        display: none;
+      }
+      .reset:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+      }
+
+      .view-toggle {
+        display: flex;
+        gap: 6px;
+        margin-left: auto;
+      }
+      .vt {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: 1px solid var(--line);
+        color: var(--muted);
+      }
+      .vt.active {
+        background: rgba(212, 175, 55, 0.15);
+        border-color: rgba(212, 175, 55, 0.5);
+        color: var(--gold);
+      }
+
+      /* Show pills + Genre chips */
+      .seg {
+        display: inline-flex;
+        gap: 4px;
+        padding: 4px;
+        min-width: 0;
+        max-width: 100%;
+        border-radius: 999px;
+        background: var(--fill);
+        border: 1px solid var(--line);
+      }
+      .seg button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 14px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--ink);
+        font:
+          12px "DM Sans",
+          sans-serif;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .seg button:hover {
+        background: rgba(212, 175, 55, 0.14);
+      }
+      .seg button.on {
+        background: linear-gradient(135deg, #c4647a, #b84060);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(184, 64, 96, 0.35);
+      }
+      .seg small {
+        opacity: 0.65;
+        font-size: 10px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+      }
+      .chip {
+        padding: 7px 14px;
+        border-radius: 999px;
+        background: var(--fill);
+        border: 1px solid var(--line);
+        color: var(--ink);
+        font:
+          12px "DM Sans",
+          sans-serif;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.2s;
+      }
+      .chip:hover {
+        border-color: var(--gold);
+        transform: translateY(-1px);
+      }
+      .chip.on {
+        background: linear-gradient(135deg, #d4af37, #b8941f);
+        border-color: transparent;
+        color: #1a0f08;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      }
+
+      /* cards */
+      #seriesGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 22px;
+      }
+      .s-card {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        border-radius: 18px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s,
+          border-color 0.3s;
+      }
+      .s-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(212, 175, 55, 0.5);
+        box-shadow: 0 22px 44px rgba(0, 0, 0, 0.22);
+      }
+      .s-link {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        color: inherit;
+        text-decoration: none;
+      }
+      .s-cover {
+        position: relative;
+        aspect-ratio: 323 / 459;
+        overflow: hidden;
+        background: linear-gradient(145deg, #2a1a3d, #4a2d6b);
+      }
+      .s-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s;
+      }
+      .s-card:hover .s-cover img {
+        transform: scale(1.04);
+      }
+      .s-date {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 9px;
+        border-radius: 6px;
+        background: rgba(20, 12, 16, 0.88);
+        color: #fff;
+        font:
+          700 11px "DM Sans",
+          sans-serif;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+      .s-wish {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 3;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        color: #2a1a1a;
+        cursor: pointer;
+        backdrop-filter: blur(6px);
+        transition: transform 0.2s;
+      }
+      .s-wish:hover {
+        transform: scale(1.1);
+      }
+      .s-wish svg {
+        fill: none;
+        pointer-events: none;
+      }
+      .s-wish.on {
+        color: #d0103a;
+      }
+      .s-wish.on svg {
+        fill: currentColor;
+      }
+      .s-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 7px;
+        padding: 14px 16px 16px;
+      }
+      .s-imprint {
+        align-self: flex-start;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+        color: #fff;
+        background: var(--gold);
+        padding: 3px 9px;
+        border-radius: 999px;
+      }
+      .s-genre {
+        font-size: 10.5px;
+        letter-spacing: 1.3px;
+        text-transform: uppercase;
+        color: #b84060;
+      }
+      .s-title {
+        font:
+          600 18px/1.3 "Cormorant Garamond",
+          serif;
+        color: var(--ink);
+      }
+      .s-rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .s-prices {
+        display: grid;
+        gap: 5px;
+        margin-top: 2px;
+        padding: 9px 11px;
+        border-radius: 12px;
+        background: var(--fill);
+        border: 1px solid var(--line);
+      }
+      .s-price {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11.5px;
+        color: var(--muted);
+      }
+      .s-price i {
+        color: var(--gold);
+        font-size: 13px;
+      }
+      .s-price b {
+        margin-left: auto;
+        color: #b84060;
+        font-weight: 600;
+      }
+      .s-price.na b {
+        color: var(--muted);
+        font-weight: 400;
+      }
+      .s-btn {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #c4647a, #b84060);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        transition:
+          gap 0.25s,
+          box-shadow 0.25s;
+      }
+      .s-card:hover .s-btn {
+        gap: 12px;
+        box-shadow: 0 8px 22px rgba(184, 64, 96, 0.4);
+      }
+      .empty {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--muted);
+      }
+      .empty b {
+        display: block;
+        margin-bottom: 8px;
+        font:
+          20px "Cormorant Garamond",
+          serif;
+        color: var(--ink);
+      }
+      .empty a {
+        color: var(--gold);
+        cursor: pointer;
+      }
+
+      /* list view */
+      #seriesGrid.list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .list .s-card:hover {
+        transform: translateY(-3px);
+      }
+      .list .s-link {
+        flex-direction: row;
+      }
+      .list .s-cover {
+        width: 120px;
+        flex-shrink: 0;
+        align-self: flex-start;
+      }
+      .list .s-body {
+        justify-content: center;
+        padding: 14px 18px;
+      }
+      .list .s-prices {
+        grid-template-columns: repeat(3, auto);
+        justify-content: start;
+        gap: 6px 26px;
+      }
+      .list .s-btn {
+        align-self: flex-start;
+        margin-top: 6px;
+        padding: 9px 20px;
+      }
+
+      /* nav buttons */
+      .nav-links a.nav-campaign {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #e05c7a;
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+        padding: 13px 28px;
+        border-radius: 999px;
+        text-decoration: none;
+        transition: background 0.2s;
+        box-shadow: 0 4px 20px rgba(224, 92, 122, 0.4);
+      }
+      .nav-links a.nav-campaign:hover {
+        background: #b84060;
+      }
+      .nav-actions a.btn-nav-subscribe {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #d4af37, #b8941f);
+        color: #1a0f08;
+        font-weight: 700;
+        font-size: 13px;
+        padding: 9px 18px;
+        border-radius: 999px;
+        text-decoration: none;
+        letter-spacing: 0.2px;
+        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .nav-actions a.btn-nav-subscribe:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+      }
+      .mobile-nav a.mn-sub {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 4px 0;
+        padding: 10px 14px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #d4af37, #b8941f);
+        color: #1a0f08;
+        font-weight: 700;
+      }
+
+      /* help modal */
+      #helpContactForm {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .hc-f {
+        padding: 11px 13px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #f5ede8;
+        font:
+          13px "DM Sans",
+          sans-serif;
+      }
+      .hc-f option {
+        background: #1a0e12;
+      }
+
+      /* small screens: smaller covers, scrolling chip rows */
+      @media (max-width: 768px) {
+        .series-wrap {
+          padding: 16px 14px 50px;
+        }
+        .toolbar {
+          padding: 12px;
+          gap: 12px;
+        }
+        .tb-label {
+          min-width: auto;
+        }
+        .seg,
+        .chips {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          scrollbar-width: none;
+        }
+        .seg::-webkit-scrollbar,
+        .chips::-webkit-scrollbar {
+          display: none;
+        }
+        #seriesGrid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        .s-body {
+          padding: 10px 11px 12px;
+          gap: 6px;
+        }
+        .s-title {
+          font-size: 15px;
+        }
+        .s-genre {
+          font-size: 9.5px;
+          letter-spacing: 1px;
+        }
+        .s-prices {
+          padding: 7px 8px;
+        }
+        .s-price {
+          font-size: 10.5px;
+        }
+        .s-price i {
+          display: none;
+        }
+        .s-btn {
+          padding: 9px 10px;
+          font-size: 11px;
+        }
+        .s-wish {
+          width: 30px;
+          height: 30px;
+          top: 8px;
+          left: 8px;
+        }
+        .s-date {
+          top: 8px;
+          right: 8px;
+          font-size: 9px;
+          padding: 4px 6px;
+        }
+        .list .s-cover {
+          width: 96px;
+        }
+        .list .s-prices {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="page-body">
+    <!-- NAV -->
+    <nav class="nav" id="mainNav">
+      <a class="nav-logo" href="index.html">
+        <img
+          src="Images/logo-dark.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-dark"
+        />
+        <img
+          src="Images/logo-light.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-light"
+        />
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Crossed Hearts</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="series.html" class="active">Our Series</a></li>
+        <li>
+          <a href="campaigns.html" class="nav-campaign"
+            ><i class="ti ti-heart" aria-hidden="true"></i> Campaign</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-search-inline" id="navSearchInline" role="search">
+          <input
+            type="text"
+            class="nav-search-inline-input"
+            id="navSearchInlineInput"
+            placeholder="Search..."
+            autocomplete="off"
+            readonly
+            aria-label="Search titles, genres, keywords"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            onclick="openNavSearch()"
+            onfocus="openNavSearch()"
+            onkeydown="if (event.key === 'Enter') openNavSearch();"
+          />
+          <button
+            class="nav-search-inline-btn"
+            id="navSearchInlineBtn"
+            onclick="openNavSearch()"
+            aria-label="Open search"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
+        <a href="account.html" class="btn-nav-ghost">My Account</a>
+        <button
+          class="btn-nav-signin"
+          id="navAuthBtn"
+          data-login-label="Sign In"
+          onclick="handleNavAuth()"
+        >
+          Sign In
+        </button>
+        <button
+          class="btn-nav-register"
+          id="navRegisterBtn"
+          onclick="openAuth('up', { lockMode: true })"
+        >
+          Sign Up
+        </button>
+        <a
+          href="subscription.html"
+          class="btn-nav-subscribe"
+          id="navSubscribeBtn"
+          ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+        >
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          <span class="icon-dark"
+            ><i class="ti ti-moon" aria-hidden="true"></i
+          ></span>
+          <span class="icon-light"
+            ><i class="ti ti-sun" aria-hidden="true"></i
+          ></span>
+        </button>
+        <button
+          class="nav-burger"
+          onclick="toggleMobileNav()"
+          aria-label="Open menu"
+        >
+          <i class="ti ti-menu-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-top">
+        <span
+          style="
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+          "
+          >Menu</span
+        >
+      </div>
+      <a href="index.html">Home</a>
+      <a href="series.html" class="active">Our Series</a>
+      <a href="subscription.html" class="mn-sub"
+        ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+      >
+      <a
+        href="campaigns.html"
+        style="color: var(--ch-rose-deep); font-weight: 700"
+        >Campaigns</a
+      >
+      <a
+        href="#"
+        onclick="
+          handleNavAuth();
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileAuthLink"
+        data-login-label="Sign In"
+        >Sign In</a
+      >
+      <a
+        href="#"
+        onclick="
+          openAuth('up', { lockMode: true });
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileRegisterLink"
+        >Sign Up</a
+      >
+    </div>
+
+    <!-- HERO -->
+    <div class="page-hero series-hero">
+      <span class="eyebrow">The Collection</span>
+      <h1>Our <em>Series</em></h1>
+      <p>
+        Every Crossed Hearts series in one place. Read online, collect in print,
+        or both.
+      </p>
+    </div>
+
+    <!-- SERIES -->
+    <section class="series-wrap">
+      <div class="toolbar">
+        <div class="tb-row">
+          <div class="dd" id="ddCat" data-k="cat">
+            <button class="dd-btn" type="button" aria-haspopup="listbox">
+              <small>Imprint</small><span class="dd-v"></span
+              ><i class="ti ti-chevron-down"></i>
+            </button>
+            <div class="dd-menu" role="listbox"></div>
+          </div>
+          <div class="dd" id="ddSort" data-k="sort">
+            <button class="dd-btn" type="button" aria-haspopup="listbox">
+              <small>Sort</small><span class="dd-v"></span
+              ><i class="ti ti-chevron-down"></i>
+            </button>
+            <div class="dd-menu" role="listbox"></div>
+          </div>
+          <button
+            class="reset"
+            id="reset"
+            type="button"
+            hidden
+            onclick="resetAll()"
+          >
+            <i class="ti ti-rotate"></i> Reset
+          </button>
+          <div class="view-toggle">
+            <button
+              class="vt active"
+              id="vGrid"
+              title="Grid view"
+              aria-label="Grid view"
+            >
+              <i class="ti ti-layout-grid"></i>
+            </button>
+            <button
+              class="vt"
+              id="vList"
+              title="List view"
+              aria-label="List view"
+            >
+              <i class="ti ti-list"></i>
+            </button>
+          </div>
+        </div>
+        <div class="tb-row line">
+          <span class="tb-label">Show</span>
+          <div class="seg" id="fmtChips"></div>
+        </div>
+        <div class="tb-row line">
+          <span class="tb-label">Genre</span>
+          <div class="chips" id="genreChips"></div>
+        </div>
+      </div>
+      <div id="seriesGrid"></div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+      <h2>Join the <em>Collector's Circle</em></h2>
+      <p>Get notified when new chapters, titles and print volumes drop.</p>
+      <form class="nl-form" onsubmit="handleNewsletter(event)">
+        <input
+          type="email"
+          class="nl-input"
+          placeholder="your@email.com"
+          required
+        />
+        <button type="submit" class="btn-gold">Join Now</button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Crossed Hearts</div>
+          <p>
+            English localization of manga, manhwa and Asian novels, across
+            borders, with care.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://discord.com/login?redirect_to=%2Fchannels%2F%40me"
+              target="_blank"
+              aria-label="Discord"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://x.com/CrossedHearts_X"
+              target="_blank"
+              aria-label="X (Twitter)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@CrossedHearts_YT"
+              target="_blank"
+              aria-label="YouTube"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="https://thecrossedhearts.com/">Main Site</a></li>
+            <li><a href="series.html">Our Series</a></li>
+            <li><a href="campaigns.html">Sepcial Edition</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="account.html">My Account</a></li>
+            <li><a onclick="openAuth()">Sign In</a></li>
+            <li><a href="licenser-login.html">Authorised User</a></li>
+            <li><a href="subscription.html">Subscribe</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li>
+              <a href="about-use.html" target="_blank">About Us</a>
+            </li>
+            <li>
+              <a href="contact-us.html" target="_blank">Contact</a>
+            </li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Crossed Hearts. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+    <!-- AUTH MODAL -->
+    <div class="modal-overlay" id="authOverlay" onclick="closeAuthIfBg(event)">
+      <div class="modal">
+        <button class="modal-x" onclick="closeAuth()" aria-label="Close">
+          <i class="ti ti-x" aria-hidden="true"></i>
+        </button>
+        <div class="modal-title">Welcome Back</div>
+        <div class="modal-sub">Sign in to access your digital library</div>
+        <div class="auth-tabs">
+          <button class="atab active" onclick="switchAuth('in', this)">
+            Sign In
+          </button>
+          <button class="atab" onclick="switchAuth('up', this)">Sign Up</button>
+        </div>
+        <div id="authBody"></div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- HELP CONTACT MODAL -->
+    <div
+      class="modal-overlay"
+      id="helpContactOverlay"
+      onclick="closeHelpContactIfBg(event)"
+    >
+      <div class="modal" style="max-width: 440px">
+        <button class="modal-x" onclick="closeHelpContact()" aria-label="Close">
+          <i class="ti ti-x" aria-hidden="true"></i>
+        </button>
+        <div class="modal-title">Contact Support</div>
+        <div class="modal-sub" id="helpContactSub">
+          We'll get back to you within 24 hours
+        </div>
+        <form id="helpContactForm" onsubmit="submitHelpContact(event)">
+          <select id="hcCategory" class="hc-f" required>
+            <option value="">Select a category…</option>
+            <option value="Reading Issues">Reading Issues</option>
+            <option value="Payments & Refunds">Payments & Refunds</option>
+            <option value="Physical Orders">Physical Orders</option>
+            <option value="Account & Login">Account & Login</option>
+            <option value="Digital Library">Digital Library</option>
+            <option value="Technical Issues">Technical Issues</option>
+            <option value="General">General / Other</option>
+          </select>
+          <input
+            type="text"
+            id="hcName"
+            class="hc-f"
+            placeholder="Your name"
+            required
+          />
+          <input
+            type="email"
+            id="hcEmail"
+            class="hc-f"
+            placeholder="Your email"
+            required
+          />
+          <textarea
+            id="hcMessage"
+            class="hc-f"
+            rows="4"
+            placeholder="Tell us what's going on…"
+            required
+            style="resize: vertical"
+          ></textarea>
+          <button type="submit" class="btn-gold" style="margin-top: 4px">
+            Send Message
+          </button>
+          <div
+            id="hcStatus"
+            style="
+              font-size: 12px;
+              text-align: center;
+              color: rgba(245, 237, 232, 0.6);
+            "
+          ></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- NAV SEARCH OVERLAY -->
+    <div
+      class="nav-search-overlay"
+      id="navSearchOverlay"
+      onclick="closeNavSearchIfBg(event)"
+    >
+      <div class="nav-search-modal">
+        <button
+          class="nav-search-close"
+          onclick="closeNavSearch()"
+          aria-label="Close search"
+        >
+          &#10005;
+        </button>
+        <div class="nav-search-inner" id="navSiteSearchBar">
+          <span class="nav-search-icon">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            class="nav-search-input"
+            id="navSearchInput"
+            placeholder="Search Titles, Genres, Keywords..."
+            oninput="navLiveSearch(this.value)"
+            onkeydown="if (event.key === 'Enter') navDoSearch();"
+            autocomplete="off"
+          />
+          <button
+            class="nav-search-clear"
+            id="navSearchClear"
+            onclick="navClearSearch()"
+            style="display: none"
+          >
+            &#10005;
+          </button>
+          <button class="nav-search-submit" onclick="navDoSearch()">
+            Search
+          </button>
+        </div>
+        <div class="nav-genres-panel" id="navGenresPanel">
+          <div class="nav-genres-label">Genres</div>
+          <div
+            class="nav-genres-grid"
+            id="navGenresGrid"
+            role="group"
+            aria-label="Browse by genre"
+          ></div>
+          <button
+            class="nav-genres-more"
+            id="navGenresMoreBtn"
+            onclick="navToggleGenres()"
+            aria-expanded="false"
+          >
+            See more
+          </button>
+        </div>
+        <div class="nav-search-suggestions" id="navSearchSuggestions"></div>
+      </div>
+    </div>
+
+    <script src="chatbot.js"></script>
+    <script src="script.js"></script>
+    <script>
+      /* =========================================================
+         SERIES DATA — one row per series (no duplicates)
+         [id, title, imprint, genre, cover,
+          digitalHref, digitalPrice, digitalRelease, digitalVolumes(number or array of ids),
+          printHref, standardPrice, limitedPrice, printRelease]
+         Digital-only: stop after digitalVolumes.  Print-only: use null for the digital slots.
+         ========================================================= */
+      const RAW = [
+        [
+          "chigaya",
+          "You're Way Too Cheeky, Chigaya-kun!",
+          "manga",
+          "Manga · Romance · School Life",
+          "Images/Chigaya-vol 1.png",
+          "chigaya.html",
+          0.75,
+          "Oct 2026",
+          2,
+          "chigaya.html",
+          12.99,
+          15.99,
+          "Dec 2026",
+        ],
+        [
+          "grenimal",
+          "The Executioner of Grenimal",
+          "manga",
+          "Manga · Action · Mystery",
+          "Images/Grenimal-vol 1.png",
+          "executioner.html",
+          0.75,
+          "Nov 2026",
+          2,
+          "executioner.html",
+          12.99,
+          12.99,
+          "Dec 2026",
+        ],
+        [
+          "matchmaker",
+          "The Matchmaker's Fiancé",
+          "manga",
+          "Manga · Romance · Comedy",
+          "Images/Matchmaker-vol 1.png",
+          "matchmaker.html",
+          0.75,
+          "Sep 2026",
+          1,
+          "matchmaker.html",
+          12.99,
+          12.99,
+          "Dec 2026",
+        ],
+        [
+          "connie",
+          "All-Rounder Maid Connie Wille",
+          "manga",
+          "Manga · Fantasy · Josei",
+          "Images/Connie-vol 1.png",
+          "allrounder.html",
+          0.75,
+          "Dec 2026",
+          2,
+          "allrounder.html",
+          12.99,
+          15.99,
+          "Dec 2026",
+        ],
+        [
+          "octopiece",
+          "Octopiece",
+          "creatororiginal",
+          "Manga · Action · Adventure",
+          "Images/Octopiece-vol1.png",
+          "octopiece.html",
+          0.75,
+          "June 2026",
+          1,
+        ],
+        [
+          "borrowing",
+          "Borrowing Your Textbook 175160",
+          "glambeat",
+          "Girls' Love · High School · Manga",
+          "Images/Borrowing-ch1.png",
+          "borrowing.html",
+          0.75,
+          "June 2026",
+          ["borrowing"],
+        ],
+        [
+          "timecloset",
+          "Time is a Closet",
+          "glambeat",
+          "Girls' Love · Manga · Supernatural",
+          "Images/Time-ch1.png",
+          "timeisa.html",
+          0.75,
+          "May 2026",
+          ["timecloset"],
+        ],
+        [
+          "afternoontea",
+          "Afternoon Tea for Two",
+          "glambeat",
+          "Girls' Love · Manga · Mystery",
+          "Images/Afternoon-ch1.png",
+          "afternoon.html",
+          0.75,
+          "May 2026",
+          ["afternoontea"],
+        ],
+        [
+          "zombie",
+          "The Abandoned Villainess Became a Zombie",
+          "novel",
+          "Novel · Fantasy · Horror",
+          "Images/Zombie-vol1.png",
+          "abandonedvillainess.html",
+          9,
+          "Oct 2026",
+          2,
+          "abandonedvillainess.html",
+          19.99,
+          28,
+          "Dec 2026",
+        ],
+        [
+          "raeliana",
+          "Why Raeliana Ended Up at the Duke's Mansion",
+          "novel",
+          "Novel · Romance · Isekai",
+          "Images/raelianavol1-std.jpg",
+          "whyraeliana.html",
+          9,
+          "Oct 2026",
+          2,
+          "raeliana.html",
+          19.99,
+          28,
+          "Dec 2026",
+        ],
+        [
+          "gaze",
+          "A Gaze Like Lightning",
+          "blushclub",
+          "Boys' Love · Manga · School Life",
+          "Images/gaze-std.png",
+          "gaze.html",
+          0.75,
+          "Dec 2026",
+          1,
+          "gaze.html",
+          12.99,
+          12.99,
+          "Dec 2026",
+        ],
+        [
+          "until",
+          "Until We Fall In Love",
+          "blushclub",
+          "Boys' Love · Manga · School Life",
+          "Images/until-std.png",
+          "until.html",
+          0.75,
+          "Dec 2026",
+          1,
+          "until.html",
+          12.99,
+          12.99,
+          "Dec 2026",
+        ],
+        [
+          "theking",
+          "The King Of Owls And His Troubled Servant",
+          "blushclub",
+          "Boys' Love · Manga · Fantasy",
+          "Images/theking-std.png",
+          "theking.html",
+          0.75,
+          "Dec 2026",
+          1,
+          "theking.html",
+          12.99,
+          12.99,
+          "Dec 2026",
+        ],
+        [
+          "thebird",
+          "The Bird In The Cage Dreams",
+          "blushclub",
+          "Boys' Love · Manga · Fantasy",
+          "Images/thebird-std.png",
+          "thebird.html",
+          0.75,
+          "Dec 2026",
+          1,
+          "thebird.html",
+          12.99,
+          12.99,
+          "Dec 2026",
+        ],
+        [
+          "lovebeyond",
+          "Love Beyond the Final Boss: The Hero Party's Quest for Love",
+          "manga",
+          "Manga · Fantasy · Comedy",
+          "Images/Love beyond the final boss.jpeg",
+          "loveBeyond.html",
+          0.75,
+          "Feb 2027",
+          1,
+          "lovebeyond.html",
+          12.99,
+          15.99,
+          "Feb 2027",
+        ],
+        [
+          "twoofus",
+          "Two of Us Can't Stay Mobs!",
+          "manga",
+          "Manga · Fantasy · Romance",
+          "Images/Mobs Updated Cover Page.png",
+          "twoOfUs.html",
+          0.75,
+          "Feb 2027",
+          1,
+          "twoofus.html",
+          12.99,
+          15.99,
+          "Feb 2027",
+        ],
+        [
+          "emma",
+          "Emma and the Eyes That Bid Farewell",
+          "manga",
+          "Manga · Fantasy · Shoujo",
+          "Images/emma and the eyes cover page.png",
+          "emma.html",
+          0.75,
+          "Feb 2027",
+          1,
+          "emma.html",
+          12.99,
+          15.99,
+          "Feb 2027",
+        ],
+        [
+          "inksoaked",
+          "Ink Soaked into Ashen Paper",
+          "glambeat",
+          "Girls' Love · Novel · Fantasy",
+          "Images/Ink Soaked Into Ashen Paper Cover.png",
+          "inkSoaked.html",
+          9,
+          "Apr 2027",
+          1,
+          "inksoakedintoashenpaper.html",
+          23.99,
+          29.99,
+          "Apr 2027",
+        ],
+        [
+          "devilinme",
+          "The Devil in Me",
+          "glambeat",
+          "Girls' Love · Supernatural · Vampire",
+          "Images/Devil in me.png",
+          "devilInMe.html",
+          9,
+          "Mar 2027",
+          1,
+          "thedevilinme.html",
+          12.99,
+          15.99,
+          "Mar 2027",
+        ],
+        [
+          "fairytrap",
+          "Fairy Trap",
+          "blushclub",
+          "Boys' Love · Novel · Fantasy",
+          "Images/Fairy Trap Cover.png",
+          "fairyTrap.html",
+          9,
+          "Mar 2027",
+          1,
+          "fairytrap.html",
+          23.99,
+          29.99,
+          "Mar 2027",
+        ],
+        [
+          "addictedtoyou",
+          "Addicted to You",
+          "blushclub",
+          "Boys' Love · Romance · Drama",
+          "Images/Addicted-std.png",
+          "addictedToYou.html",
+          0.75,
+          "Nov 2027",
+          1,
+          "addictedToYou.html",
+          12.99,
+          15.99,
+          "Nov 2027",
+        ],
+        [
+          "flirting",
+          "Flirting with the Villain's Dad",
+          "manhwa",
+          "Manhwa · Romance · Drama",
+          "Images/Flirting with villains dad.png",
+          "flirting.html",
+          9,
+          "Mar 2027",
+          1,
+          "flirtingwithvillainsdad.html",
+          20.99,
+          22.99,
+          "Mar 2027",
+        ],
+        [
+          "whereseameetshore",
+          "Where the Sea Meets Shore",
+          "creatororiginal",
+          "Manga · Romance · Fantasy",
+          "Images/Where Sea Meets Shore Cover.png",
+          "whereseameetshore.html",
+          2.99,
+          "Sep 2026",
+          1,
+        ],
+        [
+          "kissbefore",
+          "A Kiss Before the Gunshot",
+          "studiohearts",
+          "Girls' Love · Romance · Mystery",
+          "Images/A kiss before gunshor cover .jpeg",
+          "kissbefore.html",
+          0.75,
+          "May 2027",
+          1,
+          "kissbefore.html",
+          12.99,
+          15.99,
+          "May 2027",
+        ],
+        [
+          "doomsday",
+          "Doomsday Requiem With You",
+          "studiohearts",
+          "Light Novel · Shoujo · Mystery",
+          "Images/Doomsday cover.png",
+          "doomsday.html",
+          0.5,
+          "May 2027",
+          1,
+          "doomsday.html",
+          23.99,
+          null,
+          "May 2027",
+        ],
+        [
+          "chiaroscuro",
+          "Chiaroscuro",
+          "studiohearts",
+          "Manga · Romance · Fantasy",
+          "Images/Chairoscuro Cover.png",
+          "chiaroscuro.html",
+          0.75,
+          "Apr 2027",
+          1,
+          "chiaroscuro.html",
+          12.99,
+          15.99,
+          "Apr 2027",
+        ],
+        [
+          "soulguiders",
+          "Soul Guiders",
+          "studiohearts",
+          "Light Novel · Shounen · Mystery",
+          "Images/Soul guiders.png",
+          "soulguiders.html",
+          0.5,
+          "Apr 2027",
+          1,
+          "soulguider.html",
+          23.99,
+          null,
+          "Apr 2027",
+        ],
+        /* print-only */
+        [
+          "baroness",
+          "Baroness Goes on Strike",
+          "manhwa",
+          "Manhwa · Romance · Fantasy",
+          "Images/BGOS-vol1.png",
+          null,
+          null,
+          null,
+          0,
+          "baroness.html",
+          20,
+          20,
+          "Dec 2026",
+        ],
+        [
+          "archduke",
+          "The Archduke's Adopted Saint",
+          "manhwa",
+          "Manhwa · Romance · Isekai",
+          "Images/TAAS-vol1.png",
+          null,
+          null,
+          null,
+          0,
+          "archduke.html",
+          18.99,
+          20.99,
+          "Dec 2026",
+        ],
+        [
+          "darling",
+          "Darling, Why Don't We Divorce?",
+          "manhwa",
+          "Manhwa · Romance · Fantasy",
+          "Images/DWD-vol1.png",
+          null,
+          null,
+          null,
+          0,
+          "darling.html",
+          20,
+          24,
+          "Dec 2026",
+        ],
+        [
+          "from",
+          "From a Knight to a Lady",
+          "manhwa",
+          "Manhwa · Romance · Fantasy",
+          "Images/FKTL-vol1.png",
+          null,
+          null,
+          null,
+          0,
+          "knight-to-lady.html",
+          20,
+          null,
+          "Jan 2027",
+        ],
+        [
+          "rosemanor",
+          "Welcome to Rose Manor",
+          "manhwa",
+          "Manhwa · Horror · Thriller",
+          "Images/Welcome to the rose manor.jpeg",
+          null,
+          null,
+          null,
+          0,
+          "welcometotherosemanor.html",
+          20.99,
+          22.99,
+          "Mar 2027",
+        ],
+        [
+          "reverse4you",
+          "Reverse 4 You",
+          "lilyhouse",
+          "Girls' Love · Sci-Fi · Romance",
+          "Images/Reserve 4 you cover image.png",
+          null,
+          null,
+          null,
+          0,
+          "reverse4you.html",
+          25.99,
+          null,
+          "Dec 2026",
+        ],
+        [
+          "plslove",
+          "Pls Love",
+          "lilyhouse",
+          "Girls' Love · Romance · Drama",
+          "Images/Pls Love.png",
+          null,
+          null,
+          null,
+          0,
+          "plslove.html",
+          25.99,
+          null,
+          "Dec 2026",
+        ],
+        [
+          "earthvows",
+          "The Earth: Vows of the Land",
+          "lilyhouse",
+          "Girls' Love · Family Drama · Romance",
+          "Images/The Earth Vows of Land Cover image.png",
+          null,
+          null,
+          null,
+          0,
+          "earthvows.html",
+          25.99,
+          null,
+          "Dec 2026",
+        ],
+        [
+          "cranium",
+          "Cranium",
+          "lilyhouse",
+          "Girls' Love · Mystery · Romance",
+          "Images/Cranium cover image.png",
+          null,
+          null,
+          null,
+          0,
+          "cranium.html",
+          25.99,
+          null,
+          "Dec 2026",
+        ],
+        [
+          "enemieswithbenefits",
+          "Enemies With Benefits",
+          "lilyhouse",
+          "Girls' Love · Drama · Romance",
+          "Images/Enimes with Benefits cover image.png",
+          null,
+          null,
+          null,
+          0,
+          "enemies-with-benefits.html",
+          25.99,
+          null,
+          "Aug 2027",
+        ],
+      ];
+      /* ---------- helpers ---------- */
+      const $ = (id) => document.getElementById(id);
+      const CATS = {
+        manga: "Manga",
+        manhwa: "Manhwa",
+        novel: "A Novel Press",
+        glambeat: "Glam Beat",
+        blushclub: "Blush Club",
+        studiohearts: "Studio Hearts",
+        creatororiginal: "Creator Original",
+        lilyhouse: "Lily House",
+      };
+      const NOT_GENRE = ["Manga", "Manhwa", "Novel", "Light Novel"];
+      const FMT = [
+        ["all", "All Series"],
+        ["ready", "Ready to Read"],
+        ["digital", "Digital"],
+        ["print", "Print"],
+        ["limited", "Limited Edition"],
+      ];
+      const SORT = [
+        ["default", "Featured"],
+        ["az", "A → Z"],
+        ["za", "Z → A"],
+        ["new", "Newest release"],
+        ["old", "Oldest release"],
+      ];
+      const MONTHS = "JanFebMarAprMayJunJulAugSepOctNovDec";
+      const LIVE_NOW = ["zombie", "matchmaker"];
+      const now = new Date(),
+        nowVal = now.getFullYear() * 100 + now.getMonth() + 1;
+      const relVal = (b) => {
+        if (!b) return 999999;
+        const p = b.split(" ");
+        return (+p[1] || 0) * 100 + MONTHS.indexOf(p[0].slice(0, 3)) / 3 + 1;
+      };
+      const esc = (s) =>
+        String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/</g, "&lt;");
+      const HEART =
+        '<svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+
+      const S = RAW.map(
+        ([
+          id,
+          title,
+          cat,
+          genre,
+          image,
+          dHref,
+          dPrice,
+          dBadge,
+          dv,
+          pHref,
+          std,
+          ltd,
+          pRel,
+        ]) => {
+          const prices = [dPrice, std, ltd].filter((x) => x != null);
+          return {
+            id,
+            title,
+            cat,
+            genre,
+            image,
+            dHref,
+            dPrice,
+            dBadge,
+            pHref,
+            std,
+            ltd,
+            pRel,
+            hasD: !!dHref,
+            hasP: !!pHref,
+            href: dHref || pHref,
+            date: dBadge || pRel,
+            ids: Array.isArray(dv)
+              ? dv
+              : Array.from({ length: dv || 0 }, (_, i) => id + "-v" + (i + 1)),
+            genres: genre
+              .split("·")
+              .map((x) => x.trim())
+              .filter((x) => !NOT_GENRE.includes(x)),
+            rel: relVal(dBadge || pRel),
+            min: prices.length ? Math.min(...prices) : 0,
+          };
+        },
+      );
+
+      const gc = {};
+      S.forEach((s) => s.genres.forEach((g) => (gc[g] = (gc[g] || 0) + 1)));
+      const GENRES = Object.keys(gc).sort((a, b) => gc[b] - gc[a]);
+
+      const live = (s) =>
+        s.hasD && (LIVE_NOW.includes(s.id) || relVal(s.dBadge) <= nowVal);
+      const fmtOk = (s, f) =>
+        f === "ready"
+          ? live(s)
+          : f === "digital"
+            ? s.hasD
+            : f === "print"
+              ? s.hasP
+              : f === "limited"
+                ? s.ltd != null
+                : true;
+      const SORTS = {
+        az: (a, b) => a.title.localeCompare(b.title),
+        za: (a, b) => b.title.localeCompare(a.title),
+        new: (a, b) => b.rel - a.rel,
+        old: (a, b) => a.rel - b.rel,
+      };
+      const DD = {
+        cat: () => [
+          ["all", "All Imprints"],
+          ...Object.keys(CATS)
+            .filter((k) => S.some((s) => s.cat === k))
+            .map((k) => [k, CATS[k]]),
+        ],
+        sort: () => SORT,
+      };
+
+      const DEFAULTS = {
+        fmt: "all",
+        genre: "all",
+        cat: "all",
+        sort: "default",
+        view: "grid",
+      };
+      let st = { ...DEFAULTS },
+        gExp = false;
+
+      function avgRating(s) {
+        if (typeof chGetBookStat !== "function") return null;
+        const stats = s.ids
+          .map((id) => chGetBookStat(id))
+          .filter((x) => x && x.ratingCount);
+        if (stats.length) {
+          const n = stats.reduce((a, x) => a + x.ratingCount, 0);
+          return (
+            stats.reduce((a, x) => a + x.ratingAverage * x.ratingCount, 0) / n
+          ).toFixed(1);
+        }
+        if (typeof chGetReviews === "function") {
+          const r = s.ids.flatMap((id) =>
+            chGetReviews(id).map((x) => x.rating),
+          );
+          if (r.length)
+            return (r.reduce((a, b) => a + b, 0) / r.length).toFixed(1);
+        }
+        return null;
+      }
+
+      const P = (icon, label, v) =>
+        `<div class="s-price${v == null ? " na" : ""}"><span>${label}</span><b>${v == null ? "—" : "$" + v.toFixed(2)}</b></div>`;
+
+      function card(s) {
+        const w = typeof chIsWishlisted === "function" && chIsWishlisted(s.id);
+        const a = avgRating(s);
+        return `<article class="s-card">
+    <button class="s-wish${w ? " on" : ""}" data-id="${s.id}" data-name="${esc(s.title)}" aria-label="Add to wishlist">${HEART}</button>
+    <a class="s-link" href="${s.href}">
+      <div class="s-cover"><img src="${s.image}" alt="${esc(s.title)}" loading="lazy" />${s.date ? `<span class="s-date">${s.date}</span>` : ""}</div>
+      <div class="s-body">
+        <span class="s-imprint">${CATS[s.cat]}</span>
+        <div class="s-genre">${s.genre}</div>
+        <div class="s-title">${s.title}</div>
+        ${a && typeof chRenderStars === "function" ? `<div class="s-rating">${chRenderStars(parseFloat(a), false)}<span>${a}</span></div>` : ""}
+        <span class="s-btn">View Series</span>
+      </div>
+    </a>
+  </article>`;
+      }
+      function filtered() {
+        const out = S.filter(
+          (s) =>
+            (st.cat === "all" || s.cat === st.cat) &&
+            (st.genre === "all" || s.genres.includes(st.genre)) &&
+            fmtOk(s, st.fmt),
+        );
+        return SORTS[st.sort] ? out.sort(SORTS[st.sort]) : out;
+      }
+
+      function drawDD() {
+        document.querySelectorAll(".dd").forEach((el) => {
+          const k = el.dataset.k,
+            o = DD[k]();
+          el.querySelector(".dd-v").textContent = (o.find(
+            (x) => x[0] === st[k],
+          ) || o[0])[1];
+          el.querySelector(".dd-menu").innerHTML = o
+            .map(
+              ([v, l]) =>
+                `<div class="dd-opt${st[k] === v ? " on" : ""}" role="option" data-v="${v}">${l}</div>`,
+            )
+            .join("");
+        });
+      }
+
+      function drawChips() {
+        $("fmtChips").innerHTML = FMT.map(
+          ([k, l]) =>
+            `<button class="${st.fmt === k ? "on" : ""}" data-f="${k}">${l} <small>${S.filter((s) => fmtOk(s, k)).length}</small></button>`,
+        ).join("");
+        let g = gExp ? GENRES : GENRES.slice(0, 10);
+        if (st.genre !== "all" && !g.includes(st.genre)) g = [...g, st.genre];
+        $("genreChips").innerHTML =
+          `<button class="chip${st.genre === "all" ? " on" : ""}" data-g="all">All</button>` +
+          g
+            .map(
+              (x) =>
+                `<button class="chip${st.genre === x ? " on" : ""}" data-g="${esc(x)}">${x}</button>`,
+            )
+            .join("") +
+          `<button class="chip" data-more="1">${gExp ? "Less −" : "More +"}</button>`;
+      }
+
+      function draw() {
+        drawDD();
+        drawChips();
+        const list = filtered(),
+          grid = $("seriesGrid");
+        grid.className = st.view === "list" ? "list" : "";
+        grid.innerHTML = list.length
+          ? list.map(card).join("")
+          : `<div class="empty"><b>No series match your filters</b>Try a different combination or <a onclick="resetAll()">reset filters</a></div>`;
+        $("reset").hidden = !(
+          st.fmt !== "all" ||
+          st.genre !== "all" ||
+          st.cat !== "all" ||
+          st.sort !== "default"
+        );
+      }
+
+      function resetAll() {
+        st = { ...DEFAULTS, view: st.view };
+        draw();
+      }
+
+      /* ---------- wire up ---------- */
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".dd-btn"),
+          opt = e.target.closest(".dd-opt");
+        document.querySelectorAll(".dd.open").forEach((d) => {
+          if (!btn || d !== btn.parentNode) d.classList.remove("open");
+        });
+        if (btn) btn.parentNode.classList.toggle("open");
+        else if (opt) {
+          const d = opt.closest(".dd");
+          st[d.dataset.k] = opt.dataset.v;
+          draw();
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape")
+          document
+            .querySelectorAll(".dd.open")
+            .forEach((d) => d.classList.remove("open"));
+      });
+      ["Grid", "List"].forEach((m) =>
+        $("v" + m).addEventListener("click", () => {
+          st.view = m.toLowerCase();
+          $("vGrid").classList.toggle("active", st.view === "grid");
+          $("vList").classList.toggle("active", st.view === "list");
+          draw();
+        }),
+      );
+      document.querySelector(".toolbar").addEventListener("click", (e) => {
+        const c = e.target.closest("[data-f],[data-g],[data-more]");
+        if (!c) return;
+        if (c.dataset.f) st.fmt = c.dataset.f;
+        else if (c.dataset.g) st.genre = c.dataset.g;
+        else if (c.dataset.more) gExp = !gExp;
+        draw();
+      });
+      $("seriesGrid").addEventListener("click", (e) => {
+        const b = e.target.closest(".s-wish");
+        if (!b) return;
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof chToggleWishlist === "function")
+          chToggleWishlist(b.dataset.id, b.dataset.name);
+        b.classList.toggle(
+          "on",
+          typeof chIsWishlisted === "function"
+            ? chIsWishlisted(b.dataset.id)
+            : !b.classList.contains("on"),
+        );
+      });
+
+      /* URL param: ?genre=romance */
+      (function () {
+        const slug = (
+          new URLSearchParams(location.search).get("genre") || ""
+        ).toLowerCase();
+        if (!slug) return;
+        const m = GENRES.find(
+          (g) => g.toLowerCase().replace(/\s+/g, "-") === slug,
+        );
+        if (m) st.genre = m;
+      })();
+
+      draw();
+      renderAuthForm("in");
+      if (typeof chInjectReviewModal === "function") chInjectReviewModal();
+      window.chOnBookStatsLoaded = draw;
+
+      /* theme */
+      if (localStorage.getItem("ch-theme") === "light")
+        document.body.classList.add("light-mode");
+      function toggleTheme() {
+        const l = document.body.classList.toggle("light-mode");
+        localStorage.setItem("ch-theme", l ? "light" : "dark");
+      }
+    </script>
+  </body>
+</html>

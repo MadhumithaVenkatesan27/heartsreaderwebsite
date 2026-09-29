@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="clean-urls.js"></script>
+    <meta
+      name="google-site-verification"
+      content="S9T4XiqDMXqg5zsTiZcJUyzM73NeDm0kfFlG9X9nqcA"
+    />
+    <title>Manga — Romance, Fantasy & Action Titles | Crossed Hearts</title>
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Browse officially licensed manga in English — romance, action, fantasy, shoujo and seinen. New volumes added regularly. Read online at Crossed Hearts."
+    />
+    <meta
+      name="keywords"
+      content="manga online English, buy manga English, romance manga, action manga, fantasy manga, shoujo manga, seinen manga, official manga translation, Crossed Hearts manga"
+    />
+    <link rel="canonical" href="https://heartsreader.com/manga.html" />
+    <meta
+      property="og:title"
+      content="Manga — Browse All Titles | Crossed Hearts"
+    />
+    <meta
+      property="og:description"
+      content="Browse officially licensed manga in English — romance, action, fantasy, shoujo and seinen."
+    />
+    <meta
+      property="og:image"
+      content="https://heartsreader.com/Images/Chigaya-vol 1.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://heartsreader.com/manga.html" />
+    <meta property="og:site_name" content="Crossed Hearts" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Manga — Browse All Titles | Crossed Hearts"
+    />
+    <meta
+      name="twitter:description"
+      content="Browse officially licensed manga in English — romance, action, fantasy, shoujo and seinen."
+    />
+    <meta
+      name="twitter:image"
+      content="https://heartsreader.com/Images/Chigaya-vol 1.png"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <script src="catalog.js"></script>
+    <script src="nav-search.js"></script>
+    <style>
+      .ch-chip {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        color: rgba(245, 237, 232, 0.8);
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 11px;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      .ch-chip:hover {
+        background: rgba(212, 175, 55, 0.2);
+      }
+
+      .ch-chip-icon {
+        width: 15px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .ch-chip-icon svg {
+        width: 15px;
+        height: 15px;
+        stroke: #c4647a;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        transition: 0.2s ease;
+      }
+      .ch-chip:hover .ch-chip-icon svg {
+        stroke: #fff;
+        transform: scale(1.05);
+      }
+
+      .ch-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(212, 175, 55, 0.6);
+        animation: ch-bounce 1.2s infinite ease-in-out;
+        display: inline-block;
+      }
+      .ch-dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .ch-dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      @keyframes ch-bounce {
+        0%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .ch-msg-user {
+        max-width: 88%;
+        font-size: 13px;
+        line-height: 1.55;
+        padding: 9px 13px;
+        border-radius: 14px;
+        border-bottom-right-radius: 4px;
+        background: linear-gradient(135deg, #c4647a, #b84060);
+        color: #fff;
+        align-self: flex-end;
+        word-break: break-word;
+      }
+      .ch-msg-bot {
+        max-width: 95%;
+        font-size: 13px;
+        line-height: 1.6;
+        padding: 10px 13px;
+        border-radius: 14px;
+        border-bottom-left-radius: 4px;
+        background: rgba(255, 255, 255, 0.07);
+        color: #f0e8e3;
+        align-self: flex-start;
+        word-break: break-word;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .ch-msg-bot a {
+        color: #d4af37;
+        text-decoration: underline;
+      }
+
+      .ch-book-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 12px;
+        padding: 10px;
+        margin-top: 8px;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        text-decoration: none !important;
+        transition: background 0.2s;
+      }
+      .ch-book-card:hover {
+        background: rgba(212, 175, 55, 0.08);
+      }
+      .ch-book-cover {
+        width: 52px;
+        height: 72px;
+        border-radius: 6px;
+        object-fit: cover;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .ch-book-info {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        flex: 1;
+      }
+      .ch-book-title {
+        color: #f5ede8;
+        font-size: 12.5px;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      .ch-book-genre {
+        color: rgba(212, 175, 55, 0.8);
+        font-size: 10px;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+      .ch-book-price {
+        color: #d4af37;
+        font-size: 12px;
+        font-weight: 700;
+        margin-top: 2px;
+      }
+      .ch-read-btn {
+        display: inline-block;
+        margin-top: 5px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #c4647a, #b84060);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 0.3px;
+      }
+
+      #ch-messages::-webkit-scrollbar {
+        width: 4px;
+      }
+      #ch-messages::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      #ch-messages::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 2px;
+      }
+      .ch-vol-row {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+        max-width: 900px;
+      }
+      .ch-vol-row .title-card {
+        width: 240px;
+        flex-shrink: 0;
+      }
+      .ch-vol-row .card-cover {
+        height: 330px;
+      }
+
+      @media (max-width: 768px) {
+        .ch-vol-row {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          padding-bottom: 14px;
+          max-width: 100%;
+          margin: 0 -4px;
+        }
+        .ch-vol-row .title-card {
+          scroll-snap-align: start;
+          width: 180px;
+        }
+        .ch-vol-row .card-cover {
+          height: 250px;
+        }
+        .ch-vol-row::-webkit-scrollbar {
+          height: 4px;
+        }
+        .ch-vol-row::-webkit-scrollbar-thumb {
+          background: rgba(212, 175, 55, 0.35);
+          border-radius: 4px;
+        }
+      }
+      .grid-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 64px;
+      }
+      .manga-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 22px;
+      }
+      .manga-grid .card-title {
+        font-size: 13.5px;
+        line-height: 1.35;
+      }
+      .manga-grid .card-genre {
+        font-size: 11px;
+      }
+      .manga-grid .ch-age-tag {
+        margin-top: 4px;
+      }
+      .card-edition-btns {
+        display: flex;
+        gap: 6px;
+        margin-top: 10px;
+      }
+      .btn-edition {
+        flex: 1;
+        text-align: center;
+        padding: 7px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          background 0.2s;
+      }
+      .btn-edition-digital {
+        background: linear-gradient(135deg, #c4647a, #b84060);
+        color: #fff;
+      }
+      .btn-edition-print {
+        background: transparent;
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        color: var(--gold, #d4af37);
+      }
+      .btn-edition:hover {
+        transform: translateY(-2px);
+      }
+      .btn-edition-digital:hover {
+        box-shadow: 0 6px 18px rgba(196, 100, 122, 0.4);
+      }
+      .btn-edition-print:hover {
+        background: rgba(212, 175, 55, 0.12);
+      }
+      @media (max-width: 768px) {
+        .grid-section {
+          padding: 32px 20px;
+        }
+        .manga-grid {
+          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+          gap: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body class="page-body">
+    <!-- NAV -->
+    <nav class="nav" id="mainNav">
+      <a class="nav-logo" href="index.html">
+        <img
+          src="Images/logo-dark.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-dark"
+        />
+        <img
+          src="Images/logo-light.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-light"
+        />
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Crossed Hearts</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="series.html" class="active">Our Series</a></li>
+        <li>
+          <a href="campaigns.html" class="nav-campaign"
+            ><i class="ti ti-heart" aria-hidden="true"></i> Campaign</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-search-inline" id="navSearchInline" role="search">
+          <input
+            type="text"
+            class="nav-search-inline-input"
+            id="navSearchInlineInput"
+            placeholder="Search..."
+            autocomplete="off"
+            readonly
+            aria-label="Search titles, genres, keywords"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            onclick="openNavSearch()"
+            onfocus="openNavSearch()"
+            onkeydown="if (event.key === 'Enter') openNavSearch();"
+          />
+          <button
+            class="nav-search-inline-btn"
+            id="navSearchInlineBtn"
+            onclick="openNavSearch()"
+            aria-label="Open search"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
+        <a href="account.html" class="btn-nav-ghost">My Account</a>
+        <button
+          class="btn-nav-signin"
+          id="navAuthBtn"
+          data-login-label="Sign In"
+          onclick="handleNavAuth()"
+        >
+          Sign In
+        </button>
+        <button
+          class="btn-nav-register"
+          id="navRegisterBtn"
+          onclick="openAuth('up', { lockMode: true })"
+        >
+          Sign Up
+        </button>
+        <a
+          href="subscription.html"
+          class="btn-nav-subscribe"
+          id="navSubscribeBtn"
+          ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+        >
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          <span class="icon-dark"
+            ><i class="ti ti-moon" aria-hidden="true"></i
+          ></span>
+          <span class="icon-light"
+            ><i class="ti ti-sun" aria-hidden="true"></i
+          ></span>
+        </button>
+        <button
+          class="nav-burger"
+          onclick="toggleMobileNav()"
+          aria-label="Open menu"
+        >
+          <i class="ti ti-menu-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-top">
+        <span
+          style="
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+          "
+          >Menu</span
+        >
+      </div>
+      <a href="index.html">Home</a>
+      <a href="series.html" class="active">Our Series</a>
+      <a href="subscription.html" class="mn-sub"
+        ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+      >
+      <a
+        href="campaigns.html"
+        style="color: var(--ch-rose-deep); font-weight: 700"
+        >Campaigns</a
+      >
+      <a
+        href="#"
+        onclick="
+          handleNavAuth();
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileAuthLink"
+        data-login-label="Sign In"
+        >Sign In</a
+      >
+      <a
+        href="#"
+        onclick="
+          openAuth('up', { lockMode: true });
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileRegisterLink"
+        >Sign Up</a
+      >
+    </div>
+    <div class="page-hero">
+      <span class="eyebrow">Crossed Hearts · Manga</span>
+      <h1>Manga <em>Collection</em></h1>
+      <p>
+        Eight volumes across four series. Romance, dark fantasy, slow-burn
+        comedy and Josei drama, all authentically localized into English.
+      </p>
+    </div>
+
+    <!-- SERIES GROUPS -->
+    <div class="grid-section">
+      <div class="manga-grid" id="mangaGrid">
+        <!-- CHIGAYA -->
+        <a href="chigaya.html" class="title-card" style="text-decoration: none">
+          <div class="card-cover">
+            <img
+              src="Images/Chigaya-vol 1.png"
+              alt="You're Way Too Cheeky, Chigaya-kun!"
+              style="height: auto; width: 100%"
+            />
+            <div class="card-badge">Vol.2 – Dec 2026</div>
+          </div>
+          <div class="card-body">
+            <div class="card-genre">Manga · Romance · School Life</div>
+            <div class="card-title">You're Way Too Cheeky, Chigaya-kun!</div>
+            <div class="card-price">$0.99</div>
+          </div>
+        </a>
+
+        <!-- GRENIMAL -->
+        <a
+          href="executioner.html"
+          class="title-card"
+          style="text-decoration: none"
+        >
+          <div class="card-cover">
+            <img
+              src="Images/Grenimal-vol 1.png"
+              alt="The Executioner of Grenimal"
+              style="height: auto; width: 100%"
+            />
+            <div class="card-badge">Vol.1 – Oct 2026</div>
+          </div>
+          <div class="card-body">
+            <div class="card-genre">Manga · Action · Mystery</div>
+            <div class="card-title">The Executioner of Grenimal</div>
+            <div class="card-price">$0.99</div>
+          </div>
+        </a>
+
+        <!-- MATCHMAKER -->
+        <a
+          href="matchmaker.html"
+          class="title-card"
+          style="text-decoration: none"
+        >
+          <div class="card-cover">
+            <img
+              src="Images/Matchmaker-vol 1.png"
+              alt="The Matchmaker's Fiancé"
+              style="height: auto; width: 100%"
+            />
+            <div class="card-badge">Vol.1 – Oct 2026</div>
+          </div>
+          <div class="card-body">
+            <div class="card-genre">
+              Manga · Romance · Comedy
+              <!-- <span class="ch-age-tag">Teen 13+</span> -->
+            </div>
+            <div class="card-title">The Matchmaker's Fiancé</div>
+            <div class="card-price">$0.99</div>
+          </div>
+        </a>
+
+        <!-- CONNIE -->
+        <a
+          href="allrounder.html"
+          class="title-card"
+          style="text-decoration: none"
+        >
+          <div class="card-cover">
+            <img
+              src="Images/Connie-vol 1.png"
+              alt="All-Rounder Maid Connie Wille"
+              style="height: auto; width: 100%"
+            />
+            <div class="card-badge">Vol.1 – Dec 2026</div>
+          </div>
+          <div class="card-body">
+            <div class="card-genre">
+              Manga · Fantasy · Josei
+              <!-- <span class="ch-age-tag">Teen 16+</span> -->
+            </div>
+            <div class="card-title">All-Rounder Maid Connie Wille</div>
+            <div class="card-price">$0.99</div>
+          </div>
+        </a>
+
+        <!-- LOVE BEYOND THE FINAL BOSS -->
+        <a
+          href="lovebeyond.html"
+          class="title-card"
+          style="text-decoration: none"
+        >
+          <div class="card-cover">
+            <img
+              src="Images/Love beyond the final boss.jpeg"
+              alt="Love Beyond the Final Boss"
+              style="height: auto; width: 100%"
+            />
+            <div class="card-badge">Vol.1 – Feb 2027</div>
+          </div>
+          <div class="card-body">
+            <div class="card-genre">
+              Manga · Fantasy · Comedy
+              <!-- <span class="ch-age-tag">Teen 13+</span> -->
+            </div>
+            <div class="card-title">
+              Love Beyond the Final Boss: The Hero Party's Quest for Love
+            </div>
+            <div class="card-price">$0.99</div>
+          </div>
+        </a>
+
+        <!-- TWO OF US CAN'T STAY MOBS -->
+        <a href="twomobs.html" class="title-card" style="text-decoration: none">
+          <div class="card-cover">
+            <img
+              src="Images/Mobs Updated Cover Page.png"
+              alt="Two of Us Can't Stay Mobs"
+              style="height: auto; width: 100%"
+            />
+            <div class="card-badge">Vol.1 – Feb 2027</div>
+          </div>
+          <div class="card-body">
+            <div class="card-genre">
+              Manga · Fantasy · Romance
+              <!-- <span class="ch-age-tag">Teen 13+</span> -->
+            </div>
+            <div class="card-title">Two of Us Can't Stay Mobs</div>
+            <div class="card-price">$0.99</div>
+          </div>
+        </a>
+
+        <!-- EMMA AND THE EYES THAT BID FAREWELL -->
+        <a href="emma.html" class="title-card" style="text-decoration: none">
+          <div class="card-cover">
+            <img
+              src="Images/emma and the eyes cover page.png"
+              alt="Emma and the Eyes That Bid Farewell"
+              style="height: auto; width: 100%"
+            />
+            <div class="card-badge">Vol.1 – Feb 2027</div>
+          </div>
+          <div class="card-body">
+            <div class="card-genre">
+              Manga · Fantasy · Shoujo
+              <!-- <span class="ch-age-tag">Teen 13+</span> -->
+            </div>
+            <div class="card-title">Emma and the Eyes That Bid Farewell</div>
+            <div class="card-price">$0.99</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <!-- END SERIES GROUPS -->
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+      <h2>Join the <em>Collector's Circle</em></h2>
+      <p>Get notified when new manga chapters and volumes drop.</p>
+      <form class="nl-form" onsubmit="handleNewsletter(event)">
+        <input
+          type="email"
+          class="nl-input"
+          placeholder="your@email.com"
+          required
+        />
+        <button type="submit" class="btn-gold">Join Now</button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Crossed Hearts</div>
+          <p>
+            English localization of manga, manhwa and Asian novels, across
+            borders, with care.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://discord.com/login?redirect_to=%2Fchannels%2F%40me"
+              target="_blank"
+              aria-label="Discord"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://x.com/CrossedHearts_X"
+              target="_blank"
+              aria-label="X (Twitter)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@CrossedHearts_YT"
+              target="_blank"
+              aria-label="YouTube"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="https://thecrossedhearts.com/">Main Site</a></li>
+            <li><a href="series.html">Our Series</a></li>
+            <li><a href="campaigns.html">Sepcial Edition</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="account.html">My Account</a></li>
+            <li><a onclick="openAuth()">Sign In</a></li>
+            <li><a href="licenser-login.html">Authorised User</a></li>
+            <li><a href="subscription.html">Subscribe</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li>
+              <a href="about-use.html" target="_blank">About Us</a>
+            </li>
+            <li>
+              <a href="contact-us.html" target="_blank">Contact</a>
+            </li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Crossed Hearts. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+    <!-- AUTH MODAL -->
+    <div class="modal-overlay" id="authOverlay" onclick="closeAuthIfBg(event)">
+      <div class="modal">
+        <button class="modal-x" onclick="closeAuth()" aria-label="Close">
+          <i class="ti ti-x" aria-hidden="true"></i>
+        </button>
+        <div class="modal-title">Welcome Back</div>
+        <div class="modal-sub">Sign in to access your digital library</div>
+        <div class="auth-tabs">
+          <button class="atab active" onclick="switchAuth('in', this)">
+            Sign In
+          </button>
+          <button class="atab" onclick="switchAuth('up', this)">Sign Up</button>
+        </div>
+        <div id="authBody"></div>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <!-- HELP CONTACT MODAL -->
+    <div
+      class="modal-overlay"
+      id="helpContactOverlay"
+      onclick="closeHelpContactIfBg(event)"
+    >
+      <div class="modal" style="max-width: 440px">
+        <button class="modal-x" onclick="closeHelpContact()" aria-label="Close">
+          <i class="ti ti-x" aria-hidden="true"></i>
+        </button>
+        <div class="modal-title">Contact Support</div>
+        <div class="modal-sub" id="helpContactSub">
+          We'll get back to you within 24 hours
+        </div>
+        <form
+          id="helpContactForm"
+          onsubmit="submitHelpContact(event)"
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+          "
+        >
+          <select
+            id="hcCategory"
+            required
+            style="
+              padding: 11px 13px;
+              border-radius: 10px;
+              background: rgba(255, 255, 255, 0.06);
+              border: 1px solid rgba(255, 255, 255, 0.12);
+              color: #f5ede8;
+              font-family: &quot;DM Sans&quot;, sans-serif;
+              font-size: 13px;
+            "
+          >
+            <option value="">Select a category…</option>
+            <option value="Reading Issues">Reading Issues</option>
+            <option value="Payments & Refunds">Payments & Refunds</option>
+            <option value="Physical Orders">Physical Orders</option>
+            <option value="Account & Login">Account & Login</option>
+            <option value="Digital Library">Digital Library</option>
+            <option value="Technical Issues">Technical Issues</option>
+            <option value="General">General / Other</option>
+          </select>
+          <input
+            type="text"
+            id="hcName"
+            placeholder="Your name"
+            required
+            style="
+              padding: 11px 13px;
+              border-radius: 10px;
+              background: rgba(255, 255, 255, 0.06);
+              border: 1px solid rgba(255, 255, 255, 0.12);
+              color: #f5ede8;
+              font-family: &quot;DM Sans&quot;, sans-serif;
+              font-size: 13px;
+            "
+          />
+          <input
+            type="email"
+            id="hcEmail"
+            placeholder="Your email"
+            required
+            style="
+              padding: 11px 13px;
+              border-radius: 10px;
+              background: rgba(255, 255, 255, 0.06);
+              border: 1px solid rgba(255, 255, 255, 0.12);
+              color: #f5ede8;
+              font-family: &quot;DM Sans&quot;, sans-serif;
+              font-size: 13px;
+            "
+          />
+          <textarea
+            id="hcMessage"
+            rows="4"
+            placeholder="Tell us what's going on…"
+            required
+            style="
+              padding: 11px 13px;
+              border-radius: 10px;
+              background: rgba(255, 255, 255, 0.06);
+              border: 1px solid rgba(255, 255, 255, 0.12);
+              color: #f5ede8;
+              font-family: &quot;DM Sans&quot;, sans-serif;
+              font-size: 13px;
+              resize: vertical;
+            "
+          ></textarea>
+          <button type="submit" class="btn-gold" style="margin-top: 4px">
+            Send Message
+          </button>
+          <div
+            id="hcStatus"
+            style="
+              font-size: 12px;
+              text-align: center;
+              color: rgba(245, 237, 232, 0.6);
+            "
+          ></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- NAV SEARCH OVERLAY -->
+    <div
+      class="nav-search-overlay"
+      id="navSearchOverlay"
+      onclick="closeNavSearchIfBg(event)"
+    >
+      <div class="nav-search-modal">
+        <button
+          class="nav-search-close"
+          onclick="closeNavSearch()"
+          aria-label="Close search"
+        >
+          &#10005;
+        </button>
+        <div class="nav-search-inner" id="navSiteSearchBar">
+          <span class="nav-search-icon">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            class="nav-search-input"
+            id="navSearchInput"
+            placeholder="Search Titles, Genres, Keywords..."
+            oninput="navLiveSearch(this.value)"
+            onkeydown="if (event.key === 'Enter') navDoSearch();"
+            autocomplete="off"
+          />
+          <button
+            class="nav-search-clear"
+            id="navSearchClear"
+            onclick="navClearSearch()"
+            style="display: none"
+          >
+            &#10005;
+          </button>
+          <button class="nav-search-submit" onclick="navDoSearch()">
+            Search
+          </button>
+        </div>
+
+        <!-- 👇 THIS WAS MISSING — added to match index.html -->
+        <div class="nav-genres-panel" id="navGenresPanel">
+          <div class="nav-genres-label">Genres</div>
+          <div
+            class="nav-genres-grid"
+            id="navGenresGrid"
+            role="group"
+            aria-label="Browse by genre"
+          ></div>
+          <button
+            class="nav-genres-more"
+            id="navGenresMoreBtn"
+            onclick="navToggleGenres()"
+            aria-expanded="false"
+          >
+            See more
+          </button>
+        </div>
+
+        <div class="nav-search-suggestions" id="navSearchSuggestions"></div>
+      </div>
+    </div>
+    <!-- BACK TO TOP BUTTON -->
+    <button
+      id="backToTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Back to top"
+      style="
+        position: fixed;
+        bottom: 100px;
+        right: 28px;
+        z-index: 8000;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(212, 175, 55, 0.15);
+        border: 1px solid rgba(212, 175, 55, 0.35);
+        color: var(--gold);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease,
+          background 0.2s;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      "
+      onmouseover="
+        this.style.background = 'rgba(212,175,55,0.3)';
+        this.style.transform = 'translateY(-3px)';
+      "
+      onmouseout="
+        this.style.background = 'rgba(212,175,55,0.15)';
+        this.style.transform = 'translateY(0)';
+      "
+    >
+      <i
+        class="ti ti-chevron-up"
+        style="font-size: 16px"
+        aria-hidden="true"
+      ></i>
+    </button>
+
+    <script>
+      window.CH_API_URL = [
+        "thecrossedhearts.com",
+        "www.thecrossedhearts.com",
+      ].includes(window.location.hostname)
+        ? "https://crossed-hearts-final.onrender.com/api"
+        : window.location.hostname === "crossed-hearts.onrender.com"
+          ? "https://crossed-hearts-final.onrender.com/api"
+          : ["localhost", "127.0.0.1", ""].includes(window.location.hostname) ||
+              window.location.protocol === "file:"
+            ? "http://localhost:5000/api"
+            : "https://crossed-hearts-final.onrender.com/api";
+    </script>
+    <script src="script.js"></script>
+    <script>
+      <!-- BACK TO TOP BUTTON -->
+      (function () {
+        const btn = document.getElementById("backToTop");
+        if (!btn) return;
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (window.scrollY > 400) {
+              btn.style.display = "flex";
+              btn.style.opacity = "1";
+            } else {
+              btn.style.opacity = "0";
+              setTimeout(() => {
+                if (window.scrollY <= 400) btn.style.display = "none";
+              }, 300);
+            }
+          },
+          { passive: true },
+        );
+      })();
+      renderAuthForm("in");
+
+      (function () {
+        if (localStorage.getItem("ch-theme") === "light") {
+          document.body.classList.add("light-mode");
+        }
+      })();
+
+      function toggleTheme() {
+        const isLight = document.body.classList.toggle("light-mode");
+        localStorage.setItem("ch-theme", isLight ? "light" : "dark");
+      }
+
+      document
+        .querySelectorAll(".btn-wishlist[data-id]")
+        .forEach(function (btn) {
+          var id = btn.getAttribute("data-id");
+          if (chIsWishlisted(id)) {
+            btn.classList.add("wishlisted");
+            btn.innerHTML =
+              '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+          }
+        });
+    </script>
+    <script src="chatbot.js"></script>
+  </body>
+</html>

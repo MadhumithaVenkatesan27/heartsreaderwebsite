@@ -1,0 +1,154 @@
+<section class="section" style="padding-top: 60px">
+  <div style="text-align: center; max-width: 640px; margin: 0 auto 40px">
+    <span class="eyebrow">We're here to help</span>
+    <h1 class="section-title" style="font-size: 2.4rem">
+      Help &amp; <em>Support</em>
+    </h1>
+    <p style="color: rgba(245, 237, 232, 0.6); margin-top: 12px">
+      How can we help you today?
+    </p>
+
+    <div style="position: relative; max-width: 420px; margin: 28px auto 0">
+      <svg
+        style="
+          position: absolute;
+          left: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+        "
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#d4af37"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+      <input
+        type="text"
+        id="helpSearch"
+        placeholder="Search for help..."
+        oninput="filterHelpCards(this.value)"
+        style="
+          width: 100%;
+          padding: 13px 16px 13px 42px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(212, 175, 55, 0.25);
+          color: #f5ede8;
+          font-family: &quot;DM Sans&quot;, sans-serif;
+          font-size: 14px;
+          outline: none;
+        "
+      />
+    </div>
+  </div>
+
+  <div
+    id="helpCardsGrid"
+    style="
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      max-width: 960px;
+      margin: 0 auto;
+    "
+  >
+    <!-- Cards injected by JS below -->
+  </div>
+</section>
+
+<script>
+  const HELP_CATEGORIES = [
+    {
+      icon: "ti-book-2",
+      title: "Reading Issues",
+      desc: "Pages not loading, chapters missing, display glitches",
+      category: "Reading Issues",
+    },
+    {
+      icon: "ti-credit-card",
+      title: "Payments & Refunds",
+      desc: "Billing questions, failed payments, refund requests",
+      category: "Payments & Refunds",
+    },
+    {
+      icon: "ti-package",
+      title: "Physical Orders",
+      desc: "Print edition shipping, tracking, damaged items",
+      category: "Physical Orders",
+    },
+    {
+      icon: "ti-user",
+      title: "Account & Login",
+      desc: "Sign-in trouble, password resets, profile settings",
+      category: "Account & Login",
+    },
+    {
+      icon: "ti-book",
+      title: "Digital Library",
+      desc: "Missing purchases, access issues in My Library",
+      category: "Digital Library",
+    },
+    {
+      icon: "ti-settings",
+      title: "Technical Issues",
+      desc: "Bugs, broken links, browser compatibility",
+      category: "Technical Issues",
+    },
+    {
+      icon: "ti-help",
+      title: "Frequently Asked Questions",
+      desc: "Browse common questions and answers",
+      href: "faq.html",
+    },
+    {
+      icon: "ti-phone",
+      title: "Contact Support",
+      desc: "Can't find what you need? Reach out directly",
+      category: "General",
+    },
+  ];
+
+  function helpCardHTML(c) {
+    const action = c.href
+      ? `onclick="window.location.href='${c.href}'"`
+      : `onclick="openHelpContact('${c.category}')"`;
+    return `
+    <div class="help-card" data-title="${c.title.toLowerCase()}" data-desc="${c.desc.toLowerCase()}"
+      ${action}
+      style="cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,55,0.15);border-radius:16px;padding:26px 22px;transition:transform 0.2s, background 0.2s, border-color 0.2s;"
+      onmouseover="this.style.transform='translateY(-4px)';this.style.background='rgba(212,175,55,0.06)';this.style.borderColor='rgba(212,175,55,0.35)';"
+      onmouseout="this.style.transform='translateY(0)';this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(212,175,55,0.15)';">
+      <div style="font-size:26px;color:#d4af37;margin-bottom:12px;">
+        <i class="ti ${c.icon}" aria-hidden="true"></i>
+      </div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#f5ede8;margin-bottom:6px;">${c.title}</div>
+      <div style="font-size:12.5px;color:rgba(245,237,232,0.55);line-height:1.5;">${c.desc}</div>
+    </div>`;
+  }
+
+  function renderHelpCards(list) {
+    document.getElementById("helpCardsGrid").innerHTML = list
+      .map(helpCardHTML)
+      .join("");
+  }
+  renderHelpCards(HELP_CATEGORIES);
+
+  function filterHelpCards(query) {
+    const q = query.toLowerCase().trim();
+    const filtered = HELP_CATEGORIES.filter(
+      (c) =>
+        c.title.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q),
+    );
+    renderHelpCards(filtered.length ? filtered : []);
+    if (!filtered.length) {
+      document.getElementById("helpCardsGrid").innerHTML =
+        `<div style="grid-column:1/-1;text-align:center;color:rgba(245,237,232,0.5);padding:30px;">No matches — try "contact support" to reach us directly.</div>`;
+    }
+  }
+</script>

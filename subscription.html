@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <script src="clean-urls.js"></script>
+    <meta
+      name="google-site-verification"
+      content="S9T4XiqDMXqg5zsTiZcJUyzM73NeDm0kfFlG9X9nqcA"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscription Program - Crossed Hearts</title>
+    <meta
+      name="description"
+      content="Spend Less, Read More. Subscribe to get manga, manhwa, and novels at real, honest savings off retail."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="subscription.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="titlepage.css" />
+    <script src="catalog.js"></script>
+    <script src="nav-search.js"></script>
+    <link rel="stylesheet" href="subscription.css" />
+  </head>
+
+  <body>
+    <!-- ANNOUNCE BAR -->
+    <div class="announce-bar">
+      🇺🇸 Currently available in the USA only &nbsp;·&nbsp;
+      <strong>Free shipping</strong> on every title &nbsp;·&nbsp; Cancel anytime
+    </div>
+    <!-- NAV -->
+    <nav class="nav" id="mainNav">
+      <a class="nav-logo" href="index.html">
+        <img
+          src="Images/logo-dark.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-dark"
+        />
+        <img
+          src="Images/logo-light.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-light"
+        />
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Crossed Hearts</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="series.html" class="active">Our Series</a></li>
+        <li>
+          <a href="campaigns.html" class="nav-campaign"
+            ><i class="ti ti-heart" aria-hidden="true"></i> Campaign</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-search-inline" id="navSearchInline" role="search">
+          <input
+            type="text"
+            class="nav-search-inline-input"
+            id="navSearchInlineInput"
+            placeholder="Search..."
+            autocomplete="off"
+            readonly
+            aria-label="Search titles, genres, keywords"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            onclick="openNavSearch()"
+            onfocus="openNavSearch()"
+            onkeydown="if (event.key === 'Enter') openNavSearch();"
+          />
+          <button
+            class="nav-search-inline-btn"
+            id="navSearchInlineBtn"
+            onclick="openNavSearch()"
+            aria-label="Open search"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
+        <a href="account.html" class="btn-nav-ghost">My Account</a>
+        <button
+          class="btn-nav-signin"
+          id="navAuthBtn"
+          data-login-label="Sign In"
+          onclick="handleNavAuth()"
+        >
+          Sign In
+        </button>
+        <button
+          class="btn-nav-register"
+          id="navRegisterBtn"
+          onclick="openAuth('up', { lockMode: true })"
+        >
+          Sign Up
+        </button>
+        <a
+          href="subscription.html"
+          class="btn-nav-subscribe"
+          id="navSubscribeBtn"
+          ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+        >
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          <span class="icon-dark"
+            ><i class="ti ti-moon" aria-hidden="true"></i
+          ></span>
+          <span class="icon-light"
+            ><i class="ti ti-sun" aria-hidden="true"></i
+          ></span>
+        </button>
+        <button
+          class="nav-burger"
+          onclick="toggleMobileNav()"
+          aria-label="Open menu"
+        >
+          <i class="ti ti-menu-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-top">
+        <span
+          style="
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+          "
+          >Menu</span
+        >
+      </div>
+      <a href="index.html">Home</a>
+      <a href="series.html" class="active">Our Series</a>
+      <a href="subscription.html" class="mn-sub"
+        ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+      >
+      <a
+        href="campaigns.html"
+        style="color: var(--ch-rose-deep); font-weight: 700"
+        >Campaigns</a
+      >
+      <a
+        href="#"
+        onclick="
+          handleNavAuth();
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileAuthLink"
+        data-login-label="Sign In"
+        >Sign In</a
+      >
+      <a
+        href="#"
+        onclick="
+          openAuth('up', { lockMode: true });
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileRegisterLink"
+        >Sign Up</a
+      >
+    </div>
+    <!-- HERO -->
+    <section class="sub-hero">
+      <div class="sub-hero-inner">
+        <div class="sub-hero-copy">
+          <div class="sp-eyebrow">
+            Subscription program - Only for United States
+          </div>
+          <h1>Spend less,<br /><em>read more.</em></h1>
+          <p class="sub-hero-lead">
+            One book a month, your pick — manga, manhwa or novels. Skip a month
+            and the credit carries forward. Free shipping, always.
+          </p>
+          <div class="sub-hero-cta">
+            <a href="#plans" class="btn-solid">Choose a plan</a>
+            <a href="#savings" class="btn-outline">See the math</a>
+          </div>
+          <div class="sub-hero-trust">
+            <span
+              ><i class="ti ti-truck" aria-hidden="true"></i> Free
+              shipping</span
+            >
+            <span
+              ><i class="ti ti-refresh" aria-hidden="true"></i> Carry
+              forward</span
+            >
+            <span
+              ><i class="ti ti-x" aria-hidden="true"></i> Cancel anytime</span
+            >
+          </div>
+        </div>
+
+        <div class="hero-stack">
+          <img src="Images/BGOS-vol1.png" alt="Baroness Goes on Strike cover" />
+          <img src="Images/FKTL-vol1.png" alt="From a Knight to a Lady cover" />
+          <img
+            src="Images/TAAS-vol1.png"
+            alt="The Archduke's Adopted Saint cover"
+          />
+          <span class="hero-stack-chip">Save up to 49%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAT BAND -->
+    <div class="stat-band">
+      <div class="stat-band-inner">
+        <div>
+          <div class="stat-num">Up to 49%</div>
+          <div class="stat-label">saving per book</div>
+        </div>
+        <div>
+          <div class="stat-num">$60</div>
+          <div class="stat-label">shipping saved a year</div>
+        </div>
+        <div>
+          <div class="stat-num">13</div>
+          <div class="stat-label">books on annual plans</div>
+        </div>
+        <div>
+          <div class="stat-num">2</div>
+          <div class="stat-label">tiers to choose from</div>
+        </div>
+      </div>
+      <p class="stat-foot">
+        Every figure is worked out against our real retail pricing, shipping
+        included.
+      </p>
+    </div>
+
+    <!-- PLANS -->
+    <section class="section" id="plans">
+      <div class="section-title reveal">Choose your <em>tier</em></div>
+      <p class="section-sub reveal">
+        Two tiers, billed monthly or annually. Free shipping and carry-forward
+        on both.
+      </p>
+
+      <div class="billing-toggle">
+        <div class="billing-segment" role="tablist" aria-label="Billing period">
+          <button
+            type="button"
+            class="segment-btn active"
+            id="btn-monthly"
+            onclick="setBilling('monthly')"
+          >
+            Monthly
+          </button>
+          <button
+            type="button"
+            class="segment-btn"
+            id="btn-annual"
+            onclick="setBilling('annual')"
+          >
+            Annual
+          </button>
+        </div>
+        <span class="save-pill" id="savePill">Pay once, save more</span>
+      </div>
+
+      <div class="plans-grid">
+        <!-- MANGA ONLY -->
+        <div class="plan-card reveal">
+          <div class="plan-type">Manga only</div>
+          <div class="plan-name">Manga reader</div>
+
+          <div class="plan-price-block">
+            <span class="plan-price monthly-price">$10.99</span>
+            <span class="plan-price annual-price">$120</span>
+            <span class="plan-price-suffix monthly-price">/month</span>
+            <span class="plan-price-suffix annual-price"
+              >/year · $10 a month</span
+            >
+          </div>
+          <div class="plan-retail monthly-price">
+            <s>$17.99</s> at retail · <b>you save 39%</b>
+          </div>
+          <div class="plan-retail annual-price">
+            <s>$233.87</s> for 13 books · <b>you save 49%</b>
+          </div>
+
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>
+              <i class="ti ti-check" aria-hidden="true"></i>
+              <span class="monthly-price"
+                ><strong>1 manga a month</strong>, your pick</span
+              >
+              <span class="annual-price"
+                ><strong>12 manga</strong> plus 1 bonus manga</span
+              >
+            </li>
+            <li>
+              <i class="ti ti-check" aria-hidden="true"></i>
+              <span><strong>Free shipping</strong> on every title</span>
+            </li>
+            <li>
+              <i class="ti ti-check" aria-hidden="true"></i>
+              <span>Skipped months <strong>carry forward</strong></span>
+            </li>
+          </ul>
+
+          <button class="plan-more" onclick="togglePlanFine(this)">
+            <i class="ti ti-plus" aria-hidden="true"></i> Editions and credit
+            rules
+          </button>
+          <div class="plan-fine">
+            <p>
+              If your pick is open for pre-order, you'll receive the
+              <strong>limited edition</strong> — otherwise, you'll get the
+              <strong>regular edition</strong> once it has launched. Either way,
+              your subscription price stays the same.
+            </p>
+            <p>
+              Credits carry forward automatically for as long as you're
+              subscribed. If you cancel, any unused credits expire 12 months
+              after your subscription ends.
+            </p>
+            <p class="annual-price">
+              The bonus manga is a random pick from our catalogue and won't
+              duplicate a title you've already chosen.
+            </p>
+          </div>
+
+          <button class="btn-outline" onclick="openModal('manga')">
+            Choose manga only
+          </button>
+        </div>
+
+        <!-- ALL FORMATS -->
+        <div class="plan-card featured reveal">
+          <div class="plan-badge">Best value</div>
+          <div class="plan-type">All formats</div>
+          <div class="plan-name">All formats reader</div>
+
+          <div class="plan-price-block">
+            <span class="plan-price monthly-price">$15.99</span>
+            <span class="plan-price annual-price">$180</span>
+            <span class="plan-price-suffix monthly-price">/month</span>
+            <span class="plan-price-suffix annual-price"
+              >/year · $15 a month</span
+            >
+          </div>
+          <div class="plan-retail monthly-price">
+            <s>$27.99</s> on manhwa · <b>you save 43%</b>
+          </div>
+          <div class="plan-retail annual-price">
+            <s>$353.87</s> on manhwa · <b>you save 49%</b>
+          </div>
+
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>
+              <i class="ti ti-check" aria-hidden="true"></i>
+              <span class="monthly-price"
+                ><strong>1 book a month</strong> — manga, manhwa or novel</span
+              >
+              <span class="annual-price"
+                ><strong>12 books</strong>, any mix, plus 1 bonus manga</span
+              >
+            </li>
+            <li>
+              <i class="ti ti-check" aria-hidden="true"></i>
+              <span><strong>Free shipping</strong> on every title</span>
+            </li>
+            <li>
+              <i class="ti ti-check" aria-hidden="true"></i>
+              <span>Skipped months <strong>carry forward</strong></span>
+            </li>
+          </ul>
+
+          <button class="plan-more" onclick="togglePlanFine(this)">
+            <i class="ti ti-plus" aria-hidden="true"></i> Editions and credit
+            rules
+          </button>
+          <div class="plan-fine">
+            <p>
+              If your pick is open for pre-order, you'll receive the
+              <strong>limited edition</strong> — otherwise, you'll get the
+              <strong>regular edition</strong> once it has launched. Either way,
+              your subscription price stays the same.
+            </p>
+            <p>
+              Credits carry forward automatically for as long as you're
+              subscribed. If you cancel, any unused credits expire 12 months
+              after your subscription ends.
+            </p>
+            <p>
+              Your saving depends on format — largest on manhwa, smallest on
+              manga, with novels in between.
+            </p>
+          </div>
+
+          <button class="btn-solid" onclick="openModal('all')">
+            Choose all formats
+          </button>
+        </div>
+      </div>
+
+      <div class="availability-note">
+        <span>🇺🇸 Currently available in the United States only</span>
+      </div>
+    </section>
+
+    <!-- SAVINGS CALCULATOR -->
+    <div class="calc-section" id="savings">
+      <div class="calc-inner">
+        <div class="section-title reveal">
+          What you'd actually <em>save</em>
+        </div>
+        <p class="section-sub reveal">
+          Pick what you read and how much. The numbers work themselves out.
+        </p>
+
+        <div class="calc-card reveal">
+          <div>
+            <div class="calc-label">I mostly read</div>
+            <div class="calc-chips" id="calcFormats">
+              <button class="calc-chip active" data-format="manhwa">
+                Manhwa
+              </button>
+              <button class="calc-chip" data-format="manga">Manga</button>
+              <button class="calc-chip" data-format="novel">Novels</button>
+            </div>
+
+            <div class="calc-label">Billing</div>
+            <div class="calc-chips" id="calcBilling">
+              <button class="calc-chip active" data-billing="annual">
+                Annual
+              </button>
+              <button class="calc-chip" data-billing="monthly">Monthly</button>
+            </div>
+
+            <div class="calc-label">
+              Books a year · <strong id="calcCountOut">12</strong>
+            </div>
+            <input
+              type="range"
+              class="calc-slider"
+              id="calcCount"
+              min="1"
+              max="12"
+              step="1"
+              value="12"
+            />
+          </div>
+
+          <div class="calc-result">
+            <div class="calc-result-sub">You'd save</div>
+            <div class="calc-result-num" id="calcSaving">$173.87</div>
+            <div class="calc-result-sub" id="calcDetail">
+              49% off retail · shipping included
+            </div>
+          </div>
+        </div>
+
+        <p class="calc-note" id="calcNote">
+          Based on standard edition pricing with $5 retail shipping per book.
+        </p>
+
+        <button
+          class="calc-toggle-tables"
+          onclick="toggleTables()"
+          id="tablesBtn"
+        >
+          Show the full breakdown
+        </button>
+
+        <div class="calc-tables" id="calcTables">
+          <div class="table-wrap">
+            <h4>Manga only</h4>
+            <table class="sp-table">
+              <thead>
+                <tr>
+                  <th>Billing</th>
+                  <th>Retail value</th>
+                  <th>You pay</th>
+                  <th>Saving</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monthly (1 book)</td>
+                  <td>$17.99</td>
+                  <td>$10.99</td>
+                  <td class="save-num">$7.00 (38.9%)</td>
+                </tr>
+                <tr>
+                  <td>Annual (13 books)</td>
+                  <td>$233.87</td>
+                  <td>$120</td>
+                  <td class="save-num">$113.87 (48.7%)</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="table-foot">
+              Retail = $12.99 standard manga plus $5 shipping per book. Limited
+              editions retail higher, so your saving on those is larger.
+            </p>
+          </div>
+
+          <div class="table-wrap">
+            <h4>All formats</h4>
+            <table class="sp-table">
+              <thead>
+                <tr>
+                  <th>Billing</th>
+                  <th>If you pick</th>
+                  <th>Retail value</th>
+                  <th>You pay</th>
+                  <th>Saving</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monthly</td>
+                  <td>Manga</td>
+                  <td>$17.99</td>
+                  <td>$15.99</td>
+                  <td class="save-num">$2.00 (11.1%)</td>
+                </tr>
+                <tr>
+                  <td>Monthly</td>
+                  <td>Manhwa</td>
+                  <td>$27.99</td>
+                  <td>$15.99</td>
+                  <td class="save-num">$12.00 (42.9%)</td>
+                </tr>
+                <tr>
+                  <td>Monthly</td>
+                  <td>Novel</td>
+                  <td>$25.00</td>
+                  <td>$15.99</td>
+                  <td class="save-num">$9.01 (36.0%)</td>
+                </tr>
+                <tr>
+                  <td>Annual</td>
+                  <td>All manga + bonus</td>
+                  <td>$233.87</td>
+                  <td>$180</td>
+                  <td class="save-num">$53.87 (23.0%)</td>
+                </tr>
+                <tr>
+                  <td>Annual</td>
+                  <td>All manhwa + bonus</td>
+                  <td>$353.87</td>
+                  <td>$180</td>
+                  <td class="save-num">$173.87 (49.1%)</td>
+                </tr>
+                <tr>
+                  <td>Annual</td>
+                  <td>All novels + bonus</td>
+                  <td>$317.99</td>
+                  <td>$180</td>
+                  <td class="save-num">$137.99 (43.4%)</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="table-foot">
+              Annual retail values include the bonus manga at $17.99. Mixing
+              formats lands your saving between these rows.
+            </p>
+          </div>
+
+          <div class="table-wrap">
+            <h4>Book pricing reference</h4>
+            <table class="sp-table">
+              <thead>
+                <tr>
+                  <th>Format</th>
+                  <th>Standard</th>
+                  <th>Limited</th>
+                  <th>+ Shipping</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Manga</td>
+                  <td>$12.99</td>
+                  <td>$15.99</td>
+                  <td>+$5.00</td>
+                </tr>
+                <tr>
+                  <td>Manhwa</td>
+                  <td>$22.99</td>
+                  <td>$24.99</td>
+                  <td>+$5.00</td>
+                </tr>
+                <tr>
+                  <td>Novels</td>
+                  <td>$20.00</td>
+                  <td>—</td>
+                  <td>+$5.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="table-foot">
+              Flat $5 shipping per delivery at retail. Subscriptions include
+              free shipping on every title.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="policy-section">
+      <div class="section-title reveal">How it <em>works</em></div>
+      <p class="section-sub reveal">
+        Flexible by design — your subscription works around your reading pace.
+      </p>
+
+      <div class="policy-grid">
+        <div class="policy-card reveal">
+          <i class="ti ti-book" aria-hidden="true"></i>
+          <div class="policy-title">Limited or regular edition</div>
+          <div class="policy-desc">
+            You'll receive the <strong>limited edition</strong> if your pick is
+            open for pre-order, or the <strong>regular edition</strong> once it
+            has launched — your subscription price doesn't change either way.
+          </div>
+        </div>
+        <div class="policy-card reveal">
+          <i class="ti ti-credit-card" aria-hidden="true"></i>
+          <div class="policy-title">Automatic billing</div>
+          <div class="policy-desc">
+            Monthly plans bill each month, annual plans bill once upfront.
+            Cancel anytime — no hidden fees.
+          </div>
+        </div>
+        <div class="policy-card reveal">
+          <i class="ti ti-book" aria-hidden="true"></i>
+          <div class="policy-title">Limited or regular edition</div>
+          <div class="policy-desc">
+            You'll receive the <strong>limited edition</strong> if your book is
+            open for pre-order, or the <strong>regular edition</strong> once it
+            has launched.
+          </div>
+        </div>
+        <div class="policy-card reveal">
+          <i class="ti ti-book" aria-hidden="true"></i>
+          <div class="policy-title">Limited or regular edition</div>
+          <div class="policy-desc">
+            You'll receive the <strong>limited edition</strong> if your pick is
+            open for pre-order, or the <strong>regular edition</strong> once it
+            has launched — your subscription price doesn't change either way.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD PREVIEW -->
+    <div class="dashboard-section">
+      <div class="dash-inner">
+        <div class="section-title reveal">Your <em>subscription</em></div>
+        <p class="section-sub reveal">
+          This is what you'll see once you're subscribed.
+        </p>
+
+        <div class="dash-card reveal" id="memberDashboard"></div>
+      </div>
+    </div>
+
+    <!-- INLINE TITLE SELECT MODAL (replaces redirect to select-title.html) -->
+    <div
+      class="modal-overlay"
+      id="selectModalOverlay"
+      onclick="handleSelectOverlayClick(event)"
+    >
+      <div class="modal" role="dialog" aria-modal="true">
+        <button
+          class="modal-close"
+          onclick="closeSelectModal()"
+          aria-label="Close"
+        >
+          ✕
+        </button>
+        <div id="selectModalContent"></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <div class="section-title reveal">Common <em>questions</em></div>
+      <p class="section-sub reveal">
+        Everything worth knowing before you subscribe.
+      </p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What's the difference between manga only and all formats?
+            <i class="ti ti-plus faq-icon" aria-hidden="true"></i>
+          </div>
+          <div class="faq-a">
+            Manga only keeps your picks to our manga catalogue at a lower price.
+            All formats lets you pick manga, manhwa or novels each cycle —
+            better value if you read across formats.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Will I get the limited or regular edition?
+            <i class="ti ti-plus faq-icon" aria-hidden="true"></i>
+          </div>
+          <div class="faq-a">
+            Whichever tier you're on, you'll get the limited edition if the
+            title is open for pre-order, or the regular edition once it has
+            launched.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What happens if I skip a month?
+            <i class="ti ti-plus faq-icon" aria-hidden="true"></i>
+          </div>
+          <div class="faq-a">
+            Your credit carries forward automatically. Credits accumulate for as
+            long as you're subscribed, so you can save several up and redeem
+            them together when a title you've been waiting for arrives.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Is the bonus manga random?
+            <i class="ti ti-plus faq-icon" aria-hidden="true"></i>
+          </div>
+          <div class="faq-a">
+            Yes — on both annual plans it's a surprise pick from our catalogue,
+            chosen by our editorial team. It won't duplicate a title you've
+            already selected.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            When am I charged?
+            <i class="ti ti-plus faq-icon" aria-hidden="true"></i>
+          </div>
+          <div class="faq-a">
+            Monthly plans charge on the same date each month, annual plans once
+            upfront. Payments are automatic and you'll get a receipt by email.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Can I cancel anytime?
+            <i class="ti ti-plus faq-icon" aria-hidden="true"></i>
+          </div>
+          <div class="faq-a">
+            Yes. Monthly plans can be cancelled before the next billing date.
+            Annual plans can be cancelled but are non-refundable after the first
+            14 days. Any credits you haven't used remain valid for 12 months
+            after cancellation, then expire.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Is this available outside the USA?
+            <i class="ti ti-plus faq-icon" aria-hidden="true"></i>
+          </div>
+          <div class="faq-a">
+            The program is currently United States only. We're working on
+            international expansion — join the waitlist to hear when your region
+            launches.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-banner">
+      <h2>Start <em>reading more</em><br />for less, today.</h2>
+      <p>
+        Pick your tier and get your first book at a real saving. Cancel anytime.
+      </p>
+      <div class="cta-buttons">
+        <button class="btn-solid" onclick="openModal('all')">
+          All formats
+        </button>
+        <button class="btn-outline" onclick="openModal('manga')">
+          Manga only
+        </button>
+      </div>
+      <div class="availability-note">
+        <span>🇺🇸 USA only · free shipping · cancel anytime</span>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Crossed Hearts</div>
+          <p>
+            English localization of manga, manhwa and Asian novels, across
+            borders, with care.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://discord.com/login?redirect_to=%2Fchannels%2F%40me"
+              target="_blank"
+              aria-label="Discord"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://x.com/CrossedHearts_X"
+              target="_blank"
+              aria-label="X (Twitter)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@CrossedHearts_YT"
+              target="_blank"
+              aria-label="YouTube"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="https://thecrossedhearts.com/">Main Site</a></li>
+            <li><a href="series.html">Our Series</a></li>
+            <li><a href="campaigns.html">Sepcial Edition</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="account.html">My Account</a></li>
+            <li><a onclick="openAuth()">Sign In</a></li>
+            <li><a href="licenser-login.html">Authorised User</a></li>
+            <li><a href="subscription.html">Subscribe</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li>
+              <a href="about-use.html" target="_blank">About Us</a>
+            </li>
+            <li>
+              <a href="contact-us.html" target="_blank">Contact</a>
+            </li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Crossed Hearts. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+    <!-- SUBSCRIBE MODAL -->
+    <div
+      class="modal-overlay"
+      id="modalOverlay"
+      onclick="handleOverlayClick(event)"
+    >
+      <div class="modal" role="dialog" aria-modal="true">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">
+          ✕
+        </button>
+
+        <div id="modalContent">
+          <div class="modal-eyebrow" id="modalPlanType">Manga Only</div>
+          <h3 id="modalPlanName">Subscribe to Crossed Hearts</h3>
+
+          <div class="modal-price-row">
+            <span class="modal-price" id="modalPrice">$10.99</span>
+            <span class="modal-price-label" id="modalPriceSuffix">/month</span>
+          </div>
+
+          <div class="modal-saving-banner" id="modalSavingBanner">
+            You're paying $10.99 for a manga that retails at $17.99 including
+            shipping - a 38.9% saving.
+          </div>
+
+          <ul class="modal-features" id="modalFeatures">
+            <li>1 manga per month - your pick</li>
+            <li>Free shipping on every title</li>
+            <li>Skip a month → book carries forward</li>
+          </ul>
+
+          <div class="modal-form">
+            <input
+              type="text"
+              class="modal-input"
+              placeholder="Full name"
+              id="modalName"
+            />
+            <input
+              type="email"
+              class="modal-input"
+              placeholder="Email address"
+              id="modalEmail"
+            />
+            <input
+              type="text"
+              class="modal-input"
+              placeholder="ZIP code (USA only)"
+              id="modalZip"
+              maxlength="5"
+            />
+            <button class="btn-modal-submit" onclick="handleSubscribe()">
+              Continue to Payment ♥
+            </button>
+            <p class="modal-legal">
+              🔒 Secure payment. Cancel anytime. By subscribing you agree to our
+              Terms of Service. USA only.
+            </p>
+          </div>
+        </div>
+
+        <div class="modal-success" id="modalSuccess">
+          <h4>You're in!</h4>
+          <p>
+            We'll be in touch with your first book selection options shortly.
+            Welcome to Crossed Hearts.
+          </p>
+          <p>Check your email for next steps.</p>
+        </div>
+      </div>
+    </div>
+    <!-- NAV SEARCH OVERLAY -->
+    <div
+      class="nav-search-overlay"
+      id="navSearchOverlay"
+      onclick="closeNavSearchIfBg(event)"
+      aria-hidden="true"
+    >
+      <div
+        class="nav-search-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Search"
+      >
+        <button
+          class="nav-search-close"
+          onclick="closeNavSearch()"
+          aria-label="Close search"
+        >
+          &#10005;
+        </button>
+        <div class="nav-search-inner" id="navSiteSearchBar">
+          <span class="nav-search-icon">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            class="nav-search-input"
+            id="navSearchInput"
+            placeholder="Search titles, genres, keywords..."
+            oninput="navLiveSearch(this.value)"
+            onkeydown="if (event.key === 'Enter') navDoSearch();"
+            autocomplete="off"
+          />
+          <button
+            class="nav-search-clear"
+            id="navSearchClear"
+            onclick="navClearSearch()"
+            style="display: none"
+          >
+            &#10005;
+          </button>
+          <button class="nav-search-submit" onclick="navDoSearch()">
+            Search
+          </button>
+        </div>
+        <div class="nav-genres-panel" id="navGenresPanel">
+          <div class="nav-genres-label">Genres</div>
+          <div
+            class="nav-genres-grid"
+            id="navGenresGrid"
+            role="group"
+            aria-label="Browse by genre"
+          ></div>
+          <button
+            class="nav-genres-more"
+            id="navGenresMoreBtn"
+            onclick="navToggleGenres()"
+            aria-expanded="false"
+          >
+            See more
+          </button>
+        </div>
+        <div class="nav-search-suggestions" id="navSearchSuggestions"></div>
+      </div>
+    </div>
+    <script src="subscription.js"></script>
+    <script src="script.js"></script>
+    <script>
+      (function () {
+        if (localStorage.getItem("ch-theme") === "light") {
+          document.body.classList.add("light-mode");
+        }
+      })();
+
+      function toggleTheme() {
+        const isLight = document.body.classList.toggle("light-mode");
+        localStorage.setItem("ch-theme", isLight ? "light" : "dark");
+      }
+    </script>
+  </body>
+</html>

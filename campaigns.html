@@ -1,0 +1,1220 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <title>Special Editions — Support Upcoming Titles | Crossed Hearts</title>
+    <meta name="robots" content="index, follow" />
+    <script src="clean-urls.js"></script>
+    <meta
+      name="google-site-verification"
+      content="S9T4XiqDMXqg5zsTiZcJUyzM73NeDm0kfFlG9X9nqcA"
+    />
+    <meta
+      name="description"
+      content="Reserve website-exclusive Special Editions of upcoming Crossed Hearts titles before they sell out — photocards, bookmarks, shikishi and more, only here."
+    />
+    <meta
+      name="keywords"
+      content="special edition manga, limited edition manhwa, crossed hearts special edition"
+    />
+    <link rel="canonical" href="https://heartsreader.com/campaign.html" />
+    <meta property="og:title" content="Special Editions | Crossed Hearts" />
+    <meta
+      property="og:description"
+      content="Website-exclusive Special Editions of upcoming Crossed Hearts titles."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://heartsreader.com/campaign.html" />
+    <meta property="og:site_name" content="Crossed Hearts" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Special Editions | Crossed Hearts" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="campaign.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav" id="mainNav">
+      <a class="nav-logo" href="index.html">
+        <img
+          src="Images/logo-dark.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-dark"
+        />
+        <img
+          src="Images/logo-light.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-light"
+        />
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Crossed Hearts</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="series.html" class="active">Our Series</a></li>
+        <li>
+          <a href="campaigns.html" class="nav-campaign"
+            ><i class="ti ti-heart" aria-hidden="true"></i> Campaign</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-search-inline" id="navSearchInline" role="search">
+          <input
+            type="text"
+            class="nav-search-inline-input"
+            id="navSearchInlineInput"
+            placeholder="Search..."
+            autocomplete="off"
+            readonly
+            aria-label="Search titles, genres, keywords"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            onclick="openNavSearch()"
+            onfocus="openNavSearch()"
+            onkeydown="if (event.key === 'Enter') openNavSearch();"
+          />
+          <button
+            class="nav-search-inline-btn"
+            id="navSearchInlineBtn"
+            onclick="openNavSearch()"
+            aria-label="Open search"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
+        <a href="account.html" class="btn-nav-ghost">My Account</a>
+        <button
+          class="btn-nav-signin"
+          id="navAuthBtn"
+          data-login-label="Sign In"
+          onclick="handleNavAuth()"
+        >
+          Sign In
+        </button>
+        <button
+          class="btn-nav-register"
+          id="navRegisterBtn"
+          onclick="openAuth('up', { lockMode: true })"
+        >
+          Sign Up
+        </button>
+        <a
+          href="subscription.html"
+          class="btn-nav-subscribe"
+          id="navSubscribeBtn"
+          ><i class="ti ti-crown" aria-hidden="true"></i> Subscribe</a
+        >
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          <span class="icon-dark"
+            ><i class="ti ti-moon" aria-hidden="true"></i
+          ></span>
+          <span class="icon-light"
+            ><i class="ti ti-sun" aria-hidden="true"></i
+          ></span>
+        </button>
+        <button
+          class="nav-burger"
+          onclick="toggleMobileNav()"
+          aria-label="Open menu"
+        >
+          <i class="ti ti-menu-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-top">
+        <span
+          style="
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+          "
+          >Menu</span
+        >
+      </div>
+      <a href="index.html">Home</a>
+      <a href="series.html">Our Series</a>
+      <a
+        href="subscription.html"
+        class="btn-nav-subscribe"
+        id="navSubscribeBtn"
+      >
+        <i class="ti ti-crown" aria-hidden="true"></i> Subscribe
+      </a>
+      <a
+        href="campaigns.html"
+        style="color: var(--ch-rose-deep); font-weight: 700"
+        >Campaigns</a
+      >
+      <a
+        href="#"
+        onclick="
+          handleNavAuth();
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileAuthLink"
+        data-login-label="Sign In"
+        >Sign In</a
+      >
+      <a
+        href="#"
+        onclick="
+          openAuth('up', { lockMode: true });
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileRegisterLink"
+        >Sign Up</a
+      >
+    </div>
+
+    <div class="edition-status-bar">
+      Reserve your copy before these Special Editions sell out
+    </div>
+
+    <!-- HERO -->
+    <section class="edition-hero">
+      <div class="hero-petals" id="petalContainer"></div>
+      <div class="edition-hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span> Special Editions
+      </div>
+      <h1 class="edition-hero-title">
+        Website-Exclusive <em>Special Editions</em>
+      </h1>
+      <p class="edition-hero-sub">
+        Every title below is a limited, website-exclusive Special Edition.
+        Reserve yours now at the standard price. Once an edition is fully
+        reserved, it moves to general retail. Early reservers keep the price
+        they paid.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div id="editionGrid" class="edition-grid">
+          <!-- THE ARCHDUKE'S ADOPTED SAINT VOL 3 -->
+          <div
+            class="edition-card fade-up"
+            data-slug="archdukes-adopted-saint-v3"
+            data-series="The Archduke's Adopted Saint"
+            data-volume="3"
+            data-perk="Limited Edition with Photocard Set"
+            data-price="20"
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/TAAS-vol3.png"
+                alt="The Archduke's Adopted Saint Volume 3 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">The Archduke's Adopted Saint</div>
+              <div class="edition-title">Volume 3</div>
+              <div class="edition-perk">Limited Edition with Photocard Set</div>
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>$20.00</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- DARLING, WHY DON'T WE DIVORCE? VOL 3 -->
+          <div
+            class="edition-card fade-up"
+            data-slug="darling-divorce-v3"
+            data-series="Darling, Why Don't We Divorce?"
+            data-volume="3"
+            data-perk="Limited Edition with Photocard Set"
+            data-price="22.99"
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/DWD-vol3.png"
+                alt="Darling, Why Don't We Divorce? Volume 3 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">Darling, Why Don't We Divorce?</div>
+              <div class="edition-title">Volume 3</div>
+              <div class="edition-perk">Limited Edition with Photocard Set</div>
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>$22.99</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- WELCOME TO THE ROSE MANOR VOL 1 (price TBD) -->
+          <div
+            class="edition-card fade-up"
+            data-slug="rose-manor-v1"
+            data-series="Welcome to the Rose Manor"
+            data-volume="1"
+            data-perk="Limited Edition with Photocard Set"
+            data-price="29.99"
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/Welcome to the rose manor.jpeg"
+                alt="Welcome to the Rose Manor Volume 1 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">Welcome to the Rose Manor</div>
+              <div class="edition-title">Volume 1</div>
+              <div class="edition-perk">Limited Edition with Photocard Set</div>
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>$29.99</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- FROM A KNIGHT TO A LADY VOL 4 -->
+          <div
+            class="edition-card fade-up"
+            data-slug="knight-to-lady-v4"
+            data-series="From a Knight to a Lady"
+            data-volume="4"
+            data-perk="Limited Edition with Bookmark of Lucifela"
+            data-price="22.99"
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/FKTL-vol4.png"
+                alt="From a Knight to a Lady Volume 4 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">From a Knight to a Lady</div>
+              <div class="edition-title">Volume 4</div>
+              <div class="edition-perk">
+                Limited Edition with Bookmark of Lucifela
+              </div>
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>$22.99</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- BARONESS GOES ON STRIKE VOL 4 (price TBD) -->
+          <div
+            class="edition-card fade-up"
+            data-slug="baroness-strike-v4"
+            data-series="Baroness Goes on Strike"
+            data-volume="4"
+            data-perk="Limited Edition with Bookmark of Zester"
+            data-price=""
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <!-- NOTE: this image looks like the Vol 1 cover; swap in the Vol 4 file -->
+              <img
+                class="edition-cover"
+                src="Images/Bgos-vol1-std-cover.png"
+                alt="Baroness Goes on Strike Volume 4 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">Baroness Goes on Strike</div>
+              <div class="edition-title">Volume 4</div>
+              <div class="edition-perk">
+                Limited Edition with Bookmark of Zester
+              </div>
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>TBD</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- FROM A KNIGHT TO A LADY VOL 5 -->
+          <div
+            class="edition-card fade-up"
+            data-slug="knight-to-lady-v5"
+            data-series="From a Knight to a Lady"
+            data-volume="5"
+            data-perk="Limited Edition with Bookmark of Zedekiah"
+            data-price="22.99"
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/FKTL-vol5.png"
+                alt="From a Knight to a Lady Volume 5 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">From a Knight to a Lady</div>
+              <div class="edition-title">Volume 5</div>
+              <div class="edition-perk">
+                Limited Edition with Bookmark of Zedekiah
+              </div>
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>$22.99</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- DARLING, WHY DON'T WE DIVORCE? VOL 4 -->
+          <div
+            class="edition-card fade-up"
+            data-slug="darling-divorce-v4"
+            data-series="Darling, Why Don't We Divorce?"
+            data-volume="4"
+            data-perk="Limited Edition with Photocard Set"
+            data-price="22.99"
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/DWD-vol4.png"
+                alt="Darling, Why Don't We Divorce? Volume 4 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">Darling, Why Don't We Divorce?</div>
+              <div class="edition-title">Volume 4</div>
+              <div class="edition-perk">Limited Edition with Photocard Set</div>
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>$22.99</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- YOU'RE WAY TOO CHEEKY, CHIGAYA-KUN! VOL 3 -->
+          <div
+            class="edition-card fade-up"
+            data-slug="chigaya-v3"
+            data-series="You're Way Too Cheeky, Chigaya-kun!"
+            data-volume="3"
+            data-perk="Limited Edition with Shikishi"
+            data-price="13.99"
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/chigaya-vol3.png"
+                alt="You're Way Too Cheeky, Chigaya-kun! Volume 3 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">
+                You're Way Too Cheeky, Chigaya-kun!
+              </div>
+              <div class="edition-title">Volume 3</div>
+              <div class="edition-perk">Limited Edition with Shikishi</div>
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>$13.99</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══════════ NEW TITLES ═══════════ -->
+          <!-- TODO: confirm series name, perk, cover file and price for each -->
+
+          <!-- ALL-ROUNDER VOL 3 -->
+          <div
+            class="edition-card fade-up"
+            data-slug="all-rounder-v3"
+            data-series="All-Rounder"
+            data-volume="3"
+            data-perk="Limited Edition with Photocard Set"
+            data-price=""
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/Connie-vol 1.png"
+                alt="All-Rounder Volume 3 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">All-Rounder Maid Connie Wille</div>
+              <div class="edition-title">Volume 3</div>
+              <div class="edition-perk">Limited Edition with Shikishi</div>
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>TBD</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- FLIRTING WITH THE VILLAIN'S DAD (volume not given; assumed Vol 1) -->
+          <div
+            class="edition-card fade-up"
+            data-slug="flirting-villains-dad-v1"
+            data-series="Flirting with the Villain's Dad"
+            data-volume="1"
+            data-perk="Limited Edition with Photocard Set"
+            data-price=""
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/Flirting with villains dad.png"
+                alt="Flirting with the Villain's Dad Volume 1 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">Flirting with the Villain's Dad</div>
+              <div class="edition-title">Volume 2</div>
+              <div class="edition-perk">
+                Limited Edition with Shikishi for Yerenica
+              </div>
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>TBD</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ZOMBIE VOL 3 -->
+          <div
+            class="edition-card fade-up"
+            data-slug="zombie-v3"
+            data-series="Zombie"
+            data-volume="3"
+            data-perk="Limited Edition with Photocard Set"
+            data-price=""
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/Zombie-vol1-std1.png"
+                alt="Zombie Volume 3 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">
+                The Abandoned Villainess Became a Zombie
+              </div>
+              <div class="edition-title">Volume 3</div>
+              <!-- <div class="edition-perk">Limited Edition with Photocard Set</div> -->
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>TBD</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- RAELIANA VOL 3 -->
+          <div
+            class="edition-card fade-up"
+            data-slug="raeliana-v3"
+            data-series="The Reason Why Raeliana Ended Up at the Duke's Mansion"
+            data-volume="3"
+            data-perk="Limited Edition with Photocard Set"
+            data-price=""
+            data-retail-price=""
+            data-status="active"
+            data-external="false"
+            data-goal="500"
+          >
+            <div class="edition-cover-wrap">
+              <img
+                class="edition-cover"
+                src="Images/raelianaVol1-std.jpg"
+                alt="Raeliana Volume 3 cover"
+                loading="lazy"
+              />
+              <span class="edition-status-pill active" data-status-pill
+                >Reserving Now</span
+              >
+            </div>
+            <div class="edition-body">
+              <div class="edition-series">
+                Why Raeliana Ended Up at the Duke's Mansion
+              </div>
+              <div class="edition-title">Volume 3</div>
+              <!-- <div class="edition-perk">Limited Edition with Photocard Set</div> -->
+              <div class="edition-progress-bar">
+                <div
+                  class="edition-progress-fill"
+                  data-fill
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="edition-progress-labels">
+                <span
+                  ><strong data-reserved>0</strong> of
+                  <span data-goal-label>500</span> reserved</span
+                >
+                <span data-pct>0%</span>
+              </div>
+              <div class="edition-price-row">
+                <span class="edition-price" data-price-label>TBD</span>
+                <button
+                  class="btn-pledge both"
+                  data-reserve-btn
+                  onclick="openModal(this.closest('.edition-card'))"
+                >
+                  Reserve This Edition
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Crossed Hearts</div>
+          <p>
+            English localization of manga, manhwa and Asian novels, across
+            borders, with care.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://discord.com/login?redirect_to=%2Fchannels%2F%40me"
+              target="_blank"
+              aria-label="Discord"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/thecrossedhearts"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://x.com/CrossedHearts_X"
+              target="_blank"
+              aria-label="X (Twitter)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@CrossedHearts_YT"
+              target="_blank"
+              aria-label="YouTube"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="https://thecrossedhearts.com/">Main Site</a></li>
+            <li><a href="series.html">Our Series</a></li>
+            <li><a href="campaigns.html">Special Edition</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="account.html">My Account</a></li>
+            <li><a onclick="openAuth()">Sign In</a></li>
+            <li><a href="licenser-login.html">Authorised User</a></li>
+            <li><a href="subscription.html">Subscribe</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li>
+              <a href="about-use.html" target="_blank">About Us</a>
+            </li>
+            <li>
+              <a href="contact-us.html" target="_blank">Contact</a>
+            </li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Crossed Hearts. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+    <!-- RESERVATION MODAL -->
+    <div class="modal-overlay" id="pledgeModal">
+      <div class="modal-box">
+        <div class="modal-header">
+          <div>
+            <div class="modal-title">Reserve Your Edition</div>
+            <div class="modal-subtitle">Secure your Special Edition</div>
+          </div>
+          <button class="modal-close" onclick="closeModal()" aria-label="Close">
+            <i class="ti ti-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-steps-indicator">
+            <span class="modal-step-dot active"></span>
+            <span class="modal-step-dot"></span>
+            <span class="modal-step-dot"></span>
+            <span class="modal-step-dot"></span>
+          </div>
+
+          <!-- Step 1: Edition summary -->
+          <div class="modal-step active" id="modalStep1">
+            <div class="modal-edition-summary">
+              <div
+                class="modal-edition-summary-title"
+                id="modalEditionTitle"
+              ></div>
+              <div
+                class="modal-edition-summary-perk"
+                id="modalEditionPerk"
+              ></div>
+              <div
+                class="modal-edition-summary-price"
+                id="modalEditionPrice"
+              ></div>
+            </div>
+            <div class="modal-actions">
+              <button
+                class="btn-modal-primary"
+                id="step1next"
+                onclick="nextStep(2)"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Details -->
+          <div class="modal-step" id="modalStep2">
+            <label class="modal-label">Full Name</label>
+            <input
+              class="modal-input"
+              id="inputName"
+              type="text"
+              placeholder="Jane Doe"
+            />
+            <label class="modal-label">Email</label>
+            <input
+              class="modal-input"
+              id="inputEmail"
+              type="email"
+              placeholder="you@example.com"
+            />
+            <div id="shippingFields">
+              <label class="modal-label">Shipping Address</label>
+              <input
+                class="modal-input"
+                id="inputAddr"
+                type="text"
+                placeholder="Street address"
+              />
+              <div class="modal-input-row">
+                <input
+                  class="modal-input"
+                  id="inputCity"
+                  type="text"
+                  placeholder="City"
+                />
+                <input
+                  class="modal-input"
+                  id="inputCountry"
+                  type="text"
+                  placeholder="Country"
+                />
+              </div>
+            </div>
+            <div class="modal-actions">
+              <button class="btn-modal-back" onclick="nextStep(1)">Back</button>
+              <button class="btn-modal-primary" onclick="nextStep(3)">
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Payment -->
+          <div class="modal-step" id="modalStep3">
+            <label class="modal-label">Cardholder Name</label>
+            <input
+              class="modal-input"
+              id="inputCardName"
+              type="text"
+              placeholder="Name on card"
+            />
+            <label class="modal-label">Card Details</label>
+            <div
+              id="stripeCampaignCardElement"
+              class="modal-input"
+              style="padding: 12px 14px"
+            ></div>
+            <div class="modal-actions" style="margin-top: 14px">
+              <button class="btn-modal-back" onclick="nextStep(2)">Back</button>
+              <button class="btn-modal-primary" onclick="submitPledge()">
+                Confirm Reservation ♥
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 4: Success -->
+          <div class="modal-step" id="modalStep4">
+            <div class="modal-success">
+              <div class="modal-success-icon">🎉</div>
+              <div class="modal-success-title">You're In!</div>
+              <div class="modal-success-body">
+                Your Special Edition is reserved. We'll email you as production
+                updates come in.
+              </div>
+              <div class="modal-actions" style="margin-top: 20px">
+                <button class="btn-modal-primary" onclick="closeModal()">
+                  Done
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.CH_API_URL = [
+        "thecrossedhearts.com",
+        "www.thecrossedhearts.com",
+      ].includes(window.location.hostname)
+        ? "https://crossed-hearts-final.onrender.com/api"
+        : window.location.hostname === "crossed-hearts.onrender.com"
+          ? "https://crossed-hearts-final.onrender.com/api"
+          : ["localhost", "127.0.0.1", ""].includes(window.location.hostname) ||
+              window.location.protocol === "file:"
+            ? "http://localhost:5000/api"
+            : "https://crossed-hearts-final.onrender.com/api";
+    </script>
+    <script src="script.js"></script>
+    <script>
+      function applyTheme(mode) {
+        document.body.classList.toggle("light-mode", mode === "light");
+        document.documentElement.setAttribute("data-theme", mode);
+        try {
+          localStorage.setItem("ch-theme", mode);
+        } catch (e) {}
+      }
+      function toggleTheme() {
+        applyTheme(
+          document.body.classList.contains("light-mode") ? "dark" : "light",
+        );
+      }
+      (function () {
+        let saved = null;
+        try {
+          saved = localStorage.getItem("ch-theme");
+        } catch (e) {}
+        const prefersDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        applyTheme(saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <script src="campaign.js"></script>
+  </body>
+</html>

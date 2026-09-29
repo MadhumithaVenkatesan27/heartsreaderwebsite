@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="clean-urls.js"></script>
+    <meta
+      name="google-site-verification"
+      content="S9T4XiqDMXqg5zsTiZcJUyzM73NeDm0kfFlG9X9nqcA"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Licenser Portal — Crossed Hearts</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link
+      rel="canonical"
+      href="https://heartsreader.com/licenser-portal.html"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="titlepage.css" />
+    <script src="catalog.js"></script>
+    <script src="nav-search.js"></script>
+    <link rel="stylesheet" href="licenser.css" />
+  </head>
+  <body class="page-body">
+    <!-- NAV -->
+    <!-- NAV -->
+    <nav class="nav" id="mainNav">
+      <a class="nav-logo" href="index.html">
+        <img
+          src="Images/logo-dark.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-dark"
+        />
+        <img
+          src="Images/logo-light.png"
+          alt="Crossed Hearts Logo"
+          class="nav-logo-img nav-logo-light"
+        />
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Crossed Hearts</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="alltitles.html">Digital Editions</a></li>
+        <li><a href="print.html">Print Editions</a></li>
+        <li>
+          <a
+            href="campaigns.html"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              background: #e05c7a;
+              color: #fff;
+              font-weight: 700;
+              font-size: 14px;
+              padding: 13px 28px;
+              border-radius: 999px;
+              text-decoration: none;
+              transition: background 0.2s;
+              box-shadow: 0 4px 20px rgba(224, 92, 122, 0.4);
+            "
+            onmouseover="this.style.background = '#b84060'"
+            onmouseout="this.style.background = '#e05c7a'"
+          >
+            <i class="ti ti-heart" aria-hidden="true"></i> Campaign
+          </a>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-search-inline" id="navSearchInline" role="search">
+          <input
+            type="text"
+            class="nav-search-inline-input"
+            id="navSearchInlineInput"
+            placeholder="Search..."
+            autocomplete="off"
+            readonly
+            aria-label="Search titles, genres, keywords"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            onclick="openNavSearch()"
+            onfocus="openNavSearch()"
+            onkeydown="if (event.key === 'Enter') openNavSearch();"
+          />
+          <button
+            class="nav-search-inline-btn"
+            id="navSearchInlineBtn"
+            onclick="openNavSearch()"
+            aria-label="Open search"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
+        <a href="account.html" class="btn-nav-ghost">My Account</a>
+        <button
+          class="btn-nav-signin"
+          id="navAuthBtn"
+          data-login-label="Sign In"
+          onclick="handleNavAuth()"
+        >
+          Sign In
+        </button>
+        <button
+          class="btn-nav-register"
+          id="navRegisterBtn"
+          onclick="openAuth('up', { lockMode: true })"
+        >
+          Sign Up
+        </button>
+        <a
+          href="subscription.html"
+          class="btn-nav-subscribe"
+          id="navSubscribeBtn"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: #1a0f08;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 9px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+            transition:
+              transform 0.2s,
+              box-shadow 0.2s;
+          "
+          onmouseover="
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 6px 20px rgba(212,175,55,0.5)';
+          "
+          onmouseout="
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 4px 16px rgba(212,175,55,0.35)';
+          "
+        >
+          <i class="ti ti-crown" aria-hidden="true"></i> Subscribe
+        </a>
+        <!-- <button
+          class="btn-nav-signin btn-nav-licenser"
+          onclick="openLicenserAuth()"
+          style="
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--border);
+            margin-left: 4px;
+          "
+        >
+          Verified User Login
+        </button> -->
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          <span class="icon-dark"
+            ><i class="ti ti-moon" aria-hidden="true"></i
+          ></span>
+          <span class="icon-light"
+            ><i class="ti ti-sun" aria-hidden="true"></i
+          ></span>
+        </button>
+        <button
+          class="nav-burger"
+          onclick="toggleMobileNav()"
+          aria-label="Open menu"
+        >
+          <i class="ti ti-menu-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-top">
+        <span
+          style="
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+          "
+          >Menu</span
+        >
+      </div>
+      <a href="index.html">Home</a>
+      <a href="alltitles.html">Digital Editions</a>
+      <a href="print.html">Print Editions</a>
+      <a
+        href="subscription.html"
+        style="
+          background: linear-gradient(135deg, #d4af37, #b8941f);
+          color: #1a0f08;
+          font-weight: 700;
+          border-radius: 10px;
+          padding: 10px 14px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin: 4px 0;
+        "
+      >
+        <i class="ti ti-crown" aria-hidden="true"></i> Subscribe
+      </a>
+      <a
+        href="campaigns.html"
+        style="color: var(--ch-rose-deep); font-weight: 700"
+        >Campaigns</a
+      >
+      <a
+        href="#"
+        onclick="
+          handleNavAuth();
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileAuthLink"
+        data-login-label="Sign In"
+        >Sign In</a
+      >
+      <a
+        href="#"
+        onclick="
+          openAuth('up', { lockMode: true });
+          toggleMobileNav();
+        "
+        style="color: var(--gold)"
+        id="mobileRegisterLink"
+        >Sign Up</a
+      >
+    </div>
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <span class="eyebrow">Licenser Review Access</span>
+      <h1>Your <em>Assigned Titles</em></h1>
+      <p>
+        The volumes below are assigned to your licenser account for authorised
+        review only.
+      </p>
+    </div>
+
+    <!-- INFO BAR -->
+    <div class="lic-info-bar" style="padding: 20px">
+      <div class="lic-id-badge">🔑 <span id="licIdDisplay">—</span></div>
+      <div class="lic-name-badge">👤 <span id="licNameDisplay">—</span></div>
+    </div>
+
+    <!-- NOTICE -->
+    <div class="lic-notice-wrap">
+      <div class="lic-notice">
+        <span class="lic-notice-gold">⚠</span>
+        <span
+          >This portal is for authorised licensers only. Content is read-only
+          and must not be redistributed. Your session expires after 30 minutes
+          of inactivity.</span
+        >
+      </div>
+    </div>
+
+    <!-- VOLUMES GRID -->
+    <div class="lic-grid-wrap">
+      <div class="lic-grid-head">
+        <h2 class="lic-grid-title">Review <em>Volumes</em></h2>
+        <span class="lic-vol-count" id="licVolCount"></span>
+      </div>
+      <div class="lic-vol-grid" id="licVolGrid">
+        <div
+          style="
+            grid-column: 1/-1;
+            padding: 40px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            letter-spacing: 0.1em;
+          "
+        >
+          Loading your titles…
+        </div>
+      </div>
+    </div>
+
+    <!-- SESSION TIMEOUT MODAL -->
+    <div class="modal-overlay" id="licTimeoutModal">
+      <div class="modal lic-timeout-modal">
+        <div class="lic-timeout-icon">⏱</div>
+        <div class="modal-title" style="color: var(--rose)">
+          Session Expired
+        </div>
+        <div class="modal-sub">
+          Your licenser session has ended for security. Please sign in again to
+          continue.
+        </div>
+        <button class="btn-gold btn-full" onclick="licSignOut()">
+          Return to Login →
+        </button>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="licenser-data.js"></script>
+    <script src="licenser.js"></script>
+    <script>
+      // ── Guard ─────────────────────────────────────────────────
+      window.licInitPortal();
+
+      // ── Populate labels ───────────────────────────────────────
+
+      // ── Render volumes ────────────────────────────────────────
+
+      // ── Start inactivity timer ────────────────────────────────
+      window.licStartTimer(30);
+    </script>
+  </body>
+</html>

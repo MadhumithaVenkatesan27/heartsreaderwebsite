@@ -1,0 +1,1821 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="clean-urls.js"></script>
+    <meta name="google-site-verification" content="S9T4XiqDMXqg5zsTiZcJUyzM73NeDm0kfFlG9X9nqcA" />
+    <title>Crossed Hearts — Analytics Platform</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+      (async function guardAdminDashboard() {
+        const token = sessionStorage.getItem("ch_token");
+        if (!token) {
+          window.location.replace("index.html");
+          return;
+        }
+
+        try {
+          const apiBase = (
+            window.CH_API_URL ||
+            (["localhost", "127.0.0.1", ""].includes(location.hostname) || location.protocol === "file:" ? localStorage.getItem("ch_api_url") : "") ||
+            (["thecrossedhearts.com", "www.thecrossedhearts.com"].includes(location.hostname)
+              ? "https://crossed-hearts-final.onrender.com/api"
+              : location.hostname === "crossed-hearts.onrender.com"
+                ? "https://crossed-hearts-final.onrender.com/api"
+              :
+            (["localhost", "127.0.0.1", ""].includes(location.hostname) || location.protocol === "file:"
+              ? "http://localhost:5000/api"
+              : "https://crossed-hearts-final.onrender.com/api"))
+          ).replace(/\/$/, "");
+          const res = await fetch(`${apiBase}/auth/me`, {
+            headers: { Authorization: "Bearer " + token },
+          });
+          const data = await res.json();
+          if (!res.ok || data.status !== "success" || data.data?.user?.role !== "admin") {
+            window.location.replace("index.html");
+            return;
+          }
+
+          sessionStorage.setItem("ch_user", JSON.stringify({
+            id: data.data.user._id || data.data.user.id,
+            name: data.data.user.name,
+            email: data.data.user.email,
+            role: data.data.user.role,
+            isEmailVerified: data.data.user.isEmailVerified,
+          }));
+        } catch (err) {
+          window.location.replace("index.html");
+        }
+      })();
+    </script>
+  </head>
+  <body data-theme="dark">
+    <!-- COMMAND PALETTE -->
+    <div class="cmd-overlay" id="cmdOverlay" onclick="closeCmd()"></div>
+    <div class="cmd-palette" id="cmdPalette">
+      <div class="cmd-input-wrap">
+        <!-- <i class="cmd-icon">⌘</i> -->
+        <input
+          type="text"
+          id="cmdInput"
+          placeholder="Search pages, actions, titles…"
+          autocomplete="off"
+          oninput="filterCmd(this.value)"
+        />
+        <span class="cmd-esc" onclick="closeCmd()">ESC</span>
+      </div>
+      <div class="cmd-results" id="cmdResults"></div>
+    </div>
+
+    <!-- NOTIFICATION DRAWER -->
+    <div class="notif-overlay" id="notifOverlay" onclick="closeNotif()"></div>
+    <div class="notif-drawer" id="notifDrawer">
+      <div class="notif-header">
+        <span class="notif-title">Notifications</span>
+        <button class="notif-clear" onclick="closeNotif()">✕</button>
+      </div>
+      <div class="notif-list" id="notifList"></div>
+    </div>
+
+    <div class="app-shell">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-logo">
+            <div class="brand-icon"></div>
+            <div class="brand-text">
+              <span class="brand-name">Crossed Hearts</span>
+              <span class="brand-sub">Analytics</span>
+            </div>
+          </div>
+          <button
+            class="sidebar-collapse-btn"
+            onclick="toggleSidebar()"
+            aria-label="Collapse sidebar"
+          >
+            ‹
+          </button>
+        </div>
+
+        <div class="sidebar-search" onclick="openCmd()">
+          <span class="sidebar-search-icon">🔍</span>
+          <span class="sidebar-search-text">Search…</span>
+          <!-- <span class="sidebar-search-kbd"></span> -->
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-group">
+            <span class="nav-group-label">Main</span>
+            <a
+              href="#"
+              class="nav-item active"
+              data-page="overview"
+              onclick="navigate('overview', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                <rect x="14" y="14" width="7" height="7" rx="1.5" />
+              </svg>
+              <span class="nav-label">Overview</span>
+            </a>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="readers"
+              onclick="navigate('readers', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              <span class="nav-label">Readers Analytics</span>
+              <span class="nav-badge">New</span>
+            </a>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="revenue"
+              onclick="navigate('revenue', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+              <span class="nav-label">Revenue Intelligence</span>
+            </a>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="titles"
+              onclick="navigate('titles', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path
+                  d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                />
+              </svg>
+              <span class="nav-label">Title Performance</span>
+            </a>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="engagement"
+              onclick="navigate('engagement', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path d="M2 12h4l2-9 5 18 3-9h6" />
+              </svg>
+              <span class="nav-label">Engagement Insights</span>
+            </a>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="behaviour"
+              onclick="navigate('behaviour', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span class="nav-label">Reading Behaviour</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <span class="nav-group-label">Monitoring</span>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="live"
+              onclick="navigate('live', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path d="M6.34 6.34a8 8 0 1 0 11.32 0" />
+              </svg>
+              <span class="nav-label">Live Activity</span>
+              <span class="nav-live-dot"></span>
+            </a>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="system"
+              onclick="navigate('system', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+              <span class="nav-label">System Monitoring</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <span class="nav-group-label">Reports</span>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="reports"
+              onclick="navigate('reports', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+              <span class="nav-label">Reports Center</span>
+            </a>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="title-revenue"
+              onclick="navigate('title-revenue', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              <span class="nav-label">Title Revenue Reports</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <span class="nav-group-label">Store</span>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="physical-orders"
+              onclick="navigate('physical-orders', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                <path d="M3.3 7 12 12l8.7-5" />
+                <path d="M12 22V12" />
+              </svg>
+              <span class="nav-label">Physical Orders</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <span class="nav-group-label">Account</span>
+            <a
+              href="#"
+              class="nav-item"
+              data-page="settings"
+              onclick="navigate('settings', this)"
+            >
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+                />
+              </svg>
+              <span class="nav-label">Settings</span>
+            </a>
+          </div>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="user-chip">
+            <div class="user-avatar">A</div>
+            <div class="user-info">
+              <span class="user-name">Admin User</span>
+              <span class="user-role">Platform Manager</span>
+            </div>
+            <button
+              class="theme-btn"
+              onclick="toggleTheme()"
+              title="Toggle theme"
+            >
+              <svg
+                id="themeIcon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                width="16"
+                height="16"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            </button>
+          </div>
+          <button
+            class="logout-btn"
+            onclick="window.location.href = 'index.html'"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              width="15"
+              height="15"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            Sign out
+          </button>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main-content" id="mainContent">
+        <!-- TOP BAR -->
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-btn" onclick="toggleSidebar()">
+              ☰
+            </button>
+            <div class="breadcrumb" id="breadcrumb">
+              <span class="breadcrumb-root">Crossed Hearts</span>
+              <span class="breadcrumb-sep">›</span>
+              <span class="breadcrumb-current" id="breadcrumbCurrent"
+                >Overview</span
+              >
+            </div>
+          </div>
+          <div class="topbar-right">
+            <div class="date-range-picker" id="dateRangePicker">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                width="14"
+                height="14"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              <span id="dateRangeLabel">Last 30 days</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                width="12"
+                height="12"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+              <div class="date-dropdown" id="dateDropdown">
+                <button onclick="setDateRange('7d', 'Last 7 days')">
+                  Last 7 days
+                </button>
+                <button
+                  onclick="setDateRange('30d', 'Last 30 days')"
+                  class="active"
+                >
+                  Last 30 days
+                </button>
+                <button onclick="setDateRange('90d', 'Last 90 days')">
+                  Last 90 days
+                </button>
+                <button onclick="setDateRange('ytd', 'Year to date')">
+                  Year to date
+                </button>
+              </div>
+            </div>
+            <button
+              class="topbar-btn"
+              onclick="openNotif()"
+              title="Notifications"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                width="17"
+                height="17"
+              >
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+              </svg>
+              <span class="notif-badge" id="notifBadge">3</span>
+            </button>
+            <button class="topbar-btn export-btn" onclick="handleExport()">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                width="15"
+                height="15"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Export
+            </button>
+          </div>
+        </header>
+
+        <!-- PAGE CONTAINER -->
+        <div class="page-container" id="pageContainer">
+          <!-- ==================== OVERVIEW PAGE ==================== -->
+          <div class="page active" id="page-overview">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Overview</h1>
+                <p class="page-subtitle">
+                  Platform performance at a glance · Last updated just now
+                </p>
+              </div>
+              <div class="page-actions">
+                <div class="live-badge">
+                  <span class="live-pulse"></span>
+                  <span>Live</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- AI INSIGHT BANNER -->
+            <div class="ai-insight-banner" id="aiInsightBanner">
+              <div class="ai-insight-icon">✦</div>
+              <div class="ai-insight-text">
+                <strong>AI Insight:</strong> Reader retention is up 4.1% this
+                month. "The Executioner of Grenimal" is driving 42% of new
+                signups. Peak engagement window is 8–10 PM daily.
+              </div>
+              <button
+                class="ai-insight-close"
+                onclick="
+                  this.closest('.ai-insight-banner').style.display = 'none'
+                "
+              >
+                ✕
+              </button>
+            </div>
+
+            <!-- KPI GRID -->
+            <div class="kpi-grid-new">
+              <div class="kpi-card-new" data-trend="up">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Total Registered Readers</span>
+                  <div class="kpi-sparkline-wrap">
+                    <canvas class="sparkline" id="spark0"></canvas>
+                  </div>
+                </div>
+                <div class="kpi-value-new" data-target="12450" id="kpiVal0">
+                  0
+                </div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 8.2%</span>
+                  <span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+
+              <div class="kpi-card-new" data-trend="up">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Active Readers (30d)</span>
+                  <div class="kpi-sparkline-wrap">
+                    <canvas class="sparkline" id="spark1"></canvas>
+                  </div>
+                </div>
+                <div class="kpi-value-new" data-target="8924" id="kpiVal1">
+                  0
+                </div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 5.7%</span>
+                  <span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+
+              <div class="kpi-card-new" data-trend="up">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Total Revenue (MTD)</span>
+                  <div class="kpi-sparkline-wrap">
+                    <canvas class="sparkline" id="spark2"></canvas>
+                  </div>
+                </div>
+                <div
+                  class="kpi-value-new currency"
+                  data-target="631825"
+                  id="kpiVal2"
+                >
+                  $0
+                </div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 11.3%</span>
+                  <span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+
+              <div class="kpi-card-new" data-trend="up">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Return Rate (30d)</span>
+                  <div class="kpi-sparkline-wrap">
+                    <canvas class="sparkline" id="spark3"></canvas>
+                  </div>
+                </div>
+                <div class="kpi-value-new" data-target="68" id="kpiVal3">
+                  0%
+                </div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 4.1%</span>
+                  <span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+
+              <div class="kpi-card-new" data-trend="down">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Avg Reading Session</span>
+                  <div class="kpi-sparkline-wrap">
+                    <canvas class="sparkline" id="spark4"></canvas>
+                  </div>
+                </div>
+                <div class="kpi-value-new" id="kpiVal4">28m 14s</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change down">↓ 1.2%</span>
+                  <span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+
+              <div class="kpi-card-new" data-trend="up">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Monthly Purchases</span>
+                  <div class="kpi-sparkline-wrap">
+                    <canvas class="sparkline" id="spark5"></canvas>
+                  </div>
+                </div>
+                <div class="kpi-value-new" data-target="3842" id="kpiVal5">
+                  0
+                </div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 9.4%</span>
+                  <span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+
+              <div class="kpi-card-new" data-trend="up">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Total Titles</span>
+                  <div class="kpi-sparkline-wrap">
+                    <canvas class="sparkline" id="spark6"></canvas>
+                  </div>
+                </div>
+                <div class="kpi-value-new" data-target="47" id="kpiVal6">0</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 2 new</span>
+                  <span class="kpi-period">this month</span>
+                </div>
+              </div>
+
+              <div class="kpi-card-new live-kpi" data-trend="up">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Live Sessions</span>
+                  <span class="live-dot-sm"></span>
+                </div>
+                <div class="kpi-value-new" id="kpiVal7">248</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ active now</span>
+                  <span class="kpi-period">real-time</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CHARTS ROW -->
+            <div class="charts-grid">
+              <div class="chart-panel span-2">
+                <div class="panel-head">
+                  <h3 class="panel-title">Visitor Trend & Registrations</h3>
+                  <div class="panel-tabs">
+                    <button
+                      class="ptab active"
+                      onclick="switchTab(this, 'trend')"
+                    >
+                      Daily
+                    </button>
+                    <button class="ptab" onclick="switchTab(this, 'trend')">
+                      Weekly
+                    </button>
+                    <button class="ptab" onclick="switchTab(this, 'trend')">
+                      Monthly
+                    </button>
+                  </div>
+                </div>
+                <div class="chart-wrap" style="height: 240px">
+                  <canvas id="trendChart"></canvas>
+                </div>
+              </div>
+
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Device Analytics</h3>
+                </div>
+                <div class="chart-wrap" style="height: 200px">
+                  <canvas id="deviceChart"></canvas>
+                </div>
+                <div class="device-legend" id="deviceLegend"></div>
+              </div>
+
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Reading Time by Hour</h3>
+                </div>
+                <div class="chart-wrap" style="height: 200px">
+                  <canvas id="timeChart"></canvas>
+                </div>
+              </div>
+
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Genre Spotlight</h3>
+                  <span class="spotlight-tag">Top Performing</span>
+                </div>
+                <div class="genre-spotlight" id="genreSpotlight"></div>
+              </div>
+            </div>
+
+            <!-- BOTTOM GRID -->
+            <div class="bottom-grid">
+              <!-- SESSIONS TABLE -->
+              <div class="data-card span-2">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Active Reader Sessions</h3>
+                  <div class="table-controls">
+                    <input
+                      type="text"
+                      class="table-search"
+                      id="sessionSearch"
+                      placeholder="Search reader…"
+                      oninput="filterSessions(this.value)"
+                    />
+                    <button
+                      class="icon-btn"
+                      title="Refresh"
+                      onclick="refreshSessions()"
+                    >
+                      ↺
+                    </button>
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table class="data-table" id="sessionsTable">
+                    <thead>
+                      <tr>
+                        <th>Reader</th>
+                        <th>Status</th>
+                        <th>Currently Reading</th>
+                        <th>Progress</th>
+                        <th>Duration</th>
+                        <th>Device</th>
+                      </tr>
+                    </thead>
+                    <tbody id="sessionsTbody"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- TOP TITLES -->
+              <div class="data-card">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Top Titles This Month</h3>
+                  <span
+                    class="see-all"
+                    onclick="
+                      navigate(
+                        'titles',
+                        document.querySelector('[data-page=titles]'),
+                      )
+                    "
+                    >See all →</span
+                  >
+                </div>
+                <div class="top-titles-list" id="topTitlesList"></div>
+              </div>
+            </div>
+
+            <!-- EVENT TICKER -->
+            <div class="event-ticker-wrap">
+              <div class="ticker-label">
+                <span class="live-dot-sm"></span>
+                Live Events
+              </div>
+              <div class="ticker-track" id="tickerTrack">
+                <div class="ticker-inner" id="tickerInner"></div>
+              </div>
+            </div>
+          </div>
+          <!-- /OVERVIEW -->
+
+          <!-- ==================== REVENUE INTELLIGENCE ==================== -->
+          <div class="page" id="page-revenue">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Revenue Intelligence</h1>
+                <p class="page-subtitle">
+                  Full financial picture · Series, genres and buyer analytics
+                </p>
+              </div>
+              <div class="page-actions">
+                <button class="btn-ghost" onclick="exportRevenueCSV()">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    width="14"
+                    height="14"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Export CSV
+                </button>
+                <button
+                  class="btn-primary"
+                  onclick="handleExport()"
+                >
+                  Export PDF
+                </button>
+              </div>
+            </div>
+
+            <!-- REV KPIs -->
+            <div class="rev-kpi-row" id="revKpiRow"></div>
+
+            <!-- REV CHARTS -->
+            <div class="charts-grid" style="margin-bottom: 24px">
+              <div class="chart-panel span-2">
+                <div class="panel-head">
+                  <h3 class="panel-title">Revenue by Series</h3>
+                  <div class="panel-tabs">
+                    <button class="ptab active">Revenue</button>
+                    <button class="ptab">Buyers</button>
+                  </div>
+                </div>
+                <div class="chart-wrap" style="height: 260px">
+                  <canvas id="revBarChart"></canvas>
+                </div>
+              </div>
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Revenue by Category</h3>
+                </div>
+                <div class="chart-wrap" style="height: 220px">
+                  <canvas id="revPieChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- REV TABLE -->
+            <div class="data-card">
+              <div class="data-card-head">
+                <h3 class="panel-title">Series Revenue Report</h3>
+                <div class="table-controls">
+                  <input
+                    type="text"
+                    class="table-search"
+                    id="revSearch"
+                    placeholder="Search series…"
+                    oninput="renderRevTable()"
+                  />
+                  <select
+                    class="table-select"
+                    id="revGenreFilter"
+                    onchange="renderRevTable()"
+                  >
+                    <option value="all">All Categories</option>
+                    <option value="manga">Manga</option>
+                    <option value="glambeat">Glam Beat</option>
+                    <option value="blushclub">Blush Club</option>
+                    <option value="novel">Novel</option>
+                  </select>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="data-table" id="revTable">
+                  <thead>
+                    <tr>
+                      <th onclick="revSort('name')" class="sortable">
+                        Series <span id="rsa-name"></span>
+                      </th>
+                      <th>Category</th>
+                      <th onclick="revSort('launch')" class="sortable">
+                        Launch <span id="rsa-launch"></span>
+                      </th>
+                      <th onclick="revSort('buyers')" class="sortable">
+                        Buyers <span id="rsa-buyers"></span>
+                      </th>
+                      <th onclick="revSort('revenue')" class="sortable">
+                        Revenue <span id="rsa-revenue">↓</span>
+                      </th>
+                      <th>30d Trend</th>
+                      <th>Revenue Bar</th>
+                    </tr>
+                  </thead>
+                  <tbody id="revTbody"></tbody>
+                </table>
+              </div>
+              <div class="table-footer">
+                <span id="revPagInfo" class="pag-info"></span>
+                <div id="revPagBtns" class="pag-btns"></div>
+              </div>
+            </div>
+          </div>
+          <!-- /REVENUE -->
+
+          <!-- ==================== LIVE ACTIVITY ==================== -->
+          <div class="page" id="page-live">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Live Activity</h1>
+                <p class="page-subtitle">
+                  Real-time monitoring · Auto-refreshes every 3 seconds
+                </p>
+              </div>
+              <div class="page-actions">
+                <div class="live-badge">
+                  <span class="live-pulse"></span>
+                  <span>Live</span>
+                </div>
+                <button
+                  class="btn-ghost"
+                  id="autoRefreshBtn"
+                  onclick="toggleAutoRefresh()"
+                >
+                  ⏸ Pause
+                </button>
+              </div>
+            </div>
+
+            <div class="live-kpi-row" id="liveKpiRow"></div>
+
+            <div class="live-two-col">
+              <div class="data-card">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Session Stream</h3>
+                </div>
+                <div class="session-stream" id="sessionStream"></div>
+              </div>
+              <div class="data-card">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Live Alerts</h3>
+                </div>
+                <div class="live-alerts-list" id="liveAlertsList"></div>
+              </div>
+            </div>
+          </div>
+          <!-- /LIVE -->
+
+          <!-- ==================== READERS ANALYTICS ==================== -->
+          <div class="page" id="page-readers">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Readers Analytics</h1>
+                <p class="page-subtitle">
+                  Growth, retention, cohorts and segmentation
+                </p>
+              </div>
+              <div class="page-actions">
+                <button class="btn-ghost" onclick="handleExport()">Export CSV</button>
+                <button class="btn-primary" onclick="handleExport()">Generate Report</button>
+              </div>
+            </div>
+
+            <div
+              class="kpi-grid-new"
+              style="grid-template-columns: repeat(4, 1fr)"
+            >
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Total Registered</span>
+                </div>
+                <div class="kpi-value-new">12,450</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 8.2%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">New This Month</span>
+                </div>
+                <div class="kpi-value-new">1,284</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 12.4%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Churn Rate</span>
+                </div>
+                <div class="kpi-value-new">3.2%</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↓ 0.4%</span
+                  ><span class="kpi-period">improvement</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Avg Titles / Reader</span>
+                </div>
+                <div class="kpi-value-new">4.7</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 0.3</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="charts-grid" style="margin-bottom: 20px">
+              <div class="chart-panel span-2">
+                <div class="panel-head">
+                  <h3 class="panel-title">Reader Growth (12 Months)</h3>
+                  <div class="panel-tabs">
+                    <button class="ptab active" onclick="switchTab(this)">
+                      Monthly
+                    </button>
+                    <button class="ptab" onclick="switchTab(this)">
+                      Weekly
+                    </button>
+                  </div>
+                </div>
+                <div class="chart-wrap" style="height: 240px">
+                  <canvas id="readerGrowthChart"></canvas>
+                </div>
+              </div>
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Reader Segments</h3>
+                </div>
+                <div class="chart-wrap" style="height: 200px">
+                  <canvas id="readerSegChart"></canvas>
+                </div>
+                <div class="device-legend" id="readerSegLegend"></div>
+              </div>
+            </div>
+
+            <div class="bottom-grid">
+              <div class="data-card span-2">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Retention Cohorts</h3>
+                  <span style="font-size: 11px; color: var(--text-tertiary)"
+                    >% of cohort still active after N months</span
+                  >
+                </div>
+                <div class="table-wrap">
+                  <table class="data-table" id="cohortTable">
+                    <thead>
+                      <tr>
+                        <th>Cohort</th>
+                        <th>Size</th>
+                        <th>Month 1</th>
+                        <th>Month 2</th>
+                        <th>Month 3</th>
+                        <th>Month 4</th>
+                        <th>Month 5</th>
+                        <th>Month 6</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cohortTbody"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="data-card">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Top Countries</h3>
+                </div>
+                <div class="top-titles-list" id="countryList"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== TITLE PERFORMANCE ==================== -->
+          <div class="page" id="page-titles">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Title Performance</h1>
+                <p class="page-subtitle">
+                  Per-title analytics, completion rates and engagement tracking
+                </p>
+              </div>
+              <div class="page-actions">
+                <button class="btn-ghost">Compare Titles</button>
+                <button class="btn-primary" onclick="handleExport()">Export Report</button>
+              </div>
+            </div>
+
+            <div
+              class="kpi-grid-new"
+              style="grid-template-columns: repeat(4, 1fr)"
+            >
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Total Titles</span>
+                </div>
+                <div class="kpi-value-new">47</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 2 new</span
+                  ><span class="kpi-period">this month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Avg Completion Rate</span>
+                </div>
+                <div class="kpi-value-new">61%</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 3.2%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Avg Rating</span>
+                </div>
+                <div class="kpi-value-new">4.3★</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 0.1</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Total Chapters Live</span>
+                </div>
+                <div class="kpi-value-new">318</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 14</span
+                  ><span class="kpi-period">this month</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="data-card" style="margin-bottom: 20px">
+              <div class="data-card-head">
+                <h3 class="panel-title">All Titles Performance</h3>
+                <div class="table-controls">
+                  <input
+                    type="text"
+                    class="table-search"
+                    placeholder="Search title…"
+                    oninput="filterTitlesTable(this.value)"
+                  />
+                  <select
+                    class="table-select"
+                    onchange="filterTitlesCat(this.value)"
+                  >
+                    <option value="all">All Categories</option>
+                    <option value="manga">Manga</option>
+                    <option value="glambeat">Glam Beat</option>
+                    <option value="blushclub">Blush Club</option>
+                    <option value="novel">Novel</option>
+                  </select>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Category</th>
+                      <th>Chapters</th>
+                      <th>Total Reads</th>
+                      <th>Completion</th>
+                      <th>Avg Rating</th>
+                      <th>Drop-off Ch.</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="titlesPerfTbody"></tbody>
+                </table>
+              </div>
+              <div class="table-footer">
+                <span class="pag-info" id="titlesPagInfo"></span>
+                <div class="pag-btns" id="titlesPagBtns"></div>
+              </div>
+            </div>
+
+            <div class="charts-grid">
+              <!-- <div class="chart-panel span-2">
+                <div class="panel-head">
+                  <h3 class="panel-title">
+                    Chapter-by-Chapter Drop-off — The Executioner of Grenimal
+                  </h3>
+                </div>
+                <div class="chart-wrap" style="height: 220px">
+                  <canvas id="dropoffChart"></canvas>
+                </div>
+              </div> -->
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Completion by Category</h3>
+                </div>
+                <div class="chart-wrap" style="height: 220px">
+                  <canvas id="completionCatChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== ENGAGEMENT INSIGHTS ==================== -->
+          <div class="page" id="page-engagement">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Engagement Insights</h1>
+                <p class="page-subtitle">
+                  Session activity, engagement scores, reading streaks
+                </p>
+              </div>
+              <div class="page-actions">
+                <button class="btn-ghost" onclick="handleExport()">Export Data</button>
+              </div>
+            </div>
+
+            <div
+              class="kpi-grid-new"
+              style="grid-template-columns: repeat(4, 1fr)"
+            >
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Avg Sessions / User</span>
+                </div>
+                <div class="kpi-value-new">6.8</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 1.1</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Pages Read (MTD)</span>
+                </div>
+                <div class="kpi-value-new">2.4M</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 18.3%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">7-Day Streak Users</span>
+                </div>
+                <div class="kpi-value-new">1,832</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 9.7%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Engagement Score</span>
+                </div>
+                <div class="kpi-value-new">74/100</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 3 pts</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="charts-grid" style="margin-bottom: 20px">
+              <div class="chart-panel span-2">
+                <div class="panel-head">
+                  <h3 class="panel-title">Daily Active Users vs Pages Read</h3>
+                </div>
+                <div class="chart-wrap" style="height: 240px">
+                  <canvas id="engagementChart"></canvas>
+                </div>
+              </div>
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Session Frequency Distribution</h3>
+                </div>
+                <div class="chart-wrap" style="height: 220px">
+                  <canvas id="sessionFreqChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="bottom-grid">
+              <div class="data-card span-2">
+                <div class="data-card-head">
+                  <h3 class="panel-title">User Journey Funnel</h3>
+                </div>
+                <div style="padding: 20px 24px" id="funnelContainer"></div>
+              </div>
+              <div class="data-card">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Top Streak Leaders</h3>
+                </div>
+                <div class="top-titles-list" id="streakList"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== READING BEHAVIOUR ==================== -->
+          <div class="page" id="page-behaviour">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Reading Behaviour</h1>
+                <p class="page-subtitle">
+                  Heatmaps, scroll depth, device comparison
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="kpi-grid-new"
+              style="grid-template-columns: repeat(4, 1fr)"
+            >
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Avg Session Length</span>
+                </div>
+                <div class="kpi-value-new">28m 14s</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change down">↓ 1.2%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Avg Scroll Depth</span>
+                </div>
+                <div class="kpi-value-new">73%</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 2.1%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Mobile Read Share</span>
+                </div>
+                <div class="kpi-value-new">65%</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 1.8%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Night Mode Users</span>
+                </div>
+                <div class="kpi-value-new">58%</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 4.3%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="charts-grid" style="margin-bottom: 20px">
+              <div class="chart-panel span-2">
+                <div class="panel-head">
+                  <h3 class="panel-title">
+                    Weekly Reading Heatmap (Sessions by Hour × Day)
+                  </h3>
+                </div>
+                <div style="padding: 8px 0" id="heatmapContainer"></div>
+              </div>
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Device Comparison</h3>
+                </div>
+                <div class="chart-wrap" style="height: 220px">
+                  <canvas id="deviceCompChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="charts-grid">
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Scroll Depth Distribution</h3>
+                </div>
+                <div class="chart-wrap" style="height: 220px">
+                  <canvas id="scrollDepthChart"></canvas>
+                </div>
+              </div>
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Session Length Buckets</h3>
+                </div>
+                <div class="chart-wrap" style="height: 220px">
+                  <canvas id="sessionLengthChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== SYSTEM MONITORING ==================== -->
+          <div class="page" id="page-system">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">System Monitoring</h1>
+                <p class="page-subtitle">
+                  API health, server usage, error tracking
+                </p>
+              </div>
+              <div class="page-actions">
+                <div class="live-badge">
+                  <span class="live-pulse"></span
+                  ><span>All Systems Operational</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="kpi-grid-new"
+              style="grid-template-columns: repeat(4, 1fr)"
+            >
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">API Uptime</span>
+                </div>
+                <div class="kpi-value-new" style="color: #4ade80">99.97%</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 0.02%</span
+                  ><span class="kpi-period">this month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Avg Response Time</span>
+                </div>
+                <div class="kpi-value-new">142ms</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↓ 18ms</span
+                  ><span class="kpi-period">improvement</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Error Rate</span>
+                </div>
+                <div class="kpi-value-new">0.08%</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↓ 0.03%</span
+                  ><span class="kpi-period">improvement</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">DB Query Avg</span>
+                </div>
+                <div class="kpi-value-new">38ms</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↓ 5ms</span
+                  ><span class="kpi-period">improvement</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="charts-grid" style="margin-bottom: 20px">
+              <div class="chart-panel span-2">
+                <div class="panel-head">
+                  <h3 class="panel-title">API Response Time (Last 24h)</h3>
+                </div>
+                <div class="chart-wrap" style="height: 220px">
+                  <canvas id="apiResponseChart"></canvas>
+                </div>
+              </div>
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Error Distribution</h3>
+                </div>
+                <div class="chart-wrap" style="height: 220px">
+                  <canvas id="errorDistChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="bottom-grid">
+              <div class="data-card span-2">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Recent Incidents</h3>
+                </div>
+                <div class="table-wrap">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Time</th>
+                        <th>Severity</th>
+                        <th>Service</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Duration</th>
+                      </tr>
+                    </thead>
+                    <tbody id="incidentTbody"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="data-card">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Service Status</h3>
+                </div>
+                <div style="padding: 8px 0" id="serviceStatusList"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== REPORTS CENTER ==================== -->
+          <div class="page" id="page-reports">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Reports Center</h1>
+                <p class="page-subtitle">
+                  Custom reports, scheduled exports, templates
+                </p>
+              </div>
+              <div class="page-actions">
+                <button
+                  class="btn-primary"
+                  onclick="alert('Report builder coming soon')"
+                >
+                  + New Report
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="bottom-grid"
+              style="grid-template-columns: 2fr 1fr; margin-bottom: 20px"
+            >
+              <div class="data-card">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Recent Reports</h3>
+                </div>
+                <div class="table-wrap">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Report Name</th>
+                        <th>Type</th>
+                        <th>Generated</th>
+                        <th>Size</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="reportsTbody"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="data-card">
+                <div class="data-card-head">
+                  <h3 class="panel-title">Scheduled Reports</h3>
+                </div>
+                <div style="padding: 8px 0" id="scheduledList"></div>
+              </div>
+            </div>
+
+            <div
+              class="data-card-head"
+              style="
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: var(--r-lg);
+                padding: 18px 20px;
+                margin-bottom: 0;
+              "
+            >
+              <h3 class="panel-title" style="margin-bottom: 14px">
+                Report Templates
+              </h3>
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 12px;
+                "
+                id="templateGrid"
+              ></div>
+            </div>
+          </div>
+
+          <!-- ==================== TITLE REVENUE REPORTS ==================== -->
+          <div class="page" id="page-title-revenue">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Title Revenue Reports</h1>
+                <p class="page-subtitle">
+                  Per-title financial breakdown, forecasts and insights
+                </p>
+              </div>
+              <div class="page-actions">
+                <button class="btn-ghost" onclick="handleExport()">Export CSV</button>
+                <button class="btn-primary" onclick="handleExport()">Export PDF</button>
+              </div>
+            </div>
+
+            <div
+              class="kpi-grid-new"
+              style="grid-template-columns: repeat(4, 1fr)"
+            >
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Total Revenue (All Time)</span>
+                </div>
+                <div class="kpi-value-new">$631,825</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 11.3%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Refund Rate</span>
+                </div>
+                <div class="kpi-value-new">1.4%</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↓ 0.2%</span
+                  ><span class="kpi-period">improvement</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Avg Revenue / Title</span>
+                </div>
+                <div class="kpi-value-new">$13,443</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">↑ 5.1%</span
+                  ><span class="kpi-period">vs last month</span>
+                </div>
+              </div>
+              <div class="kpi-card-new">
+                <div class="kpi-header-row">
+                  <span class="kpi-label-new">Forecasted (Next 30d)</span>
+                </div>
+                <div class="kpi-value-new">$71,200</div>
+                <div class="kpi-footer-row">
+                  <span class="kpi-change up">AI estimate</span
+                  ><span class="kpi-period">±8% confidence</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="charts-grid" style="margin-bottom: 20px">
+              <div class="chart-panel span-2">
+                <div class="panel-head">
+                  <h3 class="panel-title">Monthly Revenue Trend by Category</h3>
+                </div>
+                <div class="chart-wrap" style="height: 240px">
+                  <canvas id="titleRevTrendChart"></canvas>
+                </div>
+              </div>
+              <div class="chart-panel">
+                <div class="panel-head">
+                  <h3 class="panel-title">Revenue by Country</h3>
+                </div>
+                <div style="padding: 8px 0" id="countryRevList"></div>
+              </div>
+            </div>
+
+            <div class="data-card">
+              <div class="data-card-head">
+                <h3 class="panel-title">Per-Title Revenue Breakdown</h3>
+                <div class="table-controls">
+                  <input
+                    type="text"
+                    class="table-search"
+                    placeholder="Search title…"
+                  />
+                  <select class="table-select">
+                    <option>All Categories</option>
+                    <option>Manga</option>
+                    <option>Glam Beat</option>
+                    <option>Blush Club</option>
+                    <option>Novel</option>
+                  </select>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Category</th>
+                      <th>Gross Revenue</th>
+                      <th>Refunds</th>
+                      <th>Net Revenue</th>
+                      <th>Conv. Rate</th>
+                      <th>Forecast</th>
+                      <th>Trend</th>
+                    </tr>
+                  </thead>
+                  <tbody id="titleRevTbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== SETTINGS ==================== -->
+          <div class="page" id="page-settings">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Settings</h1>
+                <p class="page-subtitle">
+                  Platform preferences, user roles and integrations
+                </p>
+              </div>
+              <div class="page-actions">
+                <button class="btn-primary" onclick="alert('Settings saved!')">
+                  Save Changes
+                </button>
+              </div>
+            </div>
+
+            <div
+              style="display: grid; grid-template-columns: 200px 1fr; gap: 24px"
+            >
+              <div style="display: flex; flex-direction: column; gap: 4px">
+                <button
+                  class="nav-item active"
+                  style="
+                    border-radius: var(--r-md);
+                    border: none;
+                    cursor: pointer;
+                    text-align: left;
+                  "
+                  onclick="showSettingsTab('general', this)"
+                >
+                  General
+                </button>
+                <button
+                  class="nav-item"
+                  style="
+                    border-radius: var(--r-md);
+                    border: none;
+                    cursor: pointer;
+                    text-align: left;
+                  "
+                  onclick="showSettingsTab('notifications', this)"
+                >
+                  Notifications
+                </button>
+                <button
+                  class="nav-item"
+                  style="
+                    border-radius: var(--r-md);
+                    border: none;
+                    cursor: pointer;
+                    text-align: left;
+                  "
+                  onclick="showSettingsTab('users', this)"
+                >
+                  User Roles
+                </button>
+                <button
+                  class="nav-item"
+                  style="
+                    border-radius: var(--r-md);
+                    border: none;
+                    cursor: pointer;
+                    text-align: left;
+                  "
+                  onclick="showSettingsTab('integrations', this)"
+                >
+                  Integrations
+                </button>
+                <button
+                  class="nav-item"
+                  style="
+                    border-radius: var(--r-md);
+                    border: none;
+                    cursor: pointer;
+                    text-align: left;
+                  "
+                  onclick="showSettingsTab('billing', this)"
+                >
+                  Billing
+                </button>
+              </div>
+              <div id="settingsContent"></div>
+            </div>
+          </div>
+
+          <div class="page" id="page-physical-orders">
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Physical Orders</h1>
+                <p class="page-subtitle">
+                  Printed book orders, delivery addresses, payment and shipping status
+                </p>
+              </div>
+              <div class="page-actions">
+                <button class="btn-ghost" onclick="loadPhysicalOrders()">Refresh</button>
+              </div>
+            </div>
+            <div id="physicalOrdersContent"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+      (function () {
+        const t = localStorage.getItem("ch-theme2") || "dark";
+        document.body.setAttribute("data-theme", t);
+      })();
+    </script>
+  </body>
+</html>

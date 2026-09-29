@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="clean-urls.js"></script>
+    <meta name="google-site-verification" content="S9T4XiqDMXqg5zsTiZcJUyzM73NeDm0kfFlG9X9nqcA" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Licenser Login — Crossed Hearts</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--ink);
+      }
+
+      .lic-login-wrap {
+        width: 100%;
+        max-width: 440px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .lic-login-logo {
+        text-align: center;
+      }
+
+      .lic-login-logo-main {
+        display: block;
+        font-family: var(--font-d);
+        font-size: 26px;
+        color: var(--cream);
+        letter-spacing: 0.04em;
+      }
+
+      .lic-login-logo-sub {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-top: 5px;
+      }
+
+      .lic-login-card {
+        width: 100%;
+        background: var(--ink-card);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        padding: 40px 38px 36px;
+      }
+
+      .lic-login-eyebrow {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--rose);
+        margin-bottom: 10px;
+      }
+
+      .lic-login-title {
+        font-family: var(--font-d);
+        font-size: 28px;
+        color: var(--cream);
+        margin: 0 0 6px;
+        font-weight: 400;
+      }
+
+      .lic-login-title em {
+        font-style: italic;
+        color: var(--gold);
+      }
+
+      .lic-login-subtitle {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0 0 22px;
+        line-height: 1.5;
+      }
+
+      .lic-login-notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        background: rgba(201, 168, 76, 0.05);
+        border: 1px solid rgba(201, 168, 76, 0.18);
+        border-radius: var(--r);
+        padding: 11px 14px;
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 1.55;
+        margin-bottom: 24px;
+      }
+
+      .lic-login-notice-icon {
+        flex-shrink: 0;
+        font-size: 13px;
+        margin-top: 1px;
+      }
+
+      .lic-login-error {
+        display: none;
+        background: rgba(196, 100, 122, 0.08);
+        border: 1px solid rgba(196, 100, 122, 0.3);
+        border-radius: var(--r);
+        padding: 10px 14px;
+        font-size: 12px;
+        color: var(--rose);
+        margin-bottom: 18px;
+        letter-spacing: 0.02em;
+      }
+
+      .lic-login-error.visible {
+        display: block;
+      }
+
+      .form-group {
+        margin-bottom: 18px;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+
+      .form-input {
+        width: 100%;
+        background: var(--ink-mid);
+        border: 1px solid var(--border-s);
+        border-radius: var(--r);
+        color: var(--cream);
+        font-family: var(--font-b);
+        font-size: 14px;
+        padding: 11px 14px;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+      }
+
+      .form-input:focus {
+        border-color: var(--gold);
+      }
+
+      .form-input::placeholder {
+        color: var(--muted);
+        opacity: 0.5;
+      }
+
+      .form-input.err {
+        border-color: var(--rose);
+      }
+
+      .lic-field-hint {
+        font-size: 10px;
+        color: var(--muted);
+        opacity: 0.6;
+        margin-top: 5px;
+        letter-spacing: 0.04em;
+      }
+
+      .lic-field-error {
+        display: none;
+        font-size: 11px;
+        color: var(--rose);
+        margin-top: 5px;
+        letter-spacing: 0.02em;
+      }
+
+      .lic-field-error.visible {
+        display: block;
+      }
+
+      .lic-pw-wrap {
+        position: relative;
+      }
+
+      .lic-pw-wrap .form-input {
+        padding-right: 58px;
+      }
+
+      .lic-pw-toggle {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 11px;
+        font-family: var(--font-b);
+        letter-spacing: 0.08em;
+        padding: 4px 6px;
+        transition: color 0.2s;
+      }
+
+      .lic-pw-toggle:hover {
+        color: var(--gold);
+      }
+
+      .lic-btn-submit {
+        width: 100%;
+        padding: 13px;
+        background: linear-gradient(135deg, var(--gold), #b8893a);
+        border: none;
+        border-radius: var(--r);
+        color: #0c0a0c;
+        font-family: var(--font-b);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.15s;
+        margin-top: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .lic-btn-submit:hover:not(:disabled) {
+        opacity: 0.88;
+        transform: translateY(-1px);
+      }
+
+      .lic-btn-submit:active {
+        transform: translateY(0);
+      }
+
+      .lic-btn-submit:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .spinner {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        border: 2px solid rgba(12, 10, 12, 0.3);
+        border-top-color: #0c0a0c;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .lic-login-back {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .lic-login-back a {
+        color: var(--muted);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.2s;
+      }
+
+      .lic-login-back a:hover {
+        color: var(--gold);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="lic-login-wrap">
+      <!-- Logo -->
+      <div class="lic-login-logo">
+        <span class="lic-login-logo-main">Crossed Hearts</span>
+        <span class="lic-login-logo-sub">Licenser Portal</span>
+      </div>
+
+      <!-- Card -->
+      <div class="lic-login-card">
+        <span class="lic-login-eyebrow">Restricted Access</span>
+        <h1 class="lic-login-title">Licenser <em>Sign In</em></h1>
+        <p class="lic-login-subtitle">Authorised licensers only.</p>
+
+        <div class="lic-login-notice">
+          <span class="lic-login-notice-icon">🔒</span>
+          <span
+            >This portal is restricted to approved content licensers.
+            Unauthorised access attempts are recorded.</span
+          >
+        </div>
+
+        <!-- Error banner -->
+        <div class="lic-login-error" id="loginError">
+          Invalid Licenser ID or Password
+        </div>
+
+        <!-- Licenser ID -->
+        <div class="form-group">
+          <label class="form-label" for="licId">Licenser ID</label>
+          <input
+            type="text"
+            class="form-input"
+            id="licId"
+            placeholder="e.g. LIC-TYNA"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <div class="lic-field-hint">Format: LIC-XXXX (case-insensitive)</div>
+          <div class="lic-field-error" id="licIdError">
+            Licenser ID is required.
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label class="form-label" for="licPass">Password</label>
+          <div class="lic-pw-wrap">
+            <input
+              type="password"
+              class="form-input"
+              id="licPass"
+              placeholder="••••••••"
+              autocomplete="off"
+            />
+            <button
+              type="button"
+              class="lic-pw-toggle"
+              id="pwToggle"
+              onclick="togglePassword()"
+            >
+              Show
+            </button>
+          </div>
+          <div class="lic-field-error" id="licPassError">
+            Password is required.
+          </div>
+        </div>
+
+        <button class="lic-btn-submit" id="loginBtn" onclick="handleLogin()">
+          Enter Portal
+        </button>
+      </div>
+
+      <div class="lic-login-back">
+        <a href="index.html">← Back to Crossed Hearts</a>
+      </div>
+    </div>
+
+    <script>
+      var SESSION_KEY = "ch_licenser_session";
+
+      // ── If already logged in go straight to portal ─────────
+      (function () {
+        try {
+          sessionStorage.removeItem(SESSION_KEY);
+        } catch (e) {}
+      })();
+
+      // ── Toggle password visibility ─────────────────────────
+      function togglePassword() {
+        var inp = document.getElementById("licPass");
+        var btn = document.getElementById("pwToggle");
+        var hidden = inp.type === "password";
+        inp.type = hidden ? "text" : "password";
+        btn.textContent = hidden ? "Hide" : "Show";
+      }
+
+      // ── Clear all error states ─────────────────────────────
+      function clearErrors() {
+        document.getElementById("loginError").classList.remove("visible");
+        document.getElementById("licId").classList.remove("err");
+        document.getElementById("licPass").classList.remove("err");
+        document.getElementById("licIdError").classList.remove("visible");
+        document.getElementById("licPassError").classList.remove("visible");
+      }
+
+      // ── Login handler ──────────────────────────────────────
+      function handleLogin() {
+        clearErrors();
+
+        var id = (document.getElementById("licId").value || "")
+          .trim()
+          .toUpperCase();
+        var pass = (document.getElementById("licPass").value || "").trim();
+        var ok = true;
+
+        if (!id) {
+          document.getElementById("licId").classList.add("err");
+          document.getElementById("licIdError").classList.add("visible");
+          ok = false;
+        }
+        if (!pass) {
+          document.getElementById("licPass").classList.add("err");
+          document.getElementById("licPassError").classList.add("visible");
+          ok = false;
+        }
+        if (!ok) return;
+
+        var btn = document.getElementById("loginBtn");
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner"></span> Verifying…';
+
+        const apiBase = (
+          window.CH_API_URL ||
+          (["localhost", "127.0.0.1", ""].includes(location.hostname) || location.protocol === "file:" ? localStorage.getItem("ch_api_url") : "") ||
+          (["thecrossedhearts.com", "www.thecrossedhearts.com"].includes(
+            location.hostname,
+          )
+            ? "https://crossed-hearts-final.onrender.com/api"
+            : location.hostname === "crossed-hearts.onrender.com"
+              ? "https://crossed-hearts-final.onrender.com/api"
+              : ["localhost", "127.0.0.1", ""].includes(location.hostname) ||
+                  location.protocol === "file:"
+                ? "http://localhost:5000/api"
+                : "https://crossed-hearts-final.onrender.com/api")
+        ).replace(/\/$/, "");
+
+        fetch(`${apiBase}/licensors/login-id`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ licensorId: id, password: pass }),
+        })
+          .then(function (res) {
+            return res.json().then(function (data) {
+              return { ok: res.ok, data: data };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || result.data.status !== "success") {
+              throw new Error(
+                result.data.message || "Invalid Licenser ID or Password",
+              );
+            }
+
+            sessionStorage.setItem("ch_token", result.data.accessToken);
+            sessionStorage.setItem(
+              "ch_user",
+              JSON.stringify(result.data.data.user),
+            );
+            sessionStorage.setItem(
+              SESSION_KEY,
+              JSON.stringify({
+                id: id,
+                userId: result.data.data.user._id || result.data.data.user.id,
+                name: result.data.data.user.name,
+                email: result.data.data.user.email,
+                loginTime: Date.now(),
+                verifiedByLicensorId: true,
+              }),
+            );
+
+            btn.innerHTML = "Verified. Redirecting...";
+            setTimeout(function () {
+              window.location.href = "licenser-portal.html";
+            }, 300);
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.innerHTML = "Enter Portal";
+            document.getElementById("loginError").classList.add("visible");
+            document.getElementById("licId").classList.add("err");
+            document.getElementById("licPass").classList.add("err");
+            document.getElementById("licPass").value = "";
+            document.getElementById("licPass").focus();
+          });
+      }
+
+      // ── Enter key submits ──────────────────────────────────
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") handleLogin();
+      });
+
+      // ── Clear errors on input ──────────────────────────────
+      document.getElementById("licId").addEventListener("input", function () {
+        this.classList.remove("err");
+        document.getElementById("licIdError").classList.remove("visible");
+        document.getElementById("loginError").classList.remove("visible");
+      });
+      document.getElementById("licPass").addEventListener("input", function () {
+        this.classList.remove("err");
+        document.getElementById("licPassError").classList.remove("visible");
+        document.getElementById("loginError").classList.remove("visible");
+      });
+    </script>
+  </body>
+</html>

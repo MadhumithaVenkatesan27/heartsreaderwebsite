@@ -1494,3 +1494,76 @@ body.show-annual span.monthly-price {
 .browse-full-link:hover {
   color: var(--sp-gold);
 }
+
+/* ═══ DASHBOARD PREVIEW TOGGLE ═══ */
+.dash-demo-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.dash-demo-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sp-muted);
+}
+
+/* bonus manga note (annual plans) */
+.dash-bonus {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--sp-gold-dim);
+  border: 1px solid var(--sp-border-gold);
+  border-radius: var(--sp-radius);
+  padding: 12px 14px;
+  font-size: 0.83rem;
+  color: var(--sp-text-dim);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+.dash-bonus i {
+  color: var(--sp-gold);
+  font-size: 20px;
+  margin-top: 1px;
+}
+.dash-bonus strong {
+  color: var(--sp-text);
+}
+
+/* placeholder covers (titles without artwork yet) */
+.browse-cover--empty,
+.select-title-cover.browse-cover--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3 / 4;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-border);
+  color: var(--sp-muted);
+  font-size: 22px;
+  border-radius: 6px;
+}
+.browse-plan-note {
+  font-size: 0.78rem;
+  color: var(--sp-muted);
+  line-height: 1.5;
+  margin: 6px 0 0;
+}
+
+@media (max-width: 640px) {
+  .dash-demo-toggle .billing-segment {
+    width: 100%;
+  }
+  .dash-pick-row {
+    grid-template-columns: 40px 1fr;
+  }
+  .dash-pick-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+}

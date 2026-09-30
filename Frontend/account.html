@@ -335,19 +335,167 @@
         font-size: 13px;
       }
 
-      /* ---- Wishlist ---- */
+      /* ---- Wishlist (product cards) ---- */
+      .wish-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 20px;
+      }
+      .wish-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background: var(--ink-card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          border-color 0.25s;
+      }
+      .wish-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold);
+        box-shadow: var(--shadow);
+      }
+      .wish-cover {
+        position: relative;
+        aspect-ratio: 2 / 3;
+        background: var(--ink-mid);
+        overflow: hidden;
+        display: block;
+      }
+      .wish-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        transition: transform 0.4s;
+      }
+      .wish-card:hover .wish-cover img {
+        transform: scale(1.04);
+      }
+      .wish-cover-empty {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 32px;
+      }
+
+      /* Heart button: same look as .card-wish-btn.wishlisted */
+      .wish-remove-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        backdrop-filter: blur(4px);
+        color: #e0345c;
+        background: rgba(224, 52, 92, 0.15);
+        border: 1px solid rgba(224, 52, 92, 0.5);
+        transition:
+          background 0.2s,
+          transform 0.15s,
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .wish-remove-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+        stroke: currentColor;
+      }
+      .wish-remove-btn:hover {
+        transform: scale(1.08);
+        background: rgba(224, 52, 92, 0.28);
+      }
+      body.light-mode .wish-remove-btn {
+        color: #b20d34;
+        background: rgba(255, 255, 255, 0.85);
+        border-color: rgba(178, 13, 52, 0.4);
+      }
+      body.light-mode .wish-remove-btn:hover {
+        background: rgba(178, 13, 52, 0.12);
+      }
+
+      .wish-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 6px;
+        padding: 14px;
+      }
+      .wish-genre {
+        font-size: 10.5px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .wish-title {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.35;
+        color: var(--cream);
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-decoration: none;
+      }
       .wish-rating-num {
         font-size: 11px;
         color: var(--muted);
       }
-      .btn-wish-remove {
-        background: rgba(196, 100, 122, 0.12);
-        border: 1px solid rgba(196, 100, 122, 0.35);
-        color: var(--rose);
+      .wish-foot {
+        margin-top: auto;
+        padding-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .wish-price {
+        font-family: var(--font-d);
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .wish-view-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 14px;
         border-radius: 999px;
-        padding: 6px 14px;
+        background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+        color: #fff;
         font-size: 12px;
-        cursor: pointer;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      @media (max-width: 480px) {
+        .wish-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        .wish-body {
+          padding: 10px;
+        }
+        .wish-view-btn {
+          padding: 6px 10px;
+        }
       }
 
       /* ---- Subscription pick rows + covers ---- */
@@ -1749,37 +1897,48 @@
       // ==================================================
       // WISHLIST
       // ==================================================
+
       function acctWishlistCard(t) {
         const avg = chGetAverageRating(t.id);
-        const count = chGetPurchaseCount(t.id);
+        const safeTitle = (t.title || "").replace(/'/g, "\\'");
         return `
-        <div class="acct-item">
-          <div style="display:flex;gap:12px;align-items:center;flex:1;">
-            ${
-              t.image
-                ? `<img src="${t.image}" alt="${t.title}" style="width:44px;height:62px;object-fit:cover;border-radius:6px;flex-shrink:0;">`
-                : `<div style="width:44px;height:62px;border-radius:6px;background:var(--ink-mid);flex-shrink:0;"></div>`
-            }
-            <div class="acct-item-info">
-              <h3>${t.title}</h3>
-              <span>${t.genre || ""}</span>
-              ${avg ? `<div style="margin-top:4px;">${chRenderStars(parseFloat(avg), false)} <span class="wish-rating-num">${avg}</span></div>` : ""}
-            </div>
-          </div>
-          <div class="acct-item-action" style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
-            <span class="acct-order-amount" style="font-weight:600;">$${Number(t.price || 0).toFixed(2)}</span>
-            <div style="display:flex;gap:8px;">
-              <a href="${t.href}">View</a>
-              <button
-                onclick="chToggleWishlist('${t.id}','${(t.title || "").replace(/'/g, "\\'")}');renderAcctWishlist();"
-                class="btn-wish-remove"
-              >
-                Remove
-              </button>
-            </div>
-          </div>
+    <article class="wish-card">
+      <button
+        class="wish-remove-btn"
+        aria-label="Remove ${t.title || "title"} from wishlist"
+        title="Remove from wishlist"
+        onclick="chToggleWishlist('${t.id}','${safeTitle}');renderAcctWishlist();"
+      >
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </button>
+
+      <a class="wish-cover" href="${t.href}">
+        ${
+          t.image
+            ? `<img src="${t.image}" alt="${t.title} Cover" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+               <div class="wish-cover-empty" style="display:none;"><i class="ti ti-book" aria-hidden="true"></i></div>`
+            : `<div class="wish-cover-empty"><i class="ti ti-book" aria-hidden="true"></i></div>`
+        }
+      </a>
+
+      <div class="wish-body">
+        ${t.genre ? `<span class="wish-genre">${t.genre}</span>` : ""}
+        <a class="wish-title" href="${t.href}">${t.title}</a>
+        ${
+          avg
+            ? `<div>${chRenderStars(parseFloat(avg), false)} <span class="wish-rating-num">${avg}</span></div>`
+            : ""
+        }
+        <div class="wish-foot">
+          <span class="wish-price">$${Number(t.price || 0).toFixed(2)}</span>
+          <a class="wish-view-btn" href="${t.href}">View</a>
         </div>
-      `;
+      </div>
+    </article>
+  `;
       }
 
       function renderAcctWishlist() {
@@ -1823,7 +1982,7 @@
           return;
         }
 
-        container.innerHTML = titles.map(acctWishlistCard).join("");
+        container.innerHTML = `<div class="wish-grid">${titles.map(acctWishlistCard).join("")}</div>`;
       }
 
       // ==================================================

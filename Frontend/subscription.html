@@ -690,6 +690,35 @@
           This is what you'll see once you're subscribed.
         </p>
 
+        <!-- TEMP: preview switcher. Remove once the dashboard reads the logged-in member. -->
+        <div class="dash-demo-toggle" id="dashDemoToggle">
+          <span class="dash-demo-label">Preview as</span>
+          <div class="billing-segment" role="group" aria-label="Preview plan">
+            <button type="button" class="segment-btn" data-plan="manga">
+              Manga only
+            </button>
+            <button type="button" class="segment-btn active" data-plan="all">
+              All formats
+            </button>
+          </div>
+          <div
+            class="billing-segment"
+            role="group"
+            aria-label="Preview billing"
+          >
+            <button type="button" class="segment-btn" data-billing="monthly">
+              Monthly
+            </button>
+            <button
+              type="button"
+              class="segment-btn active"
+              data-billing="annual"
+            >
+              Annual
+            </button>
+          </div>
+        </div>
+
         <div class="dash-card reveal" id="memberDashboard"></div>
       </div>
     </div>

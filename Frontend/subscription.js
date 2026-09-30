@@ -275,7 +275,9 @@ function toggleTables() {
     : "Show the full breakdown";
 }
 
-// ─── MEMBER DASHBOARD DATA (replace with real API data) ───
+// ─── MEMBER DASHBOARD DATA ───
+// Manga plans can only pick "Manga". All-formats plans can pick anything.
+// Add your real manga titles to this catalogue (cover can be null for now).
 const SUBSCRIBER_CATALOG = [
   {
     id: "bgos",
@@ -303,78 +305,124 @@ const SUBSCRIBER_CATALOG = [
     preorder: true,
     releaseNote: "Ships at release — estimated December 2026.",
   },
+  // ↓ placeholders so the Manga plans have something to browse. Replace with real titles.
+  {
+    id: "manga-sample-1",
+    title: "Sample Manga One",
+    format: "Manga",
+    cover: null,
+    volumes: [1, 2],
+    preorder: false,
+  },
+  {
+    id: "manga-sample-2",
+    title: "Sample Manga Two",
+    format: "Manga",
+    cover: null,
+    volumes: [1],
+    preorder: true,
+    releaseNote: "Ships at release — estimated January 2027.",
+  },
 ];
 
-const MEMBER = {
-  planLabel: "All formats — annual",
-  startDate: "2026-01-15",
-  totalCredits: 13,
-  picks: [
-    {
-      month: "Jan 2026",
-      title: "Baroness Goes on Strike",
-      volume: 1,
-      format: "Manhwa",
-      status: "delivered",
-    },
-    {
-      month: "Feb 2026",
-      title: "From a Knight to a Lady",
-      volume: 1,
-      format: "Manhwa",
-      status: "delivered",
-    },
-    {
-      month: "Mar 2026",
-      title: "The Archduke's Adopted Saint",
-      volume: 1,
-      format: "Manhwa",
-      status: "shipped",
-    },
-    {
-      month: "Apr 2026",
-      title: null,
-      volume: null,
-      format: null,
-      status: "carried",
-    },
-    {
-      month: "May 2026",
-      title: "Baroness Goes on Strike",
-      volume: 2,
-      format: "Manhwa",
-      status: "pending",
-    },
-    {
-      month: "Jun 2026",
-      title: null,
-      volume: null,
-      format: null,
-      status: "carried",
-    },
-    {
-      month: "Jul 2026",
-      title: null,
-      volume: null,
-      format: null,
-      status: "open",
-    },
-    {
-      month: "Aug 2026",
-      title: null,
-      volume: null,
-      format: null,
-      status: "open",
-    },
-    {
-      month: "Sep 2026",
-      title: null,
-      volume: null,
-      format: null,
-      status: "open",
-    },
-  ],
+// helpers to keep the mock data short
+const blank = (month, status) => ({
+  month,
+  title: null,
+  volume: null,
+  format: null,
+  status,
+});
+const pick = (month, title, volume, format, status) => ({
+  month,
+  title,
+  volume,
+  format,
+  status,
+});
+
+// One mock member per plan. Monthly = credits build up 1 per billing month.
+// Annual = 12 credits upfront + 1 bonus manga.
+const MEMBERS = {
+  "manga-monthly": {
+    plan: "manga",
+    billing: "monthly",
+    planLabel: "Manga only — monthly",
+    price: "$10.99 / month",
+    startDate: "2026-06-15",
+    allowed: ["Manga"],
+    picks: [
+      pick("Jun 2026", "Sample Manga One", 1, "Manga", "delivered"),
+      blank("Jul 2026", "carried"),
+      pick("Aug 2026", "Sample Manga One", 2, "Manga", "shipped"),
+      blank("Sep 2026", "open"),
+    ],
+  },
+  "manga-annual": {
+    plan: "manga",
+    billing: "annual",
+    planLabel: "Manga only — annual",
+    price: "$120 / year",
+    startDate: "2026-01-15",
+    allowed: ["Manga"],
+    totalCredits: 12,
+    picks: [
+      pick("Jan 2026", "Sample Manga One", 1, "Manga", "delivered"),
+      pick("Feb 2026", "Sample Manga One", 2, "Manga", "delivered"),
+      pick("Mar 2026", "Sample Manga Two", 1, "Manga", "shipped"),
+      blank("Apr 2026", "carried"),
+      blank("May 2026", "carried"),
+      blank("Jun 2026", "open"),
+      blank("Jul 2026", "open"),
+      blank("Aug 2026", "open"),
+      blank("Sep 2026", "open"),
+    ],
+  },
+  "all-monthly": {
+    plan: "all",
+    billing: "monthly",
+    planLabel: "All formats — monthly",
+    price: "$15.99 / month",
+    startDate: "2026-06-15",
+    allowed: ["Manga", "Manhwa", "Novel"],
+    picks: [
+      pick("Jun 2026", "From a Knight to a Lady", 1, "Manhwa", "delivered"),
+      blank("Jul 2026", "carried"),
+      pick("Aug 2026", "Baroness Goes on Strike", 1, "Manhwa", "shipped"),
+      blank("Sep 2026", "open"),
+    ],
+  },
+  "all-annual": {
+    plan: "all",
+    billing: "annual",
+    planLabel: "All formats — annual",
+    price: "$180 / year",
+    startDate: "2026-01-15",
+    allowed: ["Manga", "Manhwa", "Novel"],
+    totalCredits: 12,
+    picks: [
+      pick("Jan 2026", "Baroness Goes on Strike", 1, "Manhwa", "delivered"),
+      pick("Feb 2026", "From a Knight to a Lady", 1, "Manhwa", "delivered"),
+      pick("Mar 2026", "The Archduke's Adopted Saint", 1, "Manhwa", "shipped"),
+      blank("Apr 2026", "carried"),
+      pick("May 2026", "Baroness Goes on Strike", 2, "Manhwa", "pending"),
+      blank("Jun 2026", "carried"),
+      blank("Jul 2026", "open"),
+      blank("Aug 2026", "open"),
+      blank("Sep 2026", "open"),
+    ],
+  },
 };
+
+// TODO (login): replace this with the logged-in member's plan + picks from your API.
+// It only needs to return an object shaped like the entries in MEMBERS above.
+function getActiveMember() {
+  return MEMBERS[demoPlan + "-" + demoBilling];
+}
+
+let demoPlan = "all";
+let demoBilling = "annual";
+let MEMBER = getActiveMember();
 
 const STATUS_LABEL = {
   delivered: "Delivered",
@@ -394,26 +442,73 @@ function monthsSince(dateStr) {
   );
 }
 
-function coverForPick(pick) {
-  if (!pick.title) return null;
-  const match = SUBSCRIBER_CATALOG.find((t) => t.title === pick.title);
+function fmtDate(d) {
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+function addMonths(dateStr, n) {
+  const d = new Date(dateStr);
+  d.setMonth(d.getMonth() + n);
+  return d;
+}
+
+function totalCreditsFor(member) {
+  // monthly: 1 credit per billing month so far. annual: fixed 12 (+ bonus shown separately)
+  return member.billing === "monthly"
+    ? member.picks.length
+    : member.totalCredits;
+}
+
+function coverForPick(p) {
+  if (!p.title) return null;
+  const match = SUBSCRIBER_CATALOG.find((t) => t.title === p.title);
   return match ? match.cover : null;
+}
+
+function coverMarkup(cls, emptyCls, src, alt) {
+  return src
+    ? `<img class="${cls}" src="${src}" alt="${alt} cover" loading="lazy" />`
+    : `<div class="${cls} ${emptyCls}"><i class="ti ti-book" aria-hidden="true"></i></div>`;
 }
 
 function renderMemberDashboard() {
   const el = document.getElementById("memberDashboard");
   if (!el) return;
 
+  const isMonthly = MEMBER.billing === "monthly";
+  const total = totalCreditsFor(MEMBER);
   const used = MEMBER.picks.filter((p) => p.title).length;
-  const remaining = MEMBER.totalCredits - used;
+  const remaining = total - used;
   const duration = monthsSince(MEMBER.startDate);
+
+  const billingLine = isMonthly
+    ? `Next billing: ${fmtDate(addMonths(MEMBER.startDate, duration))} · ${MEMBER.price}`
+    : `Renews: ${fmtDate(addMonths(MEMBER.startDate, 12))} · ${MEMBER.price}`;
+
+  const creditLabel = isMonthly ? "Credits earned" : "Total credits";
+
+  const bonusBlock = isMonthly
+    ? ""
+    : `<div class="dash-bonus">
+        <i class="ti ti-gift" aria-hidden="true"></i>
+        <div><strong>+1 bonus manga</strong> — a surprise pick from our catalogue,
+        included with your annual plan and shipped free.</div>
+      </div>`;
+
+  const expiryNote = isMonthly
+    ? "A new credit is added each billing month. Unused credits carry forward while your subscription stays active. Cancel before your next billing date to stop future charges — unused credits stay valid for 12 months."
+    : "Pick any time within your 12-month period. Unused credits carry forward while your subscription stays active. If you cancel, they remain valid for 12 more months before expiring.";
 
   el.innerHTML = `
     <div class="dash-row">
       <div>
         <div class="dash-plan-label">Current plan</div>
         <div class="dash-plan-name">${MEMBER.planLabel}</div>
-        <div class="dash-plan-duration">Member for ${duration} month${duration !== 1 ? "s" : ""}</div>
+        <div class="dash-plan-duration">Member for ${duration} month${duration !== 1 ? "s" : ""} · ${billingLine}</div>
       </div>
       <a href="select-title.html" class="btn-outline dash-browse-link">
         <i class="ti ti-books" aria-hidden="true"></i> Browse full catalogue
@@ -421,23 +516,26 @@ function renderMemberDashboard() {
     </div>
 
     <div class="dash-stat-grid">
-      <div class="dash-stat-box"><div class="dash-stat-num">${MEMBER.totalCredits}</div><div class="dash-stat-label">Total credits</div></div>
+      <div class="dash-stat-box"><div class="dash-stat-num">${total}</div><div class="dash-stat-label">${creditLabel}</div></div>
       <div class="dash-stat-box"><div class="dash-stat-num">${used}</div><div class="dash-stat-label">Credits used</div></div>
       <div class="dash-stat-box"><div class="dash-stat-num">${remaining}</div><div class="dash-stat-label">Credits remaining</div></div>
     </div>
 
     <div class="dash-history">
-      <div class="dash-history-title">Selection history</div>
+      <div class="dash-history-title">${isMonthly ? "Monthly selections" : "Selection history"}</div>
       ${MEMBER.picks
         .map((p, i) => {
-          const cover = coverForPick(p);
-          const thumb = cover
-            ? `<img class="dash-pick-thumb" src="${cover}" alt="${p.title} cover" />`
-            : `<div class="dash-pick-thumb dash-pick-thumb--empty"><i class="ti ti-book"></i></div>`;
+          const thumb = coverMarkup(
+            "dash-pick-thumb",
+            "dash-pick-thumb--empty",
+            coverForPick(p),
+            p.title || "",
+          );
           const name = p.title
             ? `${p.title} — Vol. ${p.volume} (${p.format})`
             : `<span class="empty">${p.status === "carried" ? "Credit carried forward" : "No pick yet"}</span>`;
-          const canAct = p.status === "open";
+          const canPick = p.status === "open" || p.status === "carried";
+          const canCarry = p.status === "open";
           return `
           <div class="dash-pick-row">
             ${thumb}
@@ -445,20 +543,45 @@ function renderMemberDashboard() {
             <div class="dash-pick-name">${name}</div>
             <div class="dash-pick-actions">
               <span class="status-badge status-${p.status}">${STATUS_LABEL[p.status]}</span>
-              ${canAct ? `<button class="dash-carry-btn dash-carry-btn--primary" onclick="openSelectModal(${i})">Browse titles</button><button class="dash-carry-btn" onclick="carryForward(${i})">Carry forward</button>` : ""}
+              ${canPick ? `<button class="dash-carry-btn dash-carry-btn--primary" onclick="openSelectModal(${i})">${p.status === "carried" ? "Use credit" : "Browse titles"}</button>` : ""}
+              ${canCarry ? `<button class="dash-carry-btn" onclick="carryForward(${i})">Carry forward</button>` : ""}
             </div>
           </div>`;
         })
         .join("")}
     </div>
 
-    <div class="dash-expiry-note">
-      Unused credits carry forward automatically while your subscription
-      stays active. If you cancel, they remain valid for 12 more months
-      before expiring.
-    </div>
+    ${bonusBlock}
+
+    <div class="dash-expiry-note">${expiryNote}</div>
   `;
 }
+
+// ─── PREVIEW TOGGLE (temporary until login drives the plan) ───
+function setDemoPlan(plan, billing) {
+  if (plan) demoPlan = plan;
+  if (billing) demoBilling = billing;
+  MEMBER = getActiveMember();
+
+  document
+    .querySelectorAll("#dashDemoToggle [data-plan]")
+    .forEach((b) => b.classList.toggle("active", b.dataset.plan === demoPlan));
+  document
+    .querySelectorAll("#dashDemoToggle [data-billing]")
+    .forEach((b) =>
+      b.classList.toggle("active", b.dataset.billing === demoBilling),
+    );
+
+  closeSelectModal();
+  renderMemberDashboard();
+}
+
+document.querySelectorAll("#dashDemoToggle [data-plan]").forEach((b) => {
+  b.addEventListener("click", () => setDemoPlan(b.dataset.plan, null));
+});
+document.querySelectorAll("#dashDemoToggle [data-billing]").forEach((b) => {
+  b.addEventListener("click", () => setDemoPlan(null, b.dataset.billing));
+});
 
 // ─── INLINE TITLE SELECTION (no redirect off this page) ───
 let currentPickIndex = null;
@@ -472,6 +595,14 @@ function openSelectModal(pickIndex) {
 
 function renderSelectGrid() {
   const content = document.getElementById("selectModalContent");
+  const allowed = SUBSCRIBER_CATALOG.filter((t) =>
+    MEMBER.allowed.includes(t.format),
+  );
+
+  const note =
+    MEMBER.plan === "manga"
+      ? `<p class="browse-plan-note">Your Manga plan covers manga titles only. Switch to All formats to pick manhwa or novels.</p>`
+      : "";
 
   content.innerHTML = `
     <div class="modal-eyebrow">This month's pick</div>
@@ -479,16 +610,23 @@ function renderSelectGrid() {
     <a href="select-title.html" class="browse-full-link">
       View the full catalogue <i class="ti ti-arrow-right" aria-hidden="true"></i>
     </a>
+    ${note}
     <div class="browse-grid" id="browseGrid">
-      ${SUBSCRIBER_CATALOG.map(
-        (t) => `
+      ${
+        allowed.length
+          ? allowed
+              .map(
+                (t) => `
         <button class="browse-card" onclick="selectBrowseTitle('${t.id}')">
-          <img class="browse-cover" src="${t.cover}" alt="${t.title} cover" loading="lazy" />
+          ${coverMarkup("browse-cover", "browse-cover--empty", t.cover, t.title)}
           <span class="browse-title">${t.title}</span>
           <span class="browse-format">${t.format}</span>
           ${t.preorder ? `<span class="browse-preorder-tag">Pre-order</span>` : ""}
         </button>`,
-      ).join("")}
+              )
+              .join("")
+          : `<p class="browse-plan-note">No titles available for your plan yet.</p>`
+      }
     </div>
   `;
 }
@@ -504,7 +642,7 @@ function selectBrowseTitle(titleId) {
     <div class="modal-eyebrow">Confirm your pick</div>
     <h3>${title.title}</h3>
     <div class="select-title-grid">
-      <img class="select-title-cover" src="${title.cover}" alt="${title.title} cover" />
+      ${coverMarkup("select-title-cover", "browse-cover--empty", title.cover, title.title)}
       <div>
         <div class="select-volume-row">
           <label style="font-size:0.8rem;color:var(--sp-text-dim);">Volume</label>
@@ -568,4 +706,4 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeSelectModal();
 });
 
-renderMemberDashboard();
+setDemoPlan();

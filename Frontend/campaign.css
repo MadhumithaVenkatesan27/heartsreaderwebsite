@@ -727,3 +727,140 @@ body.light-mode .modal-input {
   background: var(--ch-bg-alt);
   color: var(--ch-ink);
 }
+
+/* ── HOW IT WORKS ── */
+.how-section {
+  padding: 56px 24px 8px;
+  background: var(--ch-bg);
+}
+.how-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.how-head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.how-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ch-rose);
+  margin-bottom: 10px;
+}
+.how-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--ch-ink);
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.how-title em {
+  font-style: italic;
+  color: var(--ch-rose);
+}
+.how-sub {
+  max-width: 560px;
+  margin: 0 auto;
+  color: var(--ch-ink-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.how-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.how-step {
+  position: relative;
+  background: var(--ch-bg-card);
+  border: 1px solid var(--ch-border);
+  border-radius: var(--ch-radius-lg);
+  padding: 26px 22px 22px;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.how-step:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ch-shadow-card);
+}
+.how-step-num {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ch-border-strong);
+}
+.how-step-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--ch-rose-light);
+  color: var(--ch-rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+}
+.how-step h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ch-ink);
+  margin-bottom: 6px;
+}
+.how-step p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ch-ink-muted);
+}
+.how-step strong {
+  color: var(--ch-ink);
+  font-weight: 600;
+}
+
+.how-notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  background: var(--ch-bg-alt);
+  border: 1px solid var(--ch-border);
+  border-radius: var(--ch-radius-lg);
+  padding: 22px;
+}
+.how-note {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.how-note > i {
+  font-size: 1.3rem;
+  color: var(--ch-gold);
+  margin-top: 2px;
+}
+.how-note strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ch-ink);
+  margin-bottom: 2px;
+}
+.how-note span {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--ch-ink-muted);
+}
+
+@media (max-width: 600px) {
+  .how-section {
+    padding: 40px 16px 4px;
+  }
+}
